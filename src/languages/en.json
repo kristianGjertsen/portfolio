@@ -1,0 +1,31 @@
+{
+  "header": {
+    "home": "Home",
+    "project": "Projects",
+    "contact": "Contact",
+    "restart_intro": "Hold for restart intro"
+  },
+  "frontpage": {
+    "tagline": "Projects",
+    "title": "Kristian Gjertsen",
+    "description": "Designer and frontend developer crafting calm, sharp digital experiences for modern brands.",
+    "cta_contact": "Contact",
+    "cta_project": "Projects",
+    "cta_back": "Back to none"
+  },
+  "frontpageError": {
+    "tagline": "Projects",
+    "title": "Kristian Gjertsen",
+    "description": "Designer and frontend developer crafting calm, sharp digital experiences for modern brands.",
+    "cta_contact": "Contact",
+    "cta_project": "Projects"
+  },
+  "projectPage": {
+    "tagline": "Selected projects",
+    "title": "Highlights from 2024 back to 2015",
+    "description": "A curated timeline of the work that shaped my approach. Scroll through each project to see the story, visuals, and results.",
+    "preview_label": "Interactive preview",
+    "timeline_label": "Timeline",
+    "timeline_current": "Year {{year}}"
+  }
+}

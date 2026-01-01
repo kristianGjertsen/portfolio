@@ -1,0 +1,31 @@
+{
+  "header": {
+    "home": "Hjem",
+    "project": "Prosjekter",
+    "contact": "Kontakt",
+    "restart_intro": "Hold for restart av intro"
+  },
+  "frontpage": {
+    "tagline": "Prosjekter",
+    "title": "Kristian Gjertsen",
+    "description": "Designer og frontend-utvikler som lager rolige, skarpe digitale opplevelser for moderne merkevarer.",
+    "cta_contact": "Kontakt",
+    "cta_project": "Prosjekter",
+    "cta_back": "Tilbake til ingen ting"
+  },
+  "frontpageError": {
+    "tagline": "Prosjekter",
+    "title": "Kristian Gjertsen",
+    "description": "Designer og frontend-utvikler som lager rolige, skarpe digitale opplevelser for moderne merkevarer.",
+    "cta_contact": "Kontakt",
+    "cta_project": "Prosjekter"
+  },
+  "projectPage": {
+    "tagline": "Utvalgte prosjekter",
+    "title": "Prosjekt timeline",
+    "description": "En kuratert tidslinje av arbeidene som har formet uttrykket mitt. Scroll gjennom hvert prosjekt for å se historien og resultatet.",
+    "preview_label": "Interaktiv forhåndsvisning",
+    "timeline_label": "Tidslinje",
+    "timeline_current": "År {{year}}"
+  }
+}

@@ -1,0 +1,198 @@
+[
+  {
+    "id": "rotate-the-platform",
+    "year": 2022,
+    "img": "RotatePlatform.png",
+    "languages": "C# (Unity)",
+    "imgAlt": "Image Rotate The Platform",
+    "content": {
+      "short": {
+        "no": {
+          "title": "Rotate The Platform",
+          "description": "Enkelt spill laget i Unity hvor spilleren roterer en plattform for å navigere til neste nivå. Kan spilles på nett via itch.io, eller kan lastes ned fra itch.io-siden.\nUnity bruker C# som programmeringsspråk",
+          "buttons": [
+            {
+              "href": "https://kgkrizz.itch.io/rotate-the-platform",
+              "label": "Se og prøv på itch.io",
+              "ariaLabel": "Se og spill Rotate The Platform på itch.io"
+            }
+          ]
+        },
+        "en": {
+          "title": "Rotate The Platform",
+          "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
+          "linkLabel": "See the project on itch.io",
+          "buttons": [
+            {
+              "href": "https://kgkrizz.itch.io/rotate-the-platform",
+              "label": "Play the game on itch.io",
+              "ariaLabel": "Play Rotate The Platform on itch.io"
+            }
+          ]
+        }
+      },
+      "Long": {
+        "no": {
+          "title": "Rotate The Platform",
+          "description": "Enkelt spill laget i Unity hvor spilleren roterer en plattform for å navigere til neste nivå. Kan spilles på nett via itch.io, eller kan lastes ned fra itch.io-siden.\nUnity bruker C# som programmeringsspråk",
+          "linkLabel": "Se prosjektet på itch.io",
+          "buttons": [
+            {
+              "href": "https://kgkrizz.itch.io/rotate-the-platform",
+              "label": "Spill nå",
+              "ariaLabel": "Spill Rotate The Platform på itch.io"
+            }
+          ]
+        },
+        "en": {
+          "title": "Rotate The Platform",
+          "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
+          "linkLabel": "See the project on itch.io",
+          "buttons": [
+            {
+              "href": "https://kgkrizz.itch.io/rotate-the-platform",
+              "label": "Play the game on itch.io",
+              "ariaLabel": "Play Rotate The Platform on itch.io"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "builder",
+    "year": 2022,
+    "img": "Builder.png",
+    "languages": "C# (Unity)",
+    "imgAlt": "Builder Image",
+    "content": {
+      "short": {
+        "no": {
+          "title": "Builder",
+          "description": "Enkelt sandbox spill laget i Unity der spilleren samler ressurser for å bygge strukturer og få fremdrift",
+          "buttons": [
+            {
+              "href": "https://kgkrizz.itch.io/test201022",
+              "label": "Se og prøv på itch.io",
+              "ariaLabel": "Se eller spill Rotate The Platform på itch.io"
+            }
+          ]
+        },
+        "en": {
+          "title": "Rotate The Platform",
+          "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
+          "linkLabel": "See the project on itch.io",
+          "buttons": [
+            {
+              "href": "https://kgkrizz.itch.io/rotate-the-platform",
+              "label": "Play the game on itch.io",
+              "ariaLabel": "Play Rotate The Platform on itch.io"
+            }
+          ]
+        }
+      },
+      "Long": {
+        "no": {
+          "title": "Rotate The Platform",
+          "description": "Enkelt spill laget i Unity hvor spilleren roterer en plattform for å navigere til neste nivå. Kan spilles på nett via itch.io, eller kan lastes ned fra itch.io-siden.\nUnity bruker C# som programmeringsspråk",
+          "linkLabel": "Se prosjektet på itch.io",
+          "buttons": [
+            {
+              "href": "https://kgkrizz.itch.io/rotate-the-platform",
+              "label": "Spill nå",
+              "ariaLabel": "Spill Rotate The Platform på itch.io"
+            }
+          ]
+        },
+        "en": {
+          "title": "Rotate The Platform",
+          "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
+          "linkLabel": "See the project on itch.io",
+          "buttons": [
+            {
+              "href": "https://kgkrizz.itch.io/rotate-the-platform",
+              "label": "Play the game on itch.io",
+              "ariaLabel": "Play Rotate The Platform on itch.io"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "dotDagene-website",
+    "year": 2022,
+    "languages": "Web / Animation",
+    "imgAlt": "dotDAGENE website preview",
+    "content": {
+      "short": {
+        "no": {
+          "title": "dotDAGENE",
+          "description": "dotDAGENE er et nettside for karrieredagene for Informatikk studiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Her er den vist som  forhåndsvisning.",
+          "buttons": [
+            {
+              "previewUrl": "https://dotdagene.no",
+              "label": "Åpne live preview",
+              "ariaLabel": "Åpne dotdagene.no som live preview"
+            },
+            {
+              "href": "https://dotdagene.no",
+              "label": "Besøk nettsiden",
+              "ariaLabel": "Besøk dotdagene.no i ny fane"
+            }
+          ]
+        },
+        "en": {
+          "title": "Dotdagene.no",
+          "description": "Website with an animated front page for Dotdagene, focused on motion, typography, and clear information.",
+          "buttons": [
+            {
+              "previewUrl": "https://dotdagene.no",
+              "label": "Open live preview",
+              "ariaLabel": "Open dotdagene.no as a live preview"
+            },
+            {
+              "href": "https://dotdagene.no",
+              "label": "Visit the website",
+              "ariaLabel": "Visit dotdagene.no in a new tab"
+            }
+          ]
+        }
+      },
+      "Long": {
+        "no": {
+          "title": "Dotdagene.no",
+          "description": "Nettside med animert forside for Dotdagene, med fokus på bevegelse, typografi og tydelig informasjon.",
+          "buttons": [
+            {
+              "previewUrl": "https://dotdagene.no",
+              "label": "Åpne live preview",
+              "ariaLabel": "Åpne dotdagene.no som live preview"
+            },
+            {
+              "href": "https://dotdagene.no",
+              "label": "Besøk nettsiden",
+              "ariaLabel": "Besøk dotdagene.no i ny fane"
+            }
+          ]
+        },
+        "en": {
+          "title": "Dotdagene.no",
+          "description": "Website with an animated front page for Dotdagene, focused on motion, typography, and clear information.",
+          "buttons": [
+            {
+              "previewUrl": "https://dotdagene.no",
+              "label": "Open live preview",
+              "ariaLabel": "Open dotdagene.no as a live preview"
+            },
+            {
+              "href": "https://dotdagene.no",
+              "label": "Visit the website",
+              "ariaLabel": "Visit dotdagene.no in a new tab"
+            }
+          ]
+        }
+      }
+    }
+  }
+]
