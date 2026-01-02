@@ -11,7 +11,7 @@ function HomePage() {
         <p className="text-xs uppercase tracking-[0.4em] text-ink/60">
           Projects
         </p>
-        <h1 className="mt-6 font-display text-5xl leading-tight sm:text-6xl lg:text-7xl">
+        <h1 className="mt-6 text-5xl leading-tight sm:text-6xl lg:text-7xl">
           Kristian Gjertsen
         </h1>
         <p className="mt-4 max-w-xl text-lg text-ink/70">

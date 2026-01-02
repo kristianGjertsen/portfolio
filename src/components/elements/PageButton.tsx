@@ -6,7 +6,7 @@ type ButtonParam = {
     className?: string;
 }
 
-const standardClasses = "rounded-xl px-10 bg-ink text-paper inline-flex items-center";
+const standardClasses = "rounded-xl px-10 py-3 bg-ink text-paper inline-flex items-center";
 
 function PageButton({ to, label, className }: ButtonParam) {
     return (

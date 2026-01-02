@@ -2,16 +2,12 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Header from "../../components/pageSections/Header";
 import Footer from "../../components/pageSections/Footer";
+import Button from "../../components/elements/Button";
 import noImg from "../../assets/ProjectImages/noimg.avif";
 
 import {
   PROJECTS,
   START_PROJECT_INDEX,
-  ANIMATION_DURATION_MS,
-  ANIMATION_OFFSET_PX,
-  ANIMATION_SCALE_FROM,
-  ANIMATION_SCALE_TO,
-  ANIMATION_BLUR_PX,
   SCROLL_VH_PER_PROJECT,
   sortProjects,
   useProjectScroll,
@@ -72,10 +68,7 @@ function ScrollProjects({ projects }: { projects: ProjectItem[] }) {
   const {
     scrollAreaRef,
     activeIndex,
-    leaving,
-    enteringPhase,
     progress,
-    direction,
     scrollToIndex,
   } = useProjectScroll(projects, START_PROJECT_INDEX);
 
@@ -83,32 +76,6 @@ function ScrollProjects({ projects }: { projects: ProjectItem[] }) {
   const activeCopy = active
     ? getProjectCopy(active, i18n.resolvedLanguage ?? i18n.language)
     : null;
-  const leavingProject =
-    leaving && projects[leaving.index] ? projects[leaving.index] : null;
-
-  const isScrollingDown = direction === "down";
-  const enterScale = isScrollingDown ? 1 : ANIMATION_SCALE_FROM;
-  const leaveScale = isScrollingDown ? 1 : ANIMATION_SCALE_TO;
-
-  const transitionStyle = {
-    transitionDuration: `${ANIMATION_DURATION_MS}ms`,
-  };
-  const enterFromStyle = {
-    opacity: 0,
-    transform: `translateY(${isScrollingDown ? ANIMATION_OFFSET_PX : -ANIMATION_OFFSET_PX}px) scale(${enterScale})`,
-    filter: `blur(${ANIMATION_BLUR_PX}px)`,
-  };
-  const enterToStyle = {
-    opacity: 1,
-    transform: "translateY(0px) scale(1)",
-    filter: "blur(0px)",
-  };
-  const leaveToStyle = {
-    opacity: 0,
-    transform: `translateY(${isScrollingDown ? -ANIMATION_OFFSET_PX : ANIMATION_OFFSET_PX}px) scale(${leaveScale})`,
-    filter: `blur(${ANIMATION_BLUR_PX}px)`,
-  };
-
   return (
     <section
       ref={scrollAreaRef}
@@ -167,32 +134,7 @@ function ScrollProjects({ projects }: { projects: ProjectItem[] }) {
 
           {/* FAST “MIDT”-OMRÅDE: viser kun ett prosjekt om gangen */}
           <div className="relative h-[70vh]">
-            {leavingProject && (
-              <article
-                className={[
-                  "absolute inset-0 will-change-transform",
-                  "transition-[transform,opacity,filter] ease-[cubic-bezier(0.22,1,0.36,1)]",
-                ].join(" ")}
-                style={{
-                  ...transitionStyle,
-                  ...(leaving?.phase === "start" ? enterToStyle : leaveToStyle),
-                }}
-                aria-hidden="true"
-              >
-                <ProjectCard project={leavingProject} />
-              </article>
-            )}
-
-            <article
-              className={[
-                "absolute inset-0 will-change-transform",
-                "transition-[transform,opacity,filter] ease-[cubic-bezier(0.22,1,0.36,1)]",
-              ].join(" ")}
-              style={{
-                ...transitionStyle,
-                ...(enteringPhase === "from" ? enterFromStyle : enterToStyle),
-              }}
-            >
+            <article className="absolute inset-0">
               <ProjectCard project={active} />
             </article>
           </div>
@@ -220,12 +162,13 @@ function ProjectCard({ project }: { project: ProjectItem }) {
   const previewButton = buttons.find((button) => button.previewUrl);
   const actionButtons = buttons.filter((button) => !button.previewUrl);
 
+  // Timer for å flytte på preview-label etter 2 sekunder
   useEffect(() => {
     if (!previewButton?.previewUrl) return;
     setShiftPreviewLabel(false);
     const timer = window.setTimeout(() => {
       setShiftPreviewLabel(true);
-    }, 2000);
+    }, 3000);
     return () => window.clearTimeout(timer);
   }, [previewButton?.previewUrl]);
 
@@ -235,14 +178,17 @@ function ProjectCard({ project }: { project: ProjectItem }) {
       {previewButton?.previewUrl ? (
         <div className="relative">
           {/* Tekst som viser at siden er i preview */}
-          <p
+          <div
             className={[
-              "absolute rounded-full border border-sand/80 bg-black/90 px-2 text-[0.9rem] tracking-[0.35em] text-paper transition-all duration-500",
-              shiftPreviewLabel ? "top-0 left-2 p-0" : "top-20 left-1/2 -translate-x-1/2 p-3",
+              "absolute rounded-xl flex items-center flex-col border border-sand/80 top-20 left-1/2 -translate-x-1/2 p-3 bg-black/90 px-2 text-[0.9rem] tracking-[0.35em] text-paper transition-opacity duration-500",
+              shiftPreviewLabel ? "opacity-0 pointer-events-none" : "opacity-100",
             ].join(" ")}
           >
-            {t("projectPage.preview_label")}
-          </p>
+            <span className="block">{t("projectPage.preview_label_top")}</span>
+            <span className="block text-[0.75rem] tracking-[0.25em] text-paper/80">
+              {t("projectPage.preview_label_bottom")}
+            </span>
+          </div>
           <iframe
             className="h-[40vh] w-full bg-white"
             src={previewButton.previewUrl}
@@ -278,9 +224,8 @@ function ProjectCard({ project }: { project: ProjectItem }) {
         {actionButtons.length > 0 && (
           <div className="mt-auto flex flex-wrap gap-3 pt-6">
             {actionButtons.map((button) => (
-              <a
+              <Button
                 key={`${project.id}-${button.href}-${button.label}`}
-                className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white transition hover:bg-ink/90"
                 href={button.href}
                 aria-label={button.ariaLabel}
                 rel="noreferrer"
@@ -288,7 +233,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
               >
                 {button.label}
                 <span aria-hidden="true">→</span>
-              </a>
+              </Button>
             ))}
           </div>
         )}

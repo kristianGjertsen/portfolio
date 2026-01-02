@@ -113,29 +113,39 @@ export function HoldButton({
         <button
             type="button"
             aria-label="Hold to confirm action"
-            className={`relative overflow-hidden rounded-xl bg-gray-900 p-1.5 text-white focus:outline-none${
+            className={`relative touch-none select-none overflow-hidden rounded-xl bg-gray-900 p-1.5 text-white focus:outline-none${
                 className ? ` ${className}` : ""
             }`}
             ref={buttonRef}
-            onPointerDown={() => {
+            onPointerDown={(event) => {
+                event.preventDefault();
                 if (isHolding) {
                     return;
                 }
+                event.currentTarget.setPointerCapture(event.pointerId);
                 setIsHolding(true);
                 stop();
                 start();
             }}
-            onPointerUp={() => {
+            onPointerUp={(event) => {
+                event.currentTarget.releasePointerCapture(event.pointerId);
                 setIsHolding(false);
                 stop();
             }}
-            onPointerLeave={() => {
+            onPointerCancel={(event) => {
+                event.currentTarget.releasePointerCapture(event.pointerId);
+                setIsHolding(false);
+                stop();
+            }}
+            onPointerLeave={(event) => {
                 if (!isHolding) {
                     return;
                 }
+                event.currentTarget.releasePointerCapture(event.pointerId);
                 setIsHolding(false);
                 stop();
             }}
+            onContextMenu={(event) => event.preventDefault()}
             onKeyDown={(e) => {
                 if (e.key === " " || e.key === "Enter") start();
             }}

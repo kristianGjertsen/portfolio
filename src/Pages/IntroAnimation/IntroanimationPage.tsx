@@ -19,7 +19,7 @@ type IntroAnimationProps = {
 
 const introStorageKey = "intro_seen";
 const introShowDelayMs = 260;
-const errorViewDurationMs = 1200;
+const errorViewDurationMs = 2500;
 
 const hasSeenIntroAlready = () => {
     if (typeof window === "undefined") {
@@ -28,11 +28,10 @@ const hasSeenIntroAlready = () => {
     return window.localStorage.getItem(introStorageKey) === "1";
 };
 
-const promptTextFirst = "Make project page for Kristian Gjertsen";
+const promptTextFirst = "Make portfolio page for Kristian Gjertsen now!";
 const promptTextSecond = "what the f is this make it looke nice!!!";
 
 function IntroanimationPage({ version }: IntroAnimationProps) {
-
     // Enkel state machine for introen.
     const initialSeenIntro = hasSeenIntroAlready();
     const [hasSeenIntro, setHasSeenIntro] = useState(initialSeenIntro);
@@ -88,7 +87,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
         }
         const timer = window.setTimeout(() => {
             setTypedText(activePromptText.slice(0, typedText.length + 1));
-        }, 45);
+        }, 70);
         return () => window.clearTimeout(timer);
     }, [activePromptText, reduceMotion, phase, typedText]);
 
@@ -100,7 +99,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
         if (typedText.length !== activePromptText.length) {
             return;
         }
-        const timer = window.setTimeout(() => setPhase("submitted"), 300);
+        const timer = window.setTimeout(() => setPhase("submitted"), 400);
         return () => window.clearTimeout(timer);
     }, [activePromptText, reduceMotion, phase, typedText]);
 
@@ -109,7 +108,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
         if (reduceMotion || phase !== "submitted") {
             return;
         }
-        const timer = window.setTimeout(() => setPhase("loading"), 350);
+        const timer = window.setTimeout(() => setPhase("loading"), 1050);
         return () => window.clearTimeout(timer);
     }, [reduceMotion, phase]);
 
@@ -124,7 +123,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
                 Math.min(prev + 1, loadingSteps.length - 1)
             );
         }, 480);
-        const timer = window.setTimeout(() => setPhase("done"), 1800);
+        const timer = window.setTimeout(() => setPhase("done"), 2500);
         return () => {
             window.clearInterval(interval);
             window.clearTimeout(timer);
@@ -199,7 +198,8 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
             </div>
 
             <div
-                className={`absolute inset-0 z-10 transition-opacity duration-500 ${showOverlay ? "opacity-100" : "pointer-events-none opacity-0"}`}>
+                className={`absolute inset-0 z-10 transition-opacity duration-500 ${showOverlay ? "opacity-100" : "pointer-events-none opacity-0"}`}
+            >
 
                 <main className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center">
                     <div className="w-full max-w-xl rounded-3xl border border-ink/30 bg-ink p-6 text-paper shadow-card motion-safe:animate-throw-in-left">
@@ -212,10 +212,10 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
                             <span> AI model 4.2 </span>
                         </div>
 
-                        <div className="mt-6 rounded-2xl border border-paper/15 bg-black/70 p-4 text-left font-mono text-sm text-paper/80">
+                        <div className="mt-6 rounded-2xl border border-paper/15 bg-black/70 p-4 text-left text-base text-paper/85 font-display tracking-[0.02em]">
                             <div className="flex items-start gap-2">
                                 <span className="text-paper/40">&gt;</span>
-                                <span className="min-h-[1.25rem]">
+                                <span className="min-h-[1.5rem]">
                                     {typedText}
                                 </span>
                                 {phase === "typing" && (

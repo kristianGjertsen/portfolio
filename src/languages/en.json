@@ -3,29 +3,41 @@
     "home": "Home",
     "project": "Projects",
     "contact": "Contact",
-    "restart_intro": "Hold for restart intro"
+    "restart_intro": "Hold to restart intro"
   },
   "frontpage": {
-    "tagline": "Projects",
+    "tagline": "Portfolio for",
     "title": "Kristian Gjertsen",
-    "description": "Designer and frontend developer crafting calm, sharp digital experiences for modern brands.",
+    "description": "Designer and frontend developer who creates calm, sharp digital experiences for modern brands.",
     "cta_contact": "Contact",
     "cta_project": "Projects",
-    "cta_back": "Back to none"
+    "cta_back": "Back to nothing"
   },
   "frontpageError": {
     "tagline": "Projects",
     "title": "Kristian Gjertsen",
-    "description": "Designer and frontend developer crafting calm, sharp digital experiences for modern brands.",
+    "description": "Designer and frontend developer who creates calm, sharp digital experiences for modern brands.",
     "cta_contact": "Contact",
     "cta_project": "Projects"
   },
   "projectPage": {
     "tagline": "Selected projects",
-    "title": "Highlights from 2024 back to 2015",
-    "description": "A curated timeline of the work that shaped my approach. Scroll through each project to see the story, visuals, and results.",
-    "preview_label": "Interactive preview",
+    "title": "Project timeline",
+    "description": "A curated timeline of the works that have shaped my expression. Scroll through each project to see the story and the result.",
+    "preview_label_top": "Interactive preview",
+    "preview_label_bottom": "(Working website via iFRAME)",
     "timeline_label": "Timeline",
     "timeline_current": "Year {{year}}"
+  },
+  "contactPage": {
+    "tagline": "Contact",
+    "title": "Get in touch",
+    "description": "Reach out directly by email or phone.",
+    "email_label": "Email",
+    "phone_label": "Mobile"
+  },
+  "cv": {
+    "description": "Open CV in new tab",
+    "button_text": "Open"
   }
 }

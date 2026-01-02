@@ -121,14 +121,14 @@
   },
   {
     "id": "dotDagene-website",
-    "year": 2022,
-    "languages": "Web / Animation",
+    "year": 2025,
+    "languages": "React - TypeScript - Tailwind CSS",
     "imgAlt": "dotDAGENE website preview",
     "content": {
       "short": {
         "no": {
           "title": "dotDAGENE",
-          "description": "dotDAGENE er et nettside for karrieredagene for Informatikk studiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Her er den vist som  forhåndsvisning.",
+          "description": "dotDAGENE er et nettside for karrieredagene for Informatikk studiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning.",
           "buttons": [
             {
               "previewUrl": "https://dotdagene.no",
@@ -139,12 +139,17 @@
               "href": "https://dotdagene.no",
               "label": "Besøk nettsiden",
               "ariaLabel": "Besøk dotdagene.no i ny fane"
+            },
+            {
+              "href": "https://github.com/kristianGjertsen/dotDAGENE",
+              "label": "Se gitHub repo",
+              "ariaLabel": "Knapp for gitHub repo for dotdagene.no"
             }
           ]
         },
         "en": {
-          "title": "Dotdagene.no",
-          "description": "Website with an animated front page for Dotdagene, focused on motion, typography, and clear information.",
+          "title": "dotDAGENE",
+          "description": "dotDAGENE is a website for the career days of the Informatics program at NTNU. The site presents the event in a simple and accessible way. The goal was to make the content easy to share and reuse across contexts. The visual style is a twist on Neo Brutalism to create a more playful, attention-grabbing site. Hosted on Vercel. Shown here as a preview.",
           "buttons": [
             {
               "previewUrl": "https://dotdagene.no",
@@ -155,14 +160,19 @@
               "href": "https://dotdagene.no",
               "label": "Visit the website",
               "ariaLabel": "Visit dotdagene.no in a new tab"
+            },
+            {
+              "href": "https://github.com/kristianGjertsen/dotDAGENE",
+              "label": "View GitHub repo",
+              "ariaLabel": "Open the dotDAGENE GitHub repository"
             }
           ]
         }
       },
       "Long": {
         "no": {
-          "title": "Dotdagene.no",
-          "description": "Nettside med animert forside for Dotdagene, med fokus på bevegelse, typografi og tydelig informasjon.",
+          "title": "dotDAGENE",
+          "description": "dotDAGENE er et nettside for karrieredagene for Informatikk studiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning.",
           "buttons": [
             {
               "previewUrl": "https://dotdagene.no",
@@ -177,8 +187,8 @@
           ]
         },
         "en": {
-          "title": "Dotdagene.no",
-          "description": "Website with an animated front page for Dotdagene, focused on motion, typography, and clear information.",
+          "title": "dotDAGENE",
+          "description": "dotDAGENE is a website for the career days of the Informatics program at NTNU. The site presents the event in a simple and accessible way. The goal was to make the content easy to share and reuse across contexts. The visual style is a twist on Neo Brutalism to create a more playful, attention-grabbing site. Hosted on Vercel. Shown here as a preview.",
           "buttons": [
             {
               "previewUrl": "https://dotdagene.no",
@@ -189,6 +199,11 @@
               "href": "https://dotdagene.no",
               "label": "Visit the website",
               "ariaLabel": "Visit dotdagene.no in a new tab"
+            },
+            {
+              "href": "https://github.com/kristianGjertsen/dotDAGENE",
+              "label": "View GitHub repo",
+              "ariaLabel": "Open the dotDAGENE GitHub repository"
             }
           ]
         }

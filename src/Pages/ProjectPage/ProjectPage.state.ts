@@ -39,11 +39,6 @@ export type ProjectButton = {
 };
 
 export type ScrollDirection = "up" | "down";
-export type LeavingState = {
-  index: number;
-  phase: "start" | "exit";
-} | null;
-
 /* =========================
    Data
 ========================= */
@@ -54,13 +49,14 @@ export const PROJECTS = projectData as ProjectItem[];
    Config
 ========================= */
 
-export const START_PROJECT_INDEX = 3;
+export const START_PROJECT_INDEX = 1;
 export const SCROLL_VH_PER_PROJECT = 180;
-export const ANIMATION_DURATION_MS = 700;
-export const ANIMATION_OFFSET_PX = 72;
-export const ANIMATION_SCALE_FROM = 0.96;
-export const ANIMATION_SCALE_TO = 1.02;
-export const ANIMATION_BLUR_PX = 6;
+export const ANIMATION_DURATION_MS = 900;
+export const ANIMATION_OFFSET_PX = 90;
+export const ANIMATION_SCALE_FROM = 0.98;
+export const ANIMATION_SCALE_TO = 1.015;
+export const ANIMATION_BLUR_PX = 8;
+export const SCROLL_INDEX_THRESHOLD = 0.6;
 
 /* =========================
    Utils
@@ -86,14 +82,13 @@ export function useProjectScroll(projects: ProjectItem[], initialIndex = 0) {
 
   const [activeIndex, setActiveIndex] = useState(() => safeInitialIndex);
   const [previousIndex, setPreviousIndex] = useState<number | null>(null);
-  const [leaving, setLeaving] = useState<LeavingState>(null);
-  const [enteringPhase, setEnteringPhase] = useState<"from" | "to">("to");
   const [progress, setProgress] = useState(() => initialProgress);
   const [direction, setDirection] = useState<ScrollDirection>("down");
 
   const lastScrollY = useRef<number>(0);
   const rafRef = useRef<number>(0);
   const hasSetInitialScroll = useRef(false);
+  const lastIndexRef = useRef<number>(safeInitialIndex);
 
   /* --- Hold index gyldig hvis lengde endres --- */
   useEffect(() => {
@@ -127,14 +122,29 @@ export function useProjectScroll(projects: ProjectItem[], initialIndex = 0) {
 
       /* 3️⃣ Aktiv index */
       const count = projects.length;
-      const idx =
+      let idx =
         count <= 1 ? 0 : Math.min(count - 1, Math.floor(p * count));
+      if (count > 1) {
+        const exact = p * (count - 1);
+        const base = Math.floor(exact);
+        const frac = exact - base;
+        const current = lastIndexRef.current;
+
+        if (base === current) {
+          idx = frac >= SCROLL_INDEX_THRESHOLD ? base + 1 : base;
+        } else if (base + 1 === current) {
+          idx = frac <= 1 - SCROLL_INDEX_THRESHOLD ? base : base + 1;
+        } else {
+          idx = Math.min(count - 1, Math.max(0, base));
+        }
+      }
 
       setProgress((prev) => (Math.abs(prev - p) < 0.002 ? prev : p));
 
       setActiveIndex((prev) => {
         if (prev !== idx) {
           setPreviousIndex(prev);
+          lastIndexRef.current = idx;
           return idx;
         }
         return prev;
@@ -196,30 +206,6 @@ export function useProjectScroll(projects: ProjectItem[], initialIndex = 0) {
     hasSetInitialScroll.current = true;
   }, [initialIndex, projects.length]);
 
-  /* --- Trigger inn/ut-animasjon når index byttes --- */
-  useEffect(() => {
-    if (previousIndex === null || previousIndex === activeIndex) {
-      return;
-    }
-
-    setLeaving({ index: previousIndex, phase: "start" });
-    setEnteringPhase("from");
-
-    const raf = window.requestAnimationFrame(() => {
-      setLeaving((prev) => (prev ? { ...prev, phase: "exit" } : prev));
-      setEnteringPhase("to");
-    });
-
-    const timer = window.setTimeout(() => {
-      setLeaving(null);
-    }, ANIMATION_DURATION_MS);
-
-    return () => {
-      window.cancelAnimationFrame(raf);
-      window.clearTimeout(timer);
-    };
-  }, [activeIndex, previousIndex]);
-
   const scrollToIndex = useCallback(
     (idx: number) => {
       const el = scrollAreaRef.current;
@@ -249,8 +235,6 @@ export function useProjectScroll(projects: ProjectItem[], initialIndex = 0) {
 
     activeIndex,
     previousIndex,
-    leaving,
-    enteringPhase,
     progress,
     direction,
 
