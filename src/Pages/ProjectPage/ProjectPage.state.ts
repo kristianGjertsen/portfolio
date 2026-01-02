@@ -29,8 +29,6 @@ export type ProjectCopyByLocale = {
   en: ProjectCopy;
 };
 
-export type ProjectContentVariant = "short" | "Long";
-
 export type ProjectButton = {
   href?: string;
   previewUrl?: string;
@@ -51,11 +49,6 @@ export const PROJECTS = projectData as ProjectItem[];
 
 export const START_PROJECT_INDEX = 1;
 export const SCROLL_VH_PER_PROJECT = 180;
-export const ANIMATION_DURATION_MS = 900;
-export const ANIMATION_OFFSET_PX = 90;
-export const ANIMATION_SCALE_FROM = 0.98;
-export const ANIMATION_SCALE_TO = 1.015;
-export const ANIMATION_BLUR_PX = 8;
 export const SCROLL_INDEX_THRESHOLD = 0.6;
 
 /* =========================
