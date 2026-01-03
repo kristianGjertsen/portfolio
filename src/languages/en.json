@@ -5,6 +5,11 @@
     "contact": "Contact",
     "restart_intro": "Hold to restart intro"
   },
+  "seo": {
+    "site_title": "Kristian Gjertsen - Portfolio",
+    "cv_description": "CV, experience, and contact information.",
+    "error_title": "Kristian Gjertsen - Error page"
+  },
   "frontpage": {
     "tagline": "Portfolio for",
     "title": "Kristian Gjertsen",
