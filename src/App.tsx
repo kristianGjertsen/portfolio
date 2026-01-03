@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import IntroanimationPage from './Pages/IntroAnimation/IntroanimationPage'
 import ContactPage from './Pages/ContactPage/Contact'
