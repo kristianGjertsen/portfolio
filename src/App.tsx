@@ -30,23 +30,18 @@ function MetaUpdater() {
     const metaByPath = {
       '/': {
         title: t('seo.site_title'),
-        description: t('frontpage.description'),
       },
       '/project': {
         title: `${t('frontpage.title')} - ${t('projectPage.title')}`,
-        description: t('projectPage.description'),
       },
       '/contact': {
         title: `${t('frontpage.title')} - ${t('contactPage.title')}`,
-        description: t('contactPage.description'),
       },
       '/cv': {
         title: `${t('frontpage.title')} - CV`,
-        description: t('seo.cv_description'),
       },
       '/errorSite': {
         title: t('seo.error_title'),
-        description: t('frontpageError.description'),
       },
     }
     const meta = metaByPath[pathname as keyof typeof metaByPath] ?? metaByPath['/']
@@ -69,13 +64,10 @@ function MetaUpdater() {
       }
     }
 
-    setMetaContent('meta[name="description"]', meta.description)
     setMetaContent('meta[property="og:title"]', meta.title)
-    setMetaContent('meta[property="og:description"]', meta.description)
     setMetaContent('meta[property="og:url"]', canonicalUrl)
     setMetaContent('meta[property="og:locale"]', locale)
     setMetaContent('meta[name="twitter:title"]', meta.title)
-    setMetaContent('meta[name="twitter:description"]', meta.description)
     setLinkHref('link[rel="canonical"]', canonicalUrl)
   }, [pathname, i18n.language, t])
 
