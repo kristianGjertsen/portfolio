@@ -24,7 +24,6 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route element={<IntroanimationPage />} path="/" />
-        <Route element={<Navigate to="/project" replace />} path="/portfolio" />
         <Route element={<ProjectPage />} path="/project" />
         <Route element={<ContactPage />} path="/contact" />
         <Route element={<CvPage />} path="/cv" />
