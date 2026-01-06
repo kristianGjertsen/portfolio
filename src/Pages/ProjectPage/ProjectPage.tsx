@@ -216,7 +216,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
 
       ) : (
         <img
-          className="h-[40vh] w-full object-cover [@media(max-height:760px)]:h-[32vh] [@media(max-height:640px)]:h-[26vh]"
+          className="h-[40vh] w-full object-cover bg-paper [@media(max-height:760px)]:h-[32vh] [@media(max-height:640px)]:h-[26vh]"
           src={getProjectImageSrc(project.img)}
           alt={project.imgAlt ?? copy.title}
         />
