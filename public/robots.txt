@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kristiangjertsen.no/sitemap.xml
+Sitemap: https://www.kristiangjertsen.no/sitemap.xml
