@@ -1,8 +1,11 @@
 import Header from "../../components/pageSections/Header";
 import Footer from "../../components/pageSections/Footer";
 import { useTranslation } from "react-i18next";
+import ContactForm from "./ContactForm";
+
 function Contact() {
   const { t } = useTranslation();
+
   return (
     <div className="relative min-h-screen bg-paper text-ink flex flex-col">
       <Header />
@@ -45,7 +48,7 @@ function Contact() {
           </a>
           <a
             className="rounded-2xl border border-sand/80 bg-white/80 p-5 shadow-card transition hover:-translate-y-0.5"
-            href="tel:+47 954 10 917"
+            href="tel:+47 954 10 719"
           >
             <p className="text-xs uppercase tracking-[0.3em] text-ink/60">
               {t("contactPage.phone_label")}
@@ -63,14 +66,16 @@ function Contact() {
               >
                 <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.8.3 1.6.5 2.3a2 2 0 0 1-.5 2.1L7.9 9.9a16 16 0 0 0 6.2 6.2l1.8-1.8a2 2 0 0 1 2.1-.5c.7.2 1.5.4 2.3.5a2 2 0 0 1 1.7 2z" />
               </svg>
-              <span>+47 954 10 917</span>
+              <span>+47 954 10 719</span>
             </div>
           </a>
         </div>
+        <ContactForm />
       </main>
 
       <Footer />
     </div>
   );
 }
-export default Contact
+
+export default Contact;

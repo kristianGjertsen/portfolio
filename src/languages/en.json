@@ -37,9 +37,22 @@
   "contactPage": {
     "tagline": "Contact",
     "title": "Get in touch",
-    "description": "Reach out by email or phone.",
+    "description": "Reach out via the contact form, email, or phone.",
     "email_label": "Email",
     "phone_label": "Mobile"
+  },
+  "contactForm": {
+    "heading": "Contact form",
+    "name_label": "Name",
+    "name_placeholder": "Name",
+    "email_label": "Email",
+    "email_placeholder": "you@email.com",
+    "message_label": "Message",
+    "message_placeholder": "How can I help?",
+    "submit": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent. Thanks for reaching out!",
+    "error": "Something went wrong. Please try again."
   },
   "cv": {
     "description": "Open CV in new tab",
