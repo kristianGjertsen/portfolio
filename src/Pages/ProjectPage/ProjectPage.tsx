@@ -73,7 +73,6 @@ function ProjectPage() {
 }
 
 function ScrollProjects({ projects }: { projects: ProjectItem[] }) {
-  const { i18n } = useTranslation();
   const {
     scrollAreaRef,
     activeIndex,
@@ -82,9 +81,6 @@ function ScrollProjects({ projects }: { projects: ProjectItem[] }) {
   } = useProjectScroll(projects, START_PROJECT_INDEX);
 
   const active = projects[activeIndex] ?? projects[0];
-  const activeCopy = active
-    ? getProjectCopy(active, i18n.resolvedLanguage ?? i18n.language)
-    : null;
   return (
     <section
       ref={scrollAreaRef}
