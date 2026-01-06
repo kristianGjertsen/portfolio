@@ -6,58 +6,29 @@
     "languages": "C# (Unity)",
     "imgAlt": "Image Rotate The Platform",
     "content": {
-      "short": {
-        "no": {
-          "title": "Rotate The Platform",
-          "description": "Enkelt spill laget i Unity hvor spilleren roterer en plattform for å navigere til neste nivå. Kan spilles på nett via itch.io, eller kan lastes ned fra itch.io-siden.\nUnity bruker C# som programmeringsspråk",
-          "buttons": [
-            {
-              "href": "https://kgkrizz.itch.io/rotate-the-platform",
-              "label": "Se og prøv på itch.io",
-              "ariaLabel": "Se og spill Rotate The Platform på itch.io"
-            }
-          ]
-        },
-        "en": {
-          "title": "Rotate The Platform",
-          "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
-          "linkLabel": "See the project on itch.io",
-          "buttons": [
-            {
-              "href": "https://kgkrizz.itch.io/rotate-the-platform",
-              "label": "Play the game on itch.io",
-              "ariaLabel": "Play Rotate The Platform on itch.io"
-            }
-          ]
-        }
+      "no": {
+        "title": "Rotate The Platform",
+        "description": "Enkelt spill laget i Unity hvor spilleren roterer en plattform for å navigere til neste nivå. Kan spilles på nett via itch.io, eller kan lastes ned fra itch.io-siden.\nUnity bruker C# som programmeringsspråk"
       },
-      "Long": {
-        "no": {
-          "title": "Rotate The Platform",
-          "description": "Enkelt spill laget i Unity hvor spilleren roterer en plattform for å navigere til neste nivå. Kan spilles på nett via itch.io, eller kan lastes ned fra itch.io-siden.\nUnity bruker C# som programmeringsspråk",
-          "linkLabel": "Se prosjektet på itch.io",
-          "buttons": [
-            {
-              "href": "https://kgkrizz.itch.io/rotate-the-platform",
-              "label": "Spill nå",
-              "ariaLabel": "Spill Rotate The Platform på itch.io"
-            }
-          ]
+      "en": {
+        "title": "Rotate The Platform",
+        "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
+        "linkLabel": "See the project on itch.io"
+      }
+    },
+    "buttons": [
+      {
+        "href": "https://kgkrizz.itch.io/rotate-the-platform",
+        "label": {
+          "no": "Se og prøv på itch.io",
+          "en": "Play the game on itch.io"
         },
-        "en": {
-          "title": "Rotate The Platform",
-          "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
-          "linkLabel": "See the project on itch.io",
-          "buttons": [
-            {
-              "href": "https://kgkrizz.itch.io/rotate-the-platform",
-              "label": "Play the game on itch.io",
-              "ariaLabel": "Play Rotate The Platform on itch.io"
-            }
-          ]
+        "ariaLabel": {
+          "no": "Se og spill Rotate The Platform på itch.io",
+          "en": "Play Rotate The Platform on itch.io"
         }
       }
-    }
+    ]
   },
   {
     "id": "builder",
@@ -66,58 +37,29 @@
     "languages": "C# (Unity)",
     "imgAlt": "Builder Image",
     "content": {
-      "short": {
-        "no": {
-          "title": "Builder",
-          "description": "Enkelt sandbox spill laget i Unity der spilleren samler ressurser for å bygge strukturer og få fremdrift",
-          "buttons": [
-            {
-              "href": "https://kgkrizz.itch.io/test201022",
-              "label": "Se og prøv på itch.io",
-              "ariaLabel": "Se eller spill Rotate The Platform på itch.io"
-            }
-          ]
-        },
-        "en": {
-          "title": "Rotate The Platform",
-          "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
-          "linkLabel": "See the project on itch.io",
-          "buttons": [
-            {
-              "href": "https://kgkrizz.itch.io/rotate-the-platform",
-              "label": "Play the game on itch.io",
-              "ariaLabel": "Play Rotate The Platform on itch.io"
-            }
-          ]
-        }
+      "no": {
+        "title": "Builder",
+        "description": "Enkelt sandbox spill laget i Unity der spilleren samler ressurser for å bygge strukturer og få fremdrift"
       },
-      "Long": {
-        "no": {
-          "title": "Rotate The Platform",
-          "description": "Enkelt spill laget i Unity hvor spilleren roterer en plattform for å navigere til neste nivå. Kan spilles på nett via itch.io, eller kan lastes ned fra itch.io-siden.\nUnity bruker C# som programmeringsspråk",
-          "linkLabel": "Se prosjektet på itch.io",
-          "buttons": [
-            {
-              "href": "https://kgkrizz.itch.io/rotate-the-platform",
-              "label": "Spill nå",
-              "ariaLabel": "Spill Rotate The Platform på itch.io"
-            }
-          ]
+      "en": {
+        "title": "Rotate The Platform",
+        "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
+        "linkLabel": "See the project on itch.io"
+      }
+    },
+    "buttons": [
+      {
+        "href": "https://kgkrizz.itch.io/test201022",
+        "label": {
+          "no": "Se og prøv på itch.io",
+          "en": "Play the game on itch.io"
         },
-        "en": {
-          "title": "Rotate The Platform",
-          "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
-          "linkLabel": "See the project on itch.io",
-          "buttons": [
-            {
-              "href": "https://kgkrizz.itch.io/rotate-the-platform",
-              "label": "Play the game on itch.io",
-              "ariaLabel": "Play Rotate The Platform on itch.io"
-            }
-          ]
+        "ariaLabel": {
+          "no": "Se eller spill Rotate The Platform på itch.io",
+          "en": "Play Rotate The Platform on itch.io"
         }
       }
-    }
+    ]
   },
   {
     "id": "dotDagene-website",
@@ -125,89 +67,101 @@
     "languages": "React - TypeScript - Tailwind CSS",
     "imgAlt": "dotDAGENE website preview",
     "content": {
-      "short": {
-        "no": {
-          "title": "dotDAGENE",
-          "description": "dotDAGENE er et nettside for karrieredagene for Informatikk studiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning.",
-          "buttons": [
-            {
-              "previewUrl": "https://dotdagene.no",
-              "label": "Åpne live preview",
-              "ariaLabel": "Åpne dotdagene.no som live preview"
-            },
-            {
-              "href": "https://dotdagene.no",
-              "label": "Besøk nettsiden",
-              "ariaLabel": "Besøk dotdagene.no i ny fane"
-            },
-            {
-              "href": "https://github.com/kristianGjertsen/dotDAGENE",
-              "label": "Se gitHub repo",
-              "ariaLabel": "Knapp for gitHub repo for dotdagene.no"
-            }
-          ]
+      "no": {
+        "title": "dotDAGENE",
+        "description": "dotDAGENE er et nettside for karrieredagene for Informatikk studiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning."
+      },
+      "en": {
+        "title": "dotDAGENE",
+        "description": "dotDAGENE is a website for the career days of the Informatics program at NTNU. The site presents the event in a simple and accessible way. The goal was to make the content easy to share and reuse across contexts. The visual style is a twist on Neo Brutalism to create a more playful, attention-grabbing site. Hosted on Vercel. Shown here as a preview."
+      }
+    },
+    "buttons": [
+      {
+        "previewUrl": "https://dotdagene.no",
+        "label": {
+          "no": "Åpne live preview",
+          "en": "Open live preview"
         },
-        "en": {
-          "title": "dotDAGENE",
-          "description": "dotDAGENE is a website for the career days of the Informatics program at NTNU. The site presents the event in a simple and accessible way. The goal was to make the content easy to share and reuse across contexts. The visual style is a twist on Neo Brutalism to create a more playful, attention-grabbing site. Hosted on Vercel. Shown here as a preview.",
-          "buttons": [
-            {
-              "previewUrl": "https://dotdagene.no",
-              "label": "Open live preview",
-              "ariaLabel": "Open dotdagene.no as a live preview"
-            },
-            {
-              "href": "https://dotdagene.no",
-              "label": "Visit the website",
-              "ariaLabel": "Visit dotdagene.no in a new tab"
-            },
-            {
-              "href": "https://github.com/kristianGjertsen/dotDAGENE",
-              "label": "View GitHub repo",
-              "ariaLabel": "Open the dotDAGENE GitHub repository"
-            }
-          ]
+        "ariaLabel": {
+          "no": "Åpne dotdagene.no som live preview",
+          "en": "Open dotdagene.no as a live preview"
         }
       },
-      "Long": {
-        "no": {
-          "title": "dotDAGENE",
-          "description": "dotDAGENE er et nettside for karrieredagene for Informatikk studiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning.",
-          "buttons": [
-            {
-              "previewUrl": "https://dotdagene.no",
-              "label": "Åpne live preview",
-              "ariaLabel": "Åpne dotdagene.no som live preview"
-            },
-            {
-              "href": "https://dotdagene.no",
-              "label": "Besøk nettsiden",
-              "ariaLabel": "Besøk dotdagene.no i ny fane"
-            }
-          ]
+      {
+        "href": "https://dotdagene.no",
+        "label": {
+          "no": "Besøk nettsiden",
+          "en": "Visit the website"
         },
-        "en": {
-          "title": "dotDAGENE",
-          "description": "dotDAGENE is a website for the career days of the Informatics program at NTNU. The site presents the event in a simple and accessible way. The goal was to make the content easy to share and reuse across contexts. The visual style is a twist on Neo Brutalism to create a more playful, attention-grabbing site. Hosted on Vercel. Shown here as a preview.",
-          "buttons": [
-            {
-              "previewUrl": "https://dotdagene.no",
-              "label": "Open live preview",
-              "ariaLabel": "Open dotdagene.no as a live preview"
-            },
-            {
-              "href": "https://dotdagene.no",
-              "label": "Visit the website",
-              "ariaLabel": "Visit dotdagene.no in a new tab"
-            },
-            {
-              "href": "https://github.com/kristianGjertsen/dotDAGENE",
-              "label": "View GitHub repo",
-              "ariaLabel": "Open the dotDAGENE GitHub repository"
-            }
-          ]
+        "ariaLabel": {
+          "no": "Besøk dotdagene.no i ny fane",
+          "en": "Visit dotdagene.no in a new tab"
+        }
+      },
+      {
+        "href": "https://github.com/kristianGjertsen/dotDAGENE",
+        "label": {
+          "no": "Se gitHub repo",
+          "en": "View GitHub repo"
+        },
+        "ariaLabel": {
+          "no": "Knapp for gitHub repo for dotdagene.no",
+          "en": "Open the dotDAGENE GitHub repository"
         }
       }
-    }
+    ]
+  },
+  {
+    "id": "Week Number - Dynamic Icon",
+    "year": 2026,
+    "languages": "Html - CSS - JavaScript",
+    "img": "WeekNumber.png",
+    "imgAlt": "Image of Week Number Chrome Extension",
+    "content": {
+      "no": {
+        "title": "Week Number - Dynamic Icon Extension for Chrome",
+        "description": "Enkel google extension som viser uketallet i ikon for chrome nettleseren. Utvidelsen oppdaterer seg selv hver uke for å vise riktig uketall. Laget med HTML, CSS og JavaScript. Inneholder en liten meny for fargevalg for ikonet."
+      },
+      "en": {
+        "title": "Color Playground - Extension for Chrome",
+        "description": "Color Playground is a browser extension that lets you change website colors to better suit you (not all elements can always be changed due to different implementations, but it works for many sites). You can use preset themes, tweak colors yourself, or tailor the look per site for better readability and comfort. The extension stores settings locally and gives you full control over how websites appear. It can send color suggestions to an AI to generate new color themes based on your preferences. This is done via an API to Cloudflare that uses a Gemini model to return JSON with color codes. All stored data can be downloaded."
+      }
+    },
+    "buttons": [
+      {
+        "href": "https://github.com/kristianGjertsen/Week-Number-Google-Extension",
+        "label": {
+          "no": "Se koden på gitHub",
+          "en": "View the code on GitHub"
+        }
+      }
+    ]
+  },
+  {
+    "id": "Color Playground ",
+    "year": 2026,
+    "languages": "Html - CSS - JavaScript - Api (Ai requestst)",
+    "img": "ColorPlayground.png",
+    "imgAlt": "Image of Color Playground",
+    "content": {
+      "no": {
+        "title": "Color Playground - Extension for Chrome",
+        "description": "Color Playground er en extension som lar deg endre fargene på nettsteder, (ikke alle elementer kan alltid endres pga ulik implementasjon, men det fungerer på mange sider). Du kan bruke ferdige temaer, justere farger selv eller tilpasse utseendet per nettside for bedre lesbarhet og komfort. Utvidelsen lagrer innstillingene lokalt og gir deg full kontroll over hvordan nettsider ser ut. Kan bruke innebygd AI for å generere nye fargetemaer basert på dine preferanser. Dette gjøres via en API til Cloudflare som bruker en Gemini-modell til å returnere JSON med fargekoder. All lagret data kan lastes ned."
+      },
+      "en": {
+        "title": "Week Number - Dynamic Icon Extension for Chrome",
+        "description": "Simple Google extension that shows the week number in the Chrome browser icon. The extension updates itself each week to show the correct week number. Built with HTML, CSS and JavaScript. Includes a small menu for choosing the icon color."
+      }
+    },
+    "buttons": [
+      {
+        "href": "https://github.com/kristianGjertsen/Color-Playground-Google-Extension",
+        "label": {
+          "no": "Se koden på gitHub",
+          "en": "View the code on GitHub"
+        }
+      }
+    ]
   }
 ]

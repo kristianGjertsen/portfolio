@@ -13,6 +13,7 @@ import {
   useProjectScroll,
   type ProjectItem,
   type ProjectCopy,
+  type LocalizedString,
 } from "./ProjectPage.state";
 
 const projectImages = import.meta.glob("../../assets/ProjectImages/*", {
@@ -30,7 +31,15 @@ const getProjectCopy = (
   language: string | undefined
 ): ProjectCopy => {
   const key = language?.startsWith("no") ? "no" : "en";
-  return project.content.short[key] ?? project.content.short.en;
+  return project.content[key] ?? project.content.en;
+};
+
+const getLocalizedValue = (
+  value: LocalizedString | undefined,
+  language: string | undefined
+) => {
+  const key = language?.startsWith("no") ? "no" : "en";
+  return value?.[key] ?? value?.en ?? value?.no ?? "";
 };
 
 function ProjectPage() {
@@ -139,10 +148,6 @@ function ScrollProjects({ projects }: { projects: ProjectItem[] }) {
             </article>
           </div>
 
-          {/* (Valgfritt) liten “nå viser vi…”-label */}
-          <div className="mt-4 text-center text-xs uppercase tracking-[0.35em] text-ink/50">
-            {active?.year} · {activeCopy?.title}
-          </div>
         </div>
       </div>
     </section>
@@ -151,16 +156,33 @@ function ScrollProjects({ projects }: { projects: ProjectItem[] }) {
 
 function ProjectCard({ project }: { project: ProjectItem }) {
   const { t, i18n } = useTranslation();
-  const copy = getProjectCopy(project, i18n.resolvedLanguage ?? i18n.language);
+  const language = i18n.resolvedLanguage ?? i18n.language;
+  const copy = getProjectCopy(project, language);
   const [shiftPreviewLabel, setShiftPreviewLabel] = useState(false);
-  const buttons =
-    copy.buttons && copy.buttons.length > 0
-      ? copy.buttons
+  const localizedButtons = (project.buttons ?? []).map((button) => {
+    const ariaLabel = getLocalizedValue(button.ariaLabel, language);
+    return {
+      href: button.href,
+      previewUrl: button.previewUrl,
+      label: getLocalizedValue(button.label, language),
+      ariaLabel: ariaLabel || undefined,
+    };
+  });
+  const buttons: Array<{
+    href?: string;
+    previewUrl?: string;
+    label: string;
+    ariaLabel?: string;
+  }> =
+    localizedButtons.length > 0
+      ? localizedButtons
       : project.link && copy.linkLabel
-        ? [{ href: project.link, label: copy.linkLabel }]
+        ? [{ href: project.link, label: copy.linkLabel, ariaLabel: undefined }]
         : [];
   const previewButton = buttons.find((button) => button.previewUrl);
-  const actionButtons = buttons.filter((button) => !button.previewUrl);
+  const actionButtons = buttons.filter(
+    (button) => !button.previewUrl && button.label
+  );
 
   // Timer for å flytte på preview-label etter 2 sekunder
   useEffect(() => {
@@ -190,7 +212,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
             </span>
           </div>
           <iframe
-            className="h-[40vh] w-full bg-white"
+            className="h-[40vh] w-full bg-white [@media(max-height:760px)]:h-[32vh] [@media(max-height:640px)]:h-[26vh]"
             src={previewButton.previewUrl}
             title={`${copy.title} preview`}
           />
@@ -198,15 +220,14 @@ function ProjectCard({ project }: { project: ProjectItem }) {
 
       ) : (
         <img
-          className="w-full h-[40vh] object-cover"
+          className="h-[40vh] w-full object-cover [@media(max-height:760px)]:h-[32vh] [@media(max-height:640px)]:h-[26vh]"
           src={getProjectImageSrc(project.img)}
           alt={project.imgAlt ?? copy.title}
         />
       )}
 
-      {/* År + språk */}
-      <div className="flex flex-1 flex-col px-6 py-5 sm:px-8 sm:py-6">
-        <span className="tracking-[0.35em] text-ink/50 flex justify-between gap-10">
+      <div className="flex flex-1 min-h-0 flex-col px-6 py-5 sm:px-8 sm:py-6 [@media(max-height:760px)]:py-4 [@media(max-height:640px)]:py-3">
+        <span className="hidden tracking-[0.35em] text-ink/50 sm:flex justify-between gap-100">
           <p>
             {project.year}
           </p>
@@ -215,14 +236,16 @@ function ProjectCard({ project }: { project: ProjectItem }) {
           </p>
         </span>
 
-        <h2 className="mt-3 font-display text-2xl sm:text-3xl">
+        {/* Title */}
+        <h2 className="mt-3 font-display text-2xl sm:text-3xl [@media(max-height:760px)]:mt-2 [@media(max-height:640px)]:text-xl">
           {copy.title}
         </h2>
-        <p className="mt-3 text-sm text-ink/70 sm:text-base">
+        {/* Description */}
+        <p className="mt-2 flex-1 min-h-0 overflow-y-auto pr-1 text-sm text-ink/70 sm:text-base [@media(max-height:760px)]:mt-1 [@media(max-height:760px)]:text-sm [@media(max-height:760px)]:leading-snug [@media(max-height:640px)]:text-[0.85rem] [@media(max-height:640px)]:leading-snug">
           {copy.description}
         </p>
         {actionButtons.length > 0 && (
-          <div className="mt-auto flex flex-wrap gap-3 pt-6">
+          <div className="mt-auto flex flex-nowrap gap-2 pt-4 sm:flex-wrap sm:gap-3 [@media(max-height:760px)]:gap-2 [@media(max-height:760px)]:pt-3 [@media(max-height:640px)]:pt-2">
             {actionButtons.map((button) => (
               <Button
                 key={`${project.id}-${button.href}-${button.label}`}
@@ -230,9 +253,10 @@ function ProjectCard({ project }: { project: ProjectItem }) {
                 aria-label={button.ariaLabel}
                 rel="noreferrer"
                 target="_blank"
+                className="min-w-0 shrink justify-center whitespace-nowrap [@media(max-height:760px)]:px-4 [@media(max-height:760px)]:py-3 [@media(max-height:760px)]:text-[0.65rem] [@media(max-height:760px)]:tracking-[0.1em] [@media(max-height:640px)]:px-3 [@media(max-height:640px)]:py-2 [@media(max-height:640px)]:text-[0.6rem] [@media(max-height:640px)]:tracking-[0.08em]"
               >
-                {button.label}
-                <span aria-hidden="true">→</span>
+                <span className="min-w-0 truncate">{button.label}</span>
+                <span aria-hidden="true" className="flex-shrink-0">→</span>
               </Button>
             ))}
           </div>

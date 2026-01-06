@@ -37,7 +37,7 @@
   "contactPage": {
     "tagline": "Contact",
     "title": "Get in touch",
-    "description": "Reach out directly by email or phone.",
+    "description": "Reach out by email or phone.",
     "email_label": "Email",
     "phone_label": "Mobile"
   },
