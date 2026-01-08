@@ -24,7 +24,7 @@ function Contact() {
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
           <a
             className="rounded-2xl border border-sand/80 bg-white/80 p-5 shadow-card transition hover:-translate-y-0.5"
-            href="mailto:kristiangjertsen@gmail.com"
+            href="mailto:kristiangjertsen5@gmail.com"
           >
             <p className="text-xs uppercase tracking-[0.3em] text-ink/60">
               {t("contactPage.email_label")}
@@ -43,7 +43,7 @@ function Contact() {
                 <path d="M4 6h16v12H4z" />
                 <path d="m4 7 8 6 8-6" />
               </svg>
-              <span>kristiangjertsen@gmail.com</span>
+              <span>kristiangjertsen5@gmail.com</span>
             </div>
           </a>
           <a
