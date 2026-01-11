@@ -42,8 +42,8 @@
         "description": "Enkelt sandbox spill laget i Unity der spilleren samler ressurser for å bygge strukturer og få fremdrift"
       },
       "en": {
-        "title": "Rotate The Platform",
-        "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
+        "title": "Builder",
+        "description": "Simple sandbox game built in Unity where you gather resources to construct structures and progress.",
         "linkLabel": "See the project on itch.io"
       }
     },
@@ -55,8 +55,8 @@
           "en": "Play the game on itch.io"
         },
         "ariaLabel": {
-          "no": "Se eller spill Rotate The Platform på itch.io",
-          "en": "Play Rotate The Platform on itch.io"
+          "no": "Se eller spill Builder på itch.io",
+          "en": "Play Builder on itch.io"
         }
       }
     ]
@@ -124,8 +124,8 @@
         "description": "Enkel google extension som viser uketallet i ikon for chrome nettleseren. Utvidelsen oppdaterer seg selv hver uke for å vise riktig uketall. Laget med HTML, CSS og JavaScript. Inneholder en liten meny for fargevalg for ikonet."
       },
       "en": {
-        "title": "Color Playground - Extension for Chrome",
-        "description": "Color Playground is a browser extension that lets you change website colors to better suit you (not all elements can always be changed due to different implementations, but it works for many sites). You can use preset themes, tweak colors yourself, or tailor the look per site for better readability and comfort. The extension stores settings locally and gives you full control over how websites appear. It can send color suggestions to an AI to generate new color themes based on your preferences. This is done via an API to Cloudflare that uses a Gemini model to return JSON with color codes. All stored data can be downloaded."
+        "title": "Week Number - Dynamic Icon Extension for Chrome",
+        "description": "Simple Chrome extension that shows the current week number directly in the browser icon. Updates itself every week to stay accurate. Built with HTML, CSS and JavaScript, and includes a small menu to choose the icon color."
       }
     },
     "buttons": [
@@ -150,8 +150,8 @@
         "description": "Color Playground er en extension som lar deg endre fargene på nettsteder, (ikke alle elementer kan alltid endres pga ulik implementasjon, men det fungerer på mange sider). Du kan bruke ferdige temaer, justere farger selv eller tilpasse utseendet per nettside for bedre lesbarhet og komfort. Utvidelsen lagrer innstillingene lokalt og gir deg full kontroll over hvordan nettsider ser ut. Kan bruke innebygd AI for å generere nye fargetemaer basert på dine preferanser. Dette gjøres via en API til Cloudflare som bruker en Gemini-modell til å returnere JSON med fargekoder. All lagret data kan lastes ned."
       },
       "en": {
-        "title": "Week Number - Dynamic Icon Extension for Chrome",
-        "description": "Simple Google extension that shows the week number in the Chrome browser icon. The extension updates itself each week to show the correct week number. Built with HTML, CSS and JavaScript. Includes a small menu for choosing the icon color."
+        "title": "Color Playground - Extension for Chrome",
+        "description": "Color Playground lets you adjust website colors to your liking (not every element can change on every site, but it works on many). Use preset themes, tweak colors yourself, or customize per site for better readability and comfort. The extension stores settings locally and gives you full control over how sites appear. It can also call an AI via a Cloudflare API using a Gemini model to suggest new color themes based on your preferences. All stored data can be downloaded."
       }
     },
     "buttons": [
