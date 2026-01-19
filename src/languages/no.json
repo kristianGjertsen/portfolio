@@ -11,9 +11,9 @@
     "error_title": "Kristian Gjertsen - Feilside"
   },
   "frontpage": {
-    "tagline": "Portefølje for",
+    "tagline": "",
     "title": "Kristian Gjertsen",
-    "description": "Designer og frontend-utvikler som lager rolige, presise digitale opplevelser for moderne merkevarer.",
+    "description": "Informatikkstudent med fokus på design og frontend som lager tydelige og moderne nettsider.",
     "cta_contact": "Kontakt",
     "cta_project": "Prosjekter",
     "cta_back": "Tilbake til ingen ting"
@@ -21,7 +21,7 @@
   "frontpageError": {
     "tagline": "Prosjekter",
     "title": "Kristian Gjertsen",
-    "description": "Designer og frontend-utvikler som lager rolige, presise digitale opplevelser for moderne merkevarer.",
+    "description": "Informatikkstudent med fokus på design og frontend som lager tydelige og moderne nettsider.",
     "cta_contact": "Kontakt",
     "cta_project": "Prosjekter"
   },

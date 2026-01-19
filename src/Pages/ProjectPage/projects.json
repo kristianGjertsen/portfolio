@@ -39,7 +39,7 @@
     "content": {
       "no": {
         "title": "Builder",
-        "description": "Enkelt sandbox spill laget i Unity der spilleren samler ressurser for å bygge strukturer og få fremdrift"
+        "description": "Enkelt sandbox-spill laget i Unity der spilleren samler ressurser for å bygge strukturer og få fremdrift"
       },
       "en": {
         "title": "Builder",
@@ -69,7 +69,7 @@
     "content": {
       "no": {
         "title": "dotDAGENE",
-        "description": "dotDAGENE er et nettside for karrieredagene for Informatikk studiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning."
+        "description": "dotDAGENE er en nettside for karrieredagene for informatikkstudiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning."
       },
       "en": {
         "title": "dotDAGENE",
@@ -102,11 +102,11 @@
       {
         "href": "https://github.com/kristianGjertsen/dotDAGENE",
         "label": {
-          "no": "Se gitHub repo",
+          "no": "Se GitHub-repo",
           "en": "View GitHub repo"
         },
         "ariaLabel": {
-          "no": "Knapp for gitHub repo for dotdagene.no",
+          "no": "Knapp for GitHub-repo for dotdagene.no",
           "en": "Open the dotDAGENE GitHub repository"
         }
       }
@@ -115,13 +115,13 @@
   {
     "id": "Week Number - Dynamic Icon",
     "year": 2026,
-    "languages": "Html - CSS - JavaScript",
+    "languages": "HTML - CSS - JavaScript",
     "img": "WeekNumber.png",
     "imgAlt": "Image of Week Number Chrome Extension",
     "content": {
       "no": {
         "title": "Week Number - Dynamic Icon Extension for Chrome",
-        "description": "Enkel google extension som viser uketallet i ikon for chrome nettleseren. Utvidelsen oppdaterer seg selv hver uke for å vise riktig uketall. Laget med HTML, CSS og JavaScript. Inneholder en liten meny for fargevalg for ikonet."
+        "description": "Enkel Google-utvidelse som viser uketallet i ikonet for Chrome-nettleseren. Utvidelsen oppdaterer seg selv hver uke for å vise riktig uketall. Laget med HTML, CSS og JavaScript. Inneholder en liten meny for fargevalg for ikonet."
       },
       "en": {
         "title": "Week Number - Dynamic Icon Extension for Chrome",
@@ -130,9 +130,20 @@
     },
     "buttons": [
       {
+        "href": "https://chromewebstore.google.com/detail/week-number-dynamic-icon/cddommedjeknbciihpjdioobmlnahjlp",
+        "label": {
+          "no": "Se i Chrome Web Store",
+          "en": "View in Chrome Web Store"
+        },
+        "ariaLabel": {
+          "no": "Åpne Week Number - Dynamic Icon i Chrome Web Store",
+          "en": "Open Week Number - Dynamic Icon in the Chrome Web Store"
+        }
+      },
+      {
         "href": "https://github.com/kristianGjertsen/Week-Number-Google-Extension",
         "label": {
-          "no": "Se koden på gitHub",
+          "no": "Se koden på GitHub",
           "en": "View the code on GitHub"
         }
       }
@@ -141,24 +152,35 @@
   {
     "id": "Color Playground ",
     "year": 2026,
-    "languages": "Html - CSS - JavaScript - Api (Ai requestst)",
+    "languages": "HTML - CSS - JavaScript - API (AI requests)",
     "img": "ColorPlayground.png",
     "imgAlt": "Image of Color Playground",
     "content": {
       "no": {
         "title": "Color Playground - Extension for Chrome",
-        "description": "Color Playground er en extension som lar deg endre fargene på nettsteder, (ikke alle elementer kan alltid endres pga ulik implementasjon, men det fungerer på mange sider). Du kan bruke ferdige temaer, justere farger selv eller tilpasse utseendet per nettside for bedre lesbarhet og komfort. Utvidelsen lagrer innstillingene lokalt og gir deg full kontroll over hvordan nettsider ser ut. Kan bruke innebygd AI for å generere nye fargetemaer basert på dine preferanser. Dette gjøres via en API til Cloudflare som bruker en Gemini-modell til å returnere JSON med fargekoder. All lagret data kan lastes ned."
+        "description": "Color Playground er en utvidelse som lar deg endre fargene på nettsteder, (ikke alle elementer kan alltid endres pga ulik implementasjon, men det fungerer på mange sider). Du kan bruke ferdige temaer, justere farger selv eller tilpasse utseendet per nettside for bedre lesbarhet og komfort. Utvidelsen lagrer innstillingene lokalt og gir deg full kontroll over hvordan nettsider ser ut. Kan bruke innebygd AI for å generere nye fargetemaer basert på dine preferanser. Dette gjøres via en API til Cloudflare som bruker en Gemini-modell til å returnere JSON med fargekoder. All lagret data kan lastes ned og slettes når som helst."
       },
       "en": {
         "title": "Color Playground - Extension for Chrome",
-        "description": "Color Playground lets you adjust website colors to your liking (not every element can change on every site, but it works on many). Use preset themes, tweak colors yourself, or customize per site for better readability and comfort. The extension stores settings locally and gives you full control over how sites appear. It can also call an AI via a Cloudflare API using a Gemini model to suggest new color themes based on your preferences. All stored data can be downloaded."
+        "description": "Color Playground lets you adjust website colors to your liking (not every element can change on every site, but it works on many). Use preset themes, tweak colors yourself, or customize per site for better readability and comfort. The extension stores settings locally and gives you full control over how sites appear. It can also call an AI via a Cloudflare API using a Gemini model to suggest new color themes based on your preferences. All stored data can be downloaded and deleted at any time."
       }
     },
     "buttons": [
       {
+        "href": "https://chromewebstore.google.com/detail/color-playground/gfkpmegeahfcdgnlkikhkkpphdadjdej",
+        "label": {
+          "no": "Se i Chrome Web Store",
+          "en": "View in Chrome Web Store"
+        },
+        "ariaLabel": {
+          "no": "Åpne Color Playground i Chrome Web Store",
+          "en": "Open Color Playground in the Chrome Web Store"
+        }
+      },
+      {
         "href": "https://github.com/kristianGjertsen/Color-Playground-Google-Extension",
         "label": {
-          "no": "Se koden på gitHub",
+          "no": "Se koden på GitHub",
           "en": "View the code on GitHub"
         }
       }
