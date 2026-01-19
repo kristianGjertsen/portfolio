@@ -11,9 +11,9 @@
     "error_title": "Kristian Gjertsen - Error page"
   },
   "frontpage": {
-    "tagline": "Portfolio for",
+    "tagline": "",
     "title": "Kristian Gjertsen",
-    "description": "Designer and frontend developer who creates calm, sharp digital experiences for modern brands.",
+    "description": "Informatics student focused on design and frontend, creating clear and modern websites.",
     "cta_contact": "Contact",
     "cta_project": "Projects",
     "cta_back": "Back to nothing"
@@ -21,7 +21,7 @@
   "frontpageError": {
     "tagline": "Projects",
     "title": "Kristian Gjertsen",
-    "description": "Designer and frontend developer who creates calm, sharp digital experiences for modern brands.",
+    "description": "Informatics student focused on design and frontend, creating clear and modern websites.",
     "cta_contact": "Contact",
     "cta_project": "Projects"
   },

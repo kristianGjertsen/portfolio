@@ -46,7 +46,7 @@ export const PROJECTS = projectData as ProjectItem[];
    Config
 ========================= */
 
-export const START_PROJECT_INDEX = 1;
+export const START_PROJECT_INDEX = 2;
 export const SCROLL_VH_PER_PROJECT = 180;
 export const SCROLL_INDEX_THRESHOLD = 0.6;
 
