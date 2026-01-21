@@ -8,11 +8,11 @@
     "content": {
       "no": {
         "title": "Rotate The Platform",
-        "description": "Enkelt spill laget i Unity hvor spilleren roterer en plattform for å navigere til neste nivå. Kan spilles på nett via itch.io, eller kan lastes ned fra itch.io-siden.\nUnity bruker C# som programmeringsspråk"
+        "description": "Enkelt spill laget i Unity hvor spilleren roterer en plattform for å navigere til neste nivå. Kan spilles på nett via itch.io, eller kan lastes ned fra itch.io-siden.\nUnity bruker C# som programmeringsspråk. Prosjektet ga erfaring med enkel level-design, grunnleggende fysikk og iterativ prototyping av spillmekanikken."
       },
       "en": {
         "title": "Rotate The Platform",
-        "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language.",
+        "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language. The project covered basic level design, physics tuning, and iterative prototyping of the core game mechanic.",
         "linkLabel": "See the project on itch.io"
       }
     },
@@ -39,11 +39,11 @@
     "content": {
       "no": {
         "title": "Builder",
-        "description": "Enkelt sandbox-spill laget i Unity der spilleren samler ressurser for å bygge strukturer og få fremdrift"
+        "description": "Enkelt sandbox-spill laget i Unity der spilleren samler ressurser for å bygge strukturer og få fremdrift. Fokus lå på enkel ressursflyt, byggesystem og balanse mellom progresjon og frihet, med prototyping av UI og kontrolloppsett."
       },
       "en": {
         "title": "Builder",
-        "description": "Simple sandbox game built in Unity where you gather resources to construct structures and progress.",
+        "description": "Simple sandbox game built in Unity where you gather resources to construct structures and progress. Focused on a lightweight resource loop, building system, and balancing progression with player freedom, including prototyping UI and controls.",
         "linkLabel": "See the project on itch.io"
       }
     },
@@ -182,6 +182,57 @@
         "label": {
           "no": "Se koden på GitHub",
           "en": "View the code on GitHub"
+        }
+      }
+    ]
+  },
+  {
+    "id": "frisorn-website",
+    "year": 2026,
+    "languages": "React - TypeScript - Tailwind CSS",
+    "imgAlt": "frisorn website preview",
+    "content": {
+      "no": {
+        "title": "Frisør'n",
+        "description": "Statisk nettsted for Frisør'n i Dybdahls veg 3-5. Enkle sider for start, kontakt og om oss med fokus på åpningstider, kontakt og kart. Bygget med Vite/React/TypeScript og skreddersydde Tailwind-variabler for et varmt, håndverksinspirert uttrykk. Drift, DNS/SSL og maildomene håndteres av meg via enkeltpersonforetaket. kunden faktureres månedlig."
+      },
+      "en": {
+        "title": "Frisør'n",
+        "description": "Static site for Frisør'n (Dybdahls veg 3-5) with simple home, contact, and about pages focused on opening hours, contact, and map. Built with Vite/React/TypeScript and custom Tailwind tokens for a warm, craft-inspired look. I handle hosting, DNS/SSL, and the email domain through my sole proprietorship. The client is billed monthly."
+      }
+    },
+    "buttons": [
+      {
+        "previewUrl": "https://www.xn--frisrn-eya.no/",
+        "label": {
+          "no": "Åpne live preview",
+          "en": "Open live preview"
+        },
+        "ariaLabel": {
+          "no": "Åpne frisørn.no som live preview",
+          "en": "Open frisrn.no as a live preview"
+        }
+      },
+      {
+        "href": "https://www.xn--frisrn-eya.no/",
+        "label": {
+          "no": "Besøk nettsiden",
+          "en": "Visit the website"
+        },
+        "ariaLabel": {
+          "no": "Besøk frisørn.no i ny fane",
+          "en": "Visit frisørn.no in a new tab"
+        }
+      },
+      {
+        "href": "https://github.com/kristianGjertsen/frisoren",
+        "label": {
+          "no": "Se GitHub-repo",
+          "en": "View GitHub repo"
+        },
+        "ariaLabel": {
+          "no": "Knapp for GitHub-repo for frisørn.no",
+          "en": "Open the frisørn.no GitHub repository"
         }
       }
     ]

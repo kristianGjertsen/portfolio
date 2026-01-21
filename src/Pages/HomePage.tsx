@@ -27,7 +27,7 @@ function HomePage() {
           </Link>
           <Link
             className="rounded-full border border-ink/20 px-8 py-3 text-sm font-medium text-ink transition hover:border-ink/40"
-            to="/project"
+            to="/projects"
           >
             Projects
           </Link>
