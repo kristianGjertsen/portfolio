@@ -35,7 +35,8 @@ function FrontPage() {
                     {t("frontpage.description")}
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
-                    <PageButton to="/project" label={t("frontpage.cta_project")} />
+                    <PageButton to="/projects" label={t("frontpage.cta_project")} />
+                    <PageButton to="/about" label={t("frontpage.cta_about")} />
                     <PageButton to="/cv" label="CV" />
                     <PageButton to="/contact" label={t("frontpage.cta_contact")} />
                 </div>

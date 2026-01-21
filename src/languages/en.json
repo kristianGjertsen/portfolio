@@ -3,12 +3,14 @@
     "home": "Home",
     "project": "Projects",
     "contact": "Contact",
+    "about": "About",
     "restart_intro": "Hold to restart intro"
   },
   "seo": {
     "site_title": "Kristian Gjertsen - Portfolio",
     "cv_description": "CV, experience, and contact information.",
-    "error_title": "Kristian Gjertsen - Error page"
+    "error_title": "Kristian Gjertsen - Error page",
+    "about_description": "About Kristian Gjertsen - background, philosophy, and how he works."
   },
   "frontpage": {
     "tagline": "",
@@ -16,6 +18,7 @@
     "description": "Informatics student focused on design and frontend, creating clear and modern websites.",
     "cta_contact": "Contact",
     "cta_project": "Projects",
+    "cta_about": "About",
     "cta_back": "Back to nothing"
   },
   "frontpageError": {
@@ -57,5 +60,18 @@
   "cv": {
     "description": "Open CV in new tab",
     "button_text": "Open"
+  },
+  "about": {
+    "tagline": "About",
+    "title": "About Kristian",
+    "lead": "Second-year informatics student at NTNU building software that actually gets used.",
+    "body": [
+      "I’m interested in the full development lifecycle, from idea and modeling to implementation and launch. I like understanding both the technical and practical sides of a system.",
+      "Alongside my studies I run a sole proprietorship in web development, delivering complete web solutions from needs analysis and design to development, publishing, and maintenance. That gives hands-on experience with structured work, delivery responsibility, and collaboration with users and clients.",
+      "I work with both backend and frontend, including programming, user interfaces, and data visualization, and I see frontend as an important part of making good systems whole.",
+      "My goal is to pair solid academic growth with projects that have real value, and to keep developing through collaboration with others."
+    ],
+    "contact_cta": "Contact",
+    "projects_cta": "View projects"
   }
 }

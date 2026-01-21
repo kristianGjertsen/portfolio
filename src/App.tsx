@@ -6,6 +6,7 @@ import ContactPage from './Pages/ContactPage/Contact'
 import ProjectPage from './Pages/ProjectPage/ProjectPage'
 import CvPage from './Pages/Cv/Cv'
 import FrontPageError from './Pages/FrontPage/FrontPageError'
+import About from './Pages/About/About'
 
 import "./languages/LanguageText"
 
@@ -24,14 +25,19 @@ function MetaUpdater() {
   const { t, i18n } = useTranslation()
 
   useEffect(() => {
+    type MetaEntry = {
+      title: string
+      description?: string
+    }
+
     const siteUrl = 'https://kristiangjertsen.no'
     const lang = i18n.language.startsWith('en') ? 'en' : 'no'
     const locale = lang === 'en' ? 'en_US' : 'nb_NO'
-    const metaByPath = {
+    const metaByPath: Record<string, MetaEntry> = {
       '/': {
         title: t('seo.site_title'),
       },
-      '/project': {
+      '/projects': {
         title: `${t('frontpage.title')} - ${t('projectPage.title')}`,
       },
       '/contact': {
@@ -39,6 +45,10 @@ function MetaUpdater() {
       },
       '/cv': {
         title: `${t('frontpage.title')} - CV`,
+      },
+      '/about': {
+        title: `${t('frontpage.title')} - ${t('about.tagline')}`,
+        description: t('seo.about_description'),
       },
       '/errorSite': {
         title: t('seo.error_title'),
@@ -68,6 +78,11 @@ function MetaUpdater() {
     setMetaContent('meta[property="og:url"]', canonicalUrl)
     setMetaContent('meta[property="og:locale"]', locale)
     setMetaContent('meta[name="twitter:title"]', meta.title)
+    if (meta.description) {
+      setMetaContent('meta[name="description"]', meta.description)
+      setMetaContent('meta[property="og:description"]', meta.description)
+      setMetaContent('meta[name="twitter:description"]', meta.description)
+    }
     setLinkHref('link[rel="canonical"]', canonicalUrl)
   }, [pathname, i18n.language, t])
 
@@ -81,9 +96,10 @@ function App() {
       <MetaUpdater />
       <Routes>
         <Route element={<IntroanimationPage />} path="/" />
-        <Route element={<ProjectPage />} path="/project" />
+        <Route element={<ProjectPage />} path="/projects" />
         <Route element={<ContactPage />} path="/contact" />
         <Route element={<CvPage />} path="/cv" />
+        <Route element={<About />} path="/about" />
         {/* Mukighet for å se error siden direkte, finnes ikke knapp for dette på nettsiden */}
         <Route element={<FrontPageError />} path="/errorSite" />
       </Routes>

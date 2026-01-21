@@ -10,7 +10,8 @@ function Header() {
   const { t, i18n } = useTranslation();
   const navItems = [
     { to: "/", label: t("header.home") },
-    { to: "/project", label: t("header.project") },
+    { to: "/projects", label: t("header.project") },
+    { to: "/about", label: t("header.about") },
     { to: "/cv", label: "CV" },
     { to: "/contact", label: t("header.contact") },
   ];

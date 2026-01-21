@@ -3,12 +3,14 @@
     "home": "Hjem",
     "project": "Prosjekter",
     "contact": "Kontakt",
+    "about": "Om meg",
     "restart_intro": "Hold for restart av intro"
   },
   "seo": {
     "site_title": "Kristian Gjertsen - Portfolio",
     "cv_description": "CV, erfaring og kontaktinformasjon.",
-    "error_title": "Kristian Gjertsen - Feilside"
+    "error_title": "Kristian Gjertsen - Feilside",
+    "about_description": "Om Kristian Gjertsen - bakgrunn, filosofi og hvordan han jobber."
   },
   "frontpage": {
     "tagline": "",
@@ -16,6 +18,7 @@
     "description": "Informatikkstudent med fokus på design og frontend som lager tydelige og moderne nettsider.",
     "cta_contact": "Kontakt",
     "cta_project": "Prosjekter",
+    "cta_about": "Om meg",
     "cta_back": "Tilbake til ingen ting"
   },
   "frontpageError": {
@@ -54,8 +57,21 @@
     "success": "Meldingen er sendt. Takk for at du tok kontakt!",
     "error": "Noe gikk galt. Prøv igjen senere."
   },
-  "cv":{
-    "description" : "Åpne CV i ny fane",
-    "button_text" : "Åpne"
+  "cv": {
+    "description": "Åpne CV i ny fane",
+    "button_text": "Åpne"
+  },
+  "about": {
+    "tagline": "Om meg",
+    "title": "Om Kristian",
+    "lead": "Andreårsstudent i informatikk ved NTNU som bygger løsninger som faktisk tas i bruk.",
+    "body": [
+      "Jeg har interesse for hele utviklingsløpet, fra idé og modellering til implementasjon og ferdig løsning, og trives med å forstå både tekniske og praktiske sider av et system.",
+      "Ved siden av studiene driver jeg et enkeltpersonforetak innen webutvikling der jeg leverer komplette webløsninger – fra behovsavklaring og design til utvikling, publisering og vedlikehold. Det gir praktisk erfaring med strukturert utviklingsarbeid, ansvar for leveranser og samarbeid med brukere og kunder.",
+      "Jeg har erfaring med både backend og frontend, inkludert programmering, brukergrensesnitt og visualisering av data, og ser frontend som en viktig del av helheten i gode systemer.",
+      "Målet mitt er å kombinere solid faglig utvikling med prosjekter som har reell verdi, og å utvikle meg videre som utvikler gjennom samarbeid med andre."
+    ],
+    "contact_cta": "Kontakt",
+    "projects_cta": "Se prosjekter"
   }
 }
