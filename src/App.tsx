@@ -100,7 +100,7 @@ function App() {
         <Route element={<ContactPage />} path="/contact" />
         <Route element={<CvPage />} path="/cv" />
         <Route element={<About />} path="/about" />
-        {/* Mukighet for å se error siden direkte, finnes ikke knapp for dette på nettsiden */}
+        {/* Mulighet for å se error-siden direkte; finnes ikke knapp for dette på nettsiden */}
         <Route element={<FrontPageError />} path="/errorSite" />
       </Routes>
     </>
