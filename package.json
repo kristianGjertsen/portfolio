@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@google/model-viewer": "^4.1.0",
+    "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/viewer": "^1.12.58",
     "@vercel/analytics": "^1.6.1",
     "i18next": "^25.7.3",
     "react": "^19.2.0",

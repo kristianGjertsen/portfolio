@@ -7,6 +7,9 @@ import ProjectPage from './Pages/ProjectPage/ProjectPage'
 import CvPage from './Pages/Cv/Cv'
 import FrontPageError from './Pages/FrontPage/FrontPageError'
 import About from './Pages/About/About'
+import TestPage from './Pages/TestPage/TestPage'
+import TestPage2 from './Pages/TestPage2/TestPage2'
+import TestPage3 from './Pages/TestPage3/TestPage3'
 
 import "./languages/LanguageText"
 
@@ -49,6 +52,15 @@ function MetaUpdater() {
       '/about': {
         title: `${t('frontpage.title')} - ${t('about.tagline')}`,
         description: t('seo.about_description'),
+      },
+      '/test': {
+        title: `${t('frontpage.title')} - Test`,
+      },
+      '/test2': {
+        title: `${t('frontpage.title')} - Test 2`,
+      },
+      '/test3': {
+        title: `${t('frontpage.title')} - Test 3`,
       },
       '/errorSite': {
         title: t('seo.error_title'),
@@ -100,6 +112,9 @@ function App() {
         <Route element={<ContactPage />} path="/contact" />
         <Route element={<CvPage />} path="/cv" />
         <Route element={<About />} path="/about" />
+        <Route element={<TestPage />} path="/test" />
+        <Route element={<TestPage2 />} path="/test2" />
+        <Route element={<TestPage3 />} path="/test3" />
         {/* Mulighet for å se error-siden direkte; finnes ikke knapp for dette på nettsiden */}
         <Route element={<FrontPageError />} path="/errorSite" />
       </Routes>
