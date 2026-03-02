@@ -17,7 +17,7 @@ function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between border-b border-sand/70 bg-paper/95 px-6 py-4 text-ink backdrop-blur">
+    <header className="sticky top-0 z-50 flex items-center justify-between border-b border-sand/70 bg-paper/40 px-6 py-4 text-ink backdrop-blur">
       {/* Venstre side */}
       <div className="flex items-center gap-10">
         <Link

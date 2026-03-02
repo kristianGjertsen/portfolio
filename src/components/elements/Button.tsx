@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { getButtonClasses, type ButtonVariant } from "./buttonStyles";
 
 type ButtonProps = {
   href?: string;
@@ -7,12 +8,10 @@ type ButtonProps = {
   rel?: string;
   ariaLabel?: string;
   className?: string;
+  variant?: ButtonVariant;
   type?: "button" | "submit" | "reset";
   children: ReactNode;
 };
-
-const standardClasses =
-  "inline-flex items-center gap-2 rounded-xl bg-ink/90 px-5 py-4 text-xs font-semibold tracking-[0.12em] text-paper shadow-soft transition hover:bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40";
 
 function Button({
   href,
@@ -21,10 +20,11 @@ function Button({
   rel,
   ariaLabel,
   className,
+  variant = "default",
   type = "button",
   children,
 }: ButtonProps) {
-  const classes = className ? `${standardClasses} ${className}` : standardClasses;
+  const classes = getButtonClasses({ variant, className });
 
   if (href) {
     return (
