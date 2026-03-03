@@ -18,8 +18,7 @@
     "description": "Informatikkstudent med fokus på design og frontend som lager tydelige og moderne nettsider.",
     "cta_contact": "Kontakt",
     "cta_project": "Prosjekter",
-    "cta_about": "Om meg",
-    "cta_back": "Tilbake til ingen ting"
+    "cta_about": "Om meg"
   },
   "frontpageError": {
     "tagline": "Prosjekter",
