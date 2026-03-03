@@ -18,8 +18,7 @@
     "description": "Informatics student focused on design and frontend, creating clear and modern websites.",
     "cta_contact": "Contact",
     "cta_project": "Projects",
-    "cta_about": "About",
-    "cta_back": "Back to nothing"
+    "cta_about": "About"
   },
   "frontpageError": {
     "tagline": "Projects",
