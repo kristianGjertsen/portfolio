@@ -1,5 +1,4 @@
-import Header from "../../components/pageSections/Header";
-import Footer from "../../components/pageSections/Footer";
+import Layout from "../../components/elements/Layout";
 import { useTranslation } from "react-i18next";
 import ContactForm from "./ContactForm";
 
@@ -7,10 +6,8 @@ function Contact() {
   const { t } = useTranslation();
 
   return (
-    <div className="relative min-h-screen bg-paper text-ink flex flex-col">
-      <Header />
-
-      <main className="mx-auto w-full max-w-5xl px-6 py-16">
+    <Layout className="relative min-h-screen bg-paper text-ink flex flex-col">
+      <section className="mx-auto w-full max-w-5xl px-6 py-16">
         <p className="text-xs uppercase tracking-[0.35em] text-ink/60">
           {t("contactPage.tagline")}
         </p>
@@ -71,10 +68,8 @@ function Contact() {
           </a>
         </div>
         <ContactForm />
-      </main>
-
-      <Footer />
-    </div>
+      </section>
+    </Layout>
   );
 }
 

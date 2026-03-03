@@ -1,5 +1,4 @@
-import Header from "../../components/pageSections/Header";
-import Footer from "../../components/pageSections/Footer";
+import Layout from "../../components/elements/Layout";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -24,42 +23,37 @@ function Cv() {
     }, [cvSrc, openedOnMobile]);
 
     return (
-
-        <div className="relative flex min-h-[100svh] flex-col bg-paper text-ink">
-            <Header />
-
-            <main className="relative flex flex-1 items-center justify-center px-4 py-6">
-                <section className="w-full max-w-4xl p-4">
-                    {openedOnMobile ? (
-                        <div className="flex flex-col items-center gap-4 text-center">
-                            <p className="text-sm uppercase tracking-[0.3em] text-ink/60">
-                                {t("cv.description")}
-                            </p>
-                            <a
-                                className="rounded-full border border-ink/40 px-5 py-3 text-sm uppercase tracking-[0.2em] transition hover:bg-ink hover:text-paper"
-                                href={cvSrc}
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                {t("cv.button_text")}
-                            </a>
-                        </div>
-                    ) : (
-                        <div className="h-[80svh] w-full sm:h-[85vh]">
-                            <iframe
-                                src={cvSrc}
-                                className="h-full w-full rounded-md border"
-                                title="CV PDF"
-                            />
-                        </div>
-                    )}
-                </section>
-            </main>
-
-            <Footer />
-        </div>
-
-    )
+        <Layout
+            className="relative flex min-h-[100svh] flex-col bg-paper text-ink"
+            mainClassName="relative flex items-center justify-center px-4 py-6"
+        >
+            <section className="w-full max-w-4xl p-4">
+                {openedOnMobile ? (
+                    <div className="flex flex-col items-center gap-4 text-center">
+                        <p className="text-sm uppercase tracking-[0.3em] text-ink/60">
+                            {t("cv.description")}
+                        </p>
+                        <a
+                            className="rounded-full border border-ink/40 px-5 py-3 text-sm uppercase tracking-[0.2em] transition hover:bg-ink hover:text-paper"
+                            href={cvSrc}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            {t("cv.button_text")}
+                        </a>
+                    </div>
+                ) : (
+                    <div className="h-[80svh] w-full sm:h-[85vh]">
+                        <iframe
+                            src={cvSrc}
+                            className="h-full w-full rounded-md border"
+                            title="CV PDF"
+                        />
+                    </div>
+                )}
+            </section>
+        </Layout>
+    );
 }
 
 export default Cv
