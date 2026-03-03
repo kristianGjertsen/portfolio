@@ -66,10 +66,10 @@
     "title": "About Kristian",
     "lead": "Second-year informatics student at NTNU building software that actually gets used.",
     "body": [
-      "I’m interested in the full development lifecycle, from idea and modeling to implementation and launch. I like understanding both the technical and practical sides of a system.",
-      "Alongside my studies I run a sole proprietorship in web development, delivering complete web solutions from needs analysis and design to development, publishing, and maintenance. That gives hands-on experience with structured work, delivery responsibility, and collaboration with users and clients.",
-      "I work with both backend and frontend, including programming, user interfaces, and data visualization, and I see frontend as an important part of making good systems whole.",
-      "My goal is to pair solid academic growth with projects that have real value, and to keep developing through collaboration with others."
+      "I study informatics and enjoy the entire process behind a system. For me, it is not just about making something work, but understanding why it works and how it can be improved.",
+      "Alongside my studies, I run a sole proprietorship in web development. I take responsibility for the entire process there: talking with clients, figuring out what they actually need, designing the solution, building it, and following up after launch. This has given me practical experience with structure, ownership, and delivering something that is actually used by real people.",
+      "I have worked with both backend and frontend, and I particularly enjoy where the two are combined.",
+      "My goal is to keep developing professionally through real projects and collaboration with others, and to build solutions that create real value."
     ],
     "contact_cta": "Contact",
     "projects_cta": "View projects"

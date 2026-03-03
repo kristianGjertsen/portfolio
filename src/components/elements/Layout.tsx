@@ -18,9 +18,7 @@ function Layout({
   hideFooter = false,
 }: LayoutProps) {
   return (
-    <div
-      className={`relative flex min-h-[100svh] flex-col bg-paper text-ink ${className}`}
-    >
+    <div className={`${className}`}>
       {!hideHeader && <Header />}
 
       <main className={`flex-1 ${mainClassName}`}>

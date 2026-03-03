@@ -1,20 +1,26 @@
 import { Link } from "react-router-dom";
+import { getButtonClasses, type ButtonVariant } from "./buttonStyles";
 
-type ButtonParam = {
-    to: string;
-    label: string;
-    className?: string;
+type PageButtonProps = {
+  to: string;
+  label: string;
+  className?: string;
+  variant?: ButtonVariant;
+};
+
+function PageButton({ to, label, className, variant = "default" }: PageButtonProps) {
+  return (
+    <Link
+      to={to}
+      className={getButtonClasses({
+        variant,
+        extraClasses: "px-10 py-3",
+        className,
+      })}
+    >
+      {label}
+    </Link>
+  );
 }
 
-const standardClasses = "rounded-xl px-10 py-3 bg-ink text-paper inline-flex items-center";
-
-function PageButton({ to, label, className }: ButtonParam) {
-    return (
-        // Tar inn parametre for destinasjon, label og sjekker om ClassName er sendt inn, lager en klasse for dette
-        <Link to={to} className={standardClasses + (className ? ` ${className}` : '')}>
-            {label}
-        </Link>
-    )
-}
-
-export default PageButton
+export default PageButton;
