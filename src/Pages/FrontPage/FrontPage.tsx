@@ -1,30 +1,36 @@
 import { useTranslation } from "react-i18next";
 import PageButton from "../../components/elements/PageButton";
-import Header from "../../components/pageSections/Header";
-import Footer from "../../components/pageSections/Footer";
-import { HoldButton } from "../../components/elements/HoldButton";
+import Layout from "../../components/elements/Layout";
+//import { HoldButton } from "../../components/elements/HoldButton";
+import "./animateFrontPage.css";
 
-import bg from '../../assets/back3.jpeg'
+import bg_noIcon from '../../assets/back3_overlay_fill.png'
+import lineOnly from '../../assets/back3LineOnly.png'
 
+/*
 const handleRestartIntro = () => {
     localStorage.removeItem("intro_seen");
     window.location.assign("/");
 };
-
+*/
 function FrontPage() {
 
 
     const { t } = useTranslation();
     return (
-        <div className="  relative flex min-h-[100svh] bg-[#d4e0ec] flex-col text-ink">
-            <Header />
+        <Layout
+            className="relative flex min-h-[100svh] flex-col bg-[#d1e0ec] text-ink"
+            mainClassName="relative flex flex-1 items-center justify-center px-6 py-6 text-center sm:py-8">
+            <div
+                className="pointer-events-none absolute inset-0"
+                style={{ backgroundImage: `url(${bg_noIcon})`, backgroundSize: "100% 100%" }}
+            />
+            <div
+                className="pointer-events-none absolute inset-0 animate-slide"
+                style={{ backgroundImage: `url(${lineOnly})`, backgroundSize: "100% 100%" }} />
 
-
-            <main className="relative flex flex-1 flex-col items-center justify-center gap-5 px-6 py-6 text-center sm:gap-6 sm:py-8"
-                style={{ backgroundImage: `url(${bg})`, backgroundSize: '100% 100%' }}
-            >
-                <div className="backdrop-blur-lg rounded-3xl p-20 border-8 border-white/50 shadow-2xl  bg-white/30">
-                {/* *
+            <div className="relative z-10 backdrop-blur-lg rounded-3xl p-20 border-8 border-white/50 shadow-2xl bg-white/30">
+                {/*
                 <HoldButton
                     className="mb-2"
                     onComplete={handleRestartIntro}>
@@ -47,10 +53,10 @@ function FrontPage() {
                     <PageButton to="/cv" variant="white" label="CV" />
                     <PageButton to="/contact" variant="white" label={t("frontpage.cta_contact")} />
                 </div>
-                </div>
-            </main >
-            <Footer />
-        </div >
+
+            </div>
+
+        </Layout >
     )
 }
 

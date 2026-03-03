@@ -17,7 +17,7 @@ function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between border-b border-sand/70 bg-paper/40 px-6 py-4 text-ink backdrop-blur">
+    <header className="sticky top-0 z-50 flex items-center justify-between  px-6 py-4 text-ink backdrop-blur shadow-lg">
       {/* Venstre side */}
       <div className="flex items-center gap-10">
         <Link
@@ -70,7 +70,7 @@ function Header() {
                 <NavLink
                   className={({ isActive }) =>
                     [
-                      "relative transition hover:text-ink",
+                      "relative transition hover:text-ink whitespace-nowrap",
                       "after:absolute after:left-0 after:-bottom-2 after:h-[1px] after:w-full after:bg-ink/40 after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100",
                       isActive ? "text-ink after:scale-x-100" : "after:scale-x-0",
                     ].join(" ")
@@ -85,10 +85,13 @@ function Header() {
               </div>
             ))}
           </div>
+
+
+
           {/* Mobil: hamburgermeny */}
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-sand/80 bg-white/90 text-ink transition hover:bg-white md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#90a6bb] bg-white/90 text-ink transition hover:bg-white md:hidden"
             aria-label="Open menu"
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((prev) => !prev)}

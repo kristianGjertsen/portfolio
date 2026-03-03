@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Header from "../../components/pageSections/Header";
-import Footer from "../../components/pageSections/Footer";
+import Layout from "../../components/elements/Layout";
 import Button from "../../components/elements/Button";
 import noImg from "../../assets/ProjectImages/noimg.avif";
 
@@ -48,9 +47,7 @@ function ProjectPage() {
   const projects = useMemo(() => sortProjects(PROJECTS), []);
 
   return (
-    <div className="relative min-h-screen bg-paper text-ink">
-      <Header />
-
+    <Layout className="relative min-h-screen bg-paper text-ink">
       <section className="mx-auto w-full max-w-6xl px-6 pt-12 pb-6">
         <p className="text-xs uppercase tracking-[0.35em] text-ink/60">
           {t("projectPage.tagline")}
@@ -63,12 +60,10 @@ function ProjectPage() {
         </p>
       </section>
 
-      <main className="mx-auto w-full max-w-6xl px-6 pb-24">
+      <div className="mx-auto w-full max-w-6xl px-6 pb-24">
         <ScrollProjects projects={projects} />
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 }
 
@@ -252,7 +247,6 @@ function ProjectCard({ project }: { project: ProjectItem }) {
                 className="min-w-0 shrink justify-center whitespace-nowrap [@media(max-height:760px)]:px-4 [@media(max-height:760px)]:py-3 [@media(max-height:760px)]:text-[0.65rem] [@media(max-height:760px)]:tracking-[0.1em] [@media(max-height:640px)]:px-3 [@media(max-height:640px)]:py-2 [@media(max-height:640px)]:text-[0.6rem] [@media(max-height:640px)]:tracking-[0.08em]"
               >
                 <span className="min-w-0 truncate">{button.label}</span>
-                <span aria-hidden="true" className="flex-shrink-0">→</span>
               </Button>
             ))}
           </div>

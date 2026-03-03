@@ -1,0 +1,17 @@
+@keyframes draw-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 1;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.animate-slide {
+  clip-path: inset(0 100% 0 0);
+  animation: draw-reveal 1s ease-out forwards;
+  will-change: clip-path, opacity;
+  animation-delay: 0.3s;
+}
