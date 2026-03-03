@@ -1,7 +1,7 @@
 export type ButtonVariant = "default" |  "silver" | "white" | "lightBlue";
 
 const baseButtonClasses =
-  "rounded-lg";
+  "rounded-lg pl-5 min-h-10 min-w-[120px] text-center px-4 py-2";
 
 const variantClasses: Record<ButtonVariant, string> = {
   default: "bg-ink/90 text-paper shadow-soft hover:bg-ink",
