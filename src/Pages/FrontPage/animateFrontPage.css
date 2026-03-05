@@ -13,5 +13,5 @@
   clip-path: inset(0 100% 0 0);
   animation: draw-reveal 1s ease-out forwards;
   will-change: clip-path, opacity;
-  animation-delay: 0.3s;
+  animation-delay: 0.5s;
 }
