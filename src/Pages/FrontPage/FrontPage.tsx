@@ -3,6 +3,7 @@ import PageButton from "../../components/elements/PageButton";
 import Layout from "../../components/elements/Layout";
 //import { HoldButton } from "../../components/elements/HoldButton";
 import "./animateFrontPage.css";
+import { useEffect, useState } from "react";
 
 import bg_noIcon from '../../assets/back3_overlay_fill.png'
 import lineOnly from '../../assets/back3LineOnly.png'
@@ -16,10 +17,24 @@ const handleRestartIntro = () => {
 function FrontPage() {
 
 
+    //Hold animasjon til alt er lastet inn 
+    const [canAnimate, setCanAnimate] = useState(false);
+
+    useEffect(() => {
+        const onLoad = () => setCanAnimate(true);
+
+        if (document.readyState === "complete") onLoad();
+        else window.addEventListener("load", onLoad, { once: true });
+
+        return () => window.removeEventListener("load", onLoad);
+    }, []);
+
+
+    
     const { t } = useTranslation();
     return (
         <Layout
-            className="relative flex min-h-[100svh] flex-col bg-[#d1e0ec] text-ink"
+            className={`frontpage relative flex min-h-[100svh] flex-col bg-[#d1e0ec] text-ink ${canAnimate ? "is-loaded" : ""}`}
             mainClassName="relative flex flex-1 items-center justify-center px-6 py-6 text-center sm:py-8">
             <div
                 className="pointer-events-none absolute inset-0"

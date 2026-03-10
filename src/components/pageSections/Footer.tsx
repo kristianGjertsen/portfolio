@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer className="mt-auto border-t border-sand px-6 py-6 text-xs uppercase tracking-[0.3em] text-ink/60">
+        <footer className="mt-auto border-t bg-inherit  backdrop-blur px-6 py-6 text-xs uppercase tracking-[0.3em] text-ink/60">
             <div className="mx-auto flex w-full lg:pl-10 lg:pr-10 flex-wrap items-center justify-between gap-4">
                 <span>© 2026 Kristian Gjertsen</span>
 
