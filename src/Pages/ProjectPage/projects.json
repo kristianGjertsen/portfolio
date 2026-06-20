@@ -1,18 +1,74 @@
 [
   {
+    "id": "car-builder",
+    "year": 2026,
+    "img": "carbuilder.png",
+    "languages": ["Spline", "3D", "JavaScript"],
+    "imgAlt": "Image of Car Builder Spline test",
+    "content": {
+      "no": {
+        "title": "Car Builder",
+        "shortText": "Enkel 3D-test i Spline der brukeren kan endre farge på bil og felger.",
+        "longText": "Car Builder er en enkel 3D-modelltest laget i Spline. Prosjektet utforsker hvordan interaktive 3D-elementer kan brukes i en nettleseropplevelse, med fokus på å la brukeren endre farge på både bilen og felgene. Målet var å teste enkel tilpasning, visuell respons og presentasjon av en modell i et lett og forståelig format."
+      },
+      "en": {
+        "title": "Car Builder",
+        "shortText": "Simple Spline 3D test where the user can change the color of the car and rims.",
+        "longText": "Car Builder is a simple 3D model test created in Spline. The project explores how interactive 3D elements can be used in a browser experience, focusing on letting the user change the color of both the car and the rims. The goal was to test lightweight customization, visual feedback, and clear presentation of a model in a simple format."
+      }
+    },
+    "buttons": [
+      {
+        "previewUrl": "https://car-builder-seven.vercel.app/",
+        "label": {
+          "no": "Åpne live preview",
+          "en": "Open live preview"
+        },
+        "ariaLabel": {
+          "no": "Åpne Car Builder som live preview",
+          "en": "Open Car Builder as a live preview"
+        }
+      },
+      {
+        "href": "https://car-builder-seven.vercel.app/",
+        "label": {
+          "no": "Besøk nettsiden",
+          "en": "Visit the website"
+        },
+        "ariaLabel": {
+          "no": "Besøk Car Builder i ny fane",
+          "en": "Visit Car Builder in a new tab"
+        }
+      },
+      {
+        "href": "https://github.com/kristianGjertsen/Car-Builder",
+        "label": {
+          "no": "Se GitHub-repo",
+          "en": "View GitHub repo"
+        },
+        "ariaLabel": {
+          "no": "Åpne GitHub-repo for Car Builder",
+          "en": "Open the Car Builder GitHub repository"
+        }
+      }
+    ]
+  },
+  {
     "id": "rotate-the-platform",
     "year": 2022,
     "img": "RotatePlatform.png",
-    "languages": "C# (Unity)",
+    "languages": ["C#", "Unity"],
     "imgAlt": "Image Rotate The Platform",
     "content": {
       "no": {
         "title": "Rotate The Platform",
-        "description": "Enkelt spill laget i Unity hvor spilleren roterer en plattform for å navigere til neste nivå. Kan spilles på nett via itch.io, eller kan lastes ned fra itch.io-siden.\nUnity bruker C# som programmeringsspråk. Prosjektet ga erfaring med enkel level-design, grunnleggende fysikk og iterativ prototyping av spillmekanikken."
+        "shortText": "Lite Unity-spill der du roterer plattformen for å komme deg videre gjennom banen.",
+        "longText": "Enkelt spill laget i Unity hvor spilleren roterer en plattform for å navigere til neste nivå. Kan spilles på nett via itch.io, eller kan lastes ned fra itch.io-siden.\nUnity bruker C# som programmeringsspråk. Prosjektet ga erfaring med enkel level-design, grunnleggende fysikk og iterativ prototyping av spillmekanikken."
       },
       "en": {
         "title": "Rotate The Platform",
-        "description": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language. The project covered basic level design, physics tuning, and iterative prototyping of the core game mechanic.",
+        "shortText": "Small Unity game where you rotate the platform to move forward through the level.",
+        "longText": "Simple Unity game where the player rotates a platform to navigate to the next level. Play it in the browser via itch.io, or download it from the itch.io page.\nUnity uses C# as the programming language. The project covered basic level design, physics tuning, and iterative prototyping of the core game mechanic.",
         "linkLabel": "See the project on itch.io"
       }
     },
@@ -34,16 +90,18 @@
     "id": "builder",
     "year": 2022,
     "img": "Builder.png",
-    "languages": "C# (Unity)",
+    "languages": ["C#", "Unity"],
     "imgAlt": "Builder Image",
     "content": {
       "no": {
         "title": "Builder",
-        "description": "Enkelt sandbox-spill laget i Unity der spilleren samler ressurser for å bygge strukturer og få fremdrift. Fokus lå på enkel ressursflyt, byggesystem og balanse mellom progresjon og frihet, med prototyping av UI og kontrolloppsett."
+        "shortText": "Lite sandbox-spill i Unity med ressurssamling, bygging og enkel progresjon.",
+        "longText": "Enkelt sandbox-spill laget i Unity der spilleren samler ressurser for å bygge strukturer og få fremdrift. Fokus lå på enkel ressursflyt, byggesystem og balanse mellom progresjon og frihet, med prototyping av UI og kontrolloppsett."
       },
       "en": {
         "title": "Builder",
-        "description": "Simple sandbox game built in Unity where you gather resources to construct structures and progress. Focused on a lightweight resource loop, building system, and balancing progression with player freedom, including prototyping UI and controls.",
+        "shortText": "Small Unity sandbox game focused on gathering resources, building, and steady progression.",
+        "longText": "Simple sandbox game built in Unity where you gather resources to construct structures and progress. Focused on a lightweight resource loop, building system, and balancing progression with player freedom, including prototyping UI and controls.",
         "linkLabel": "See the project on itch.io"
       }
     },
@@ -64,16 +122,19 @@
   {
     "id": "dotDagene-website",
     "year": 2025,
-    "languages": "React - TypeScript - Tailwind CSS",
+    "languages": ["React", "TypeScript", "Tailwind CSS"],
+    "img": "dotdagene.png",
     "imgAlt": "dotDAGENE website preview",
     "content": {
       "no": {
         "title": "dotDAGENE",
-        "description": "dotDAGENE er en nettside for karrieredagene for informatikkstudiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning."
+        "shortText": "Nettside for dotDAGENE ved NTNU med tydelig informasjon og et lekent visuelt uttrykk.",
+        "longText": "dotDAGENE er en nettside for karrieredagene for informatikkstudiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning."
       },
       "en": {
         "title": "dotDAGENE",
-        "description": "dotDAGENE is a website for the career days of the Informatics program at NTNU. The site presents the event in a simple and accessible way. The goal was to make the content easy to share and reuse across contexts. The visual style is a twist on Neo Brutalism to create a more playful, attention-grabbing site. Hosted on Vercel. Shown here as a preview."
+        "shortText": "Website for NTNU's dotDAGENE with clear event info and a more playful visual style.",
+        "longText": "dotDAGENE is a website for the career days of the Informatics program at NTNU. The site presents the event in a simple and accessible way. The goal was to make the content easy to share and reuse across contexts. The visual style is a twist on Neo Brutalism to create a more playful, attention-grabbing site. Hosted on Vercel. Shown here as a preview."
       }
     },
     "buttons": [
@@ -115,17 +176,19 @@
   {
     "id": "Week Number - Dynamic Icon",
     "year": 2026,
-    "languages": "HTML - CSS - JavaScript",
+    "languages": ["HTML", "CSS", "JavaScript", "Chrome Extension"],
     "img": "WeekNumber.png",
     "imgAlt": "Image of Week Number Chrome Extension",
     "content": {
       "no": {
         "title": "Week Number - Dynamic Icon Extension for Chrome",
-        "description": "Enkel Google-utvidelse som viser uketallet i ikonet for Chrome-nettleseren. Utvidelsen oppdaterer seg selv hver uke for å vise riktig uketall. Laget med HTML, CSS og JavaScript. Inneholder en liten meny for fargevalg for ikonet."
+        "shortText": "Chrome-utvidelse som viser uketallet.",
+        "longText": "Enkel Google-utvidelse som viser uketallet i ikonet for Chrome-nettleseren. Utvidelsen oppdaterer seg selv hver uke for å vise riktig uketall. Laget med HTML, CSS og JavaScript. Inneholder en liten meny for fargevalg for ikonet."
       },
       "en": {
         "title": "Week Number - Dynamic Icon Extension for Chrome",
-        "description": "Simple Chrome extension that shows the current week number directly in the browser icon. Updates itself every week to stay accurate. Built with HTML, CSS and JavaScript, and includes a small menu to choose the icon color."
+        "shortText": "Chrome extension that shows the current week number.",
+        "longText": "Simple Chrome extension that shows the current week number directly in the browser icon. Updates itself every week to stay accurate. Built with HTML, CSS and JavaScript, and includes a small menu to choose the icon color."
       }
     },
     "buttons": [
@@ -152,17 +215,25 @@
   {
     "id": "Color Playground ",
     "year": 2026,
-    "languages": "HTML - CSS - JavaScript - API (AI requests)",
+    "languages": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Chrome Extension",
+      "Cloudflare API"
+    ],
     "img": "ColorPlayground.png",
     "imgAlt": "Image of Color Playground",
     "content": {
       "no": {
         "title": "Color Playground - Extension for Chrome",
-        "description": "Color Playground er en utvidelse som lar deg endre fargene på nettsteder, (ikke alle elementer kan alltid endres pga ulik implementasjon, men det fungerer på mange sider). Du kan bruke ferdige temaer, justere farger selv eller tilpasse utseendet per nettside for bedre lesbarhet og komfort. Utvidelsen lagrer innstillingene lokalt og gir deg full kontroll over hvordan nettsider ser ut. Kan bruke innebygd AI for å generere nye fargetemaer basert på dine preferanser. Dette gjøres via en API til Cloudflare som bruker en Gemini-modell til å returnere JSON med fargekoder. All lagret data kan lastes ned og slettes når som helst."
+        "shortText": "Chrome-utvidelse for fargetemaer på nettsider, med lokal lagring og AI-forslag.",
+        "longText": "Color Playground er en utvidelse som lar deg endre fargene på nettsteder, (ikke alle elementer kan alltid endres pga ulik implementasjon, men det fungerer på mange sider). Du kan bruke ferdige temaer, justere farger selv eller tilpasse utseendet per nettside for bedre lesbarhet og komfort. Utvidelsen lagrer innstillingene lokalt og gir deg full kontroll over hvordan nettsider ser ut. Kan bruke innebygd AI for å generere nye fargetemaer basert på dine preferanser. Dette gjøres via en API til Cloudflare som bruker en Gemini-modell til å returnere JSON med fargekoder. All lagret data kan lastes ned og slettes når som helst."
       },
       "en": {
         "title": "Color Playground - Extension for Chrome",
-        "description": "Color Playground lets you adjust website colors to your liking (not every element can change on every site, but it works on many). Use preset themes, tweak colors yourself, or customize per site for better readability and comfort. The extension stores settings locally and gives you full control over how sites appear. It can also call an AI via a Cloudflare API using a Gemini model to suggest new color themes based on your preferences. All stored data can be downloaded and deleted at any time."
+        "shortText": "Chrome extension for website color themes with local settings and AI-assisted suggestions.",
+        "longText": "Color Playground lets you adjust website colors to your liking (not every element can change on every site, but it works on many). Use preset themes, tweak colors yourself, or customize per site for better readability and comfort. The extension stores settings locally and gives you full control over how sites appear. It can also call an AI via a Cloudflare API using a Gemini model to suggest new color themes based on your preferences. All stored data can be downloaded and deleted at any time."
       }
     },
     "buttons": [
@@ -189,16 +260,19 @@
   {
     "id": "frisorn-website",
     "year": 2026,
-    "languages": "React - TypeScript - Tailwind CSS",
+    "languages": ["React", "TypeScript", "Tailwind CSS"],
+    "img": "frisoren.png",
     "imgAlt": "frisorn website preview",
     "content": {
       "no": {
         "title": "Frisør'n",
-        "description": "Statisk nettsted for Frisør'n i Dybdahls veg 3-5. Enkle sider for start, kontakt og om oss med fokus på åpningstider, kontakt og kart. Bygget med Vite/React/TypeScript og skreddersydde Tailwind-variabler for et varmt, håndverksinspirert uttrykk. Drift, DNS/SSL og maildomene håndteres av meg via enkeltpersonforetaket. kunden faktureres månedlig."
+        "shortText": "Statisk nettsted for Frisør'n med fokus på åpningstider, kontakt og et varmt uttrykk.",
+        "longText": "Statisk nettsted for Frisør'n i Dybdahls veg 3-5. Enkle sider for start, kontakt og om oss med fokus på åpningstider, kontakt og kart. Bygget med Vite/React/TypeScript og skreddersydde Tailwind-variabler for et varmt, håndverksinspirert uttrykk. Drift, DNS/SSL og maildomene håndteres av meg via enkeltpersonforetaket. kunden faktureres månedlig."
       },
       "en": {
         "title": "Frisør'n",
-        "description": "Static site for Frisør'n (Dybdahls veg 3-5) with simple home, contact, and about pages focused on opening hours, contact, and map. Built with Vite/React/TypeScript and custom Tailwind tokens for a warm, craft-inspired look. I handle hosting, DNS/SSL, and the email domain through my sole proprietorship. The client is billed monthly."
+        "shortText": "Static site for Frisør'n centered on opening hours, contact details, and a warm visual identity.",
+        "longText": "Static site for Frisør'n (Dybdahls veg 3-5) with simple home, contact, and about pages focused on opening hours, contact, and map. Built with Vite/React/TypeScript and custom Tailwind tokens for a warm, craft-inspired look. I handle hosting, DNS/SSL, and the email domain through my sole proprietorship. The client is billed monthly."
       }
     },
     "buttons": [
@@ -221,7 +295,7 @@
         },
         "ariaLabel": {
           "no": "Besøk frisørn.no i ny fane",
-          "en": "Visit frisørn.no in a new tab"
+          "en": "Visit frisrn.no in a new tab"
         }
       },
       {
@@ -237,4 +311,5 @@
       }
     ]
   }
+  
 ]
