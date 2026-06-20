@@ -1,54 +1,81 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Layout from "../../components/elements/Layout";
-import Button from "../../components/elements/Button";
-import noImg from "../../assets/ProjectImages/noimg.avif";
-
+import ProjectBigCard from "./ProjectBigCard";
+import ProjectSmallCard from "./ProjectSmallCard";
+import type { ProjectItem } from "./ProjectPage.types";
 import {
+  getAllProjectLanguages,
   PROJECTS,
-  START_PROJECT_INDEX,
-  SCROLL_VH_PER_PROJECT,
-  sortProjects,
-  useProjectScroll,
-  type ProjectItem,
-  type ProjectCopy,
-  type LocalizedString,
-} from "./ProjectPage.state";
+} from "./ProjectPage.utils";
 
-const projectImages = import.meta.glob("../../assets/ProjectImages/*", {
-  eager: true,
-  import: "default",
-}) as Record<string, string>;
-
-const getProjectImageSrc = (img?: string) => {
-  if (!img) return noImg;
-  return projectImages[`../../assets/ProjectImages/${img}`] ?? noImg;
-};
-
-const getProjectCopy = (
-  project: ProjectItem,
-  language: string | undefined
-): ProjectCopy => {
-  const key = language?.startsWith("no") ? "no" : "en";
-  return project.content[key] ?? project.content.en;
-};
-
-const getLocalizedValue = (
-  value: LocalizedString | undefined,
-  language: string | undefined
-) => {
-  const key = language?.startsWith("no") ? "no" : "en";
-  return value?.[key] ?? value?.en ?? value?.no ?? "";
-};
+type SortOption = "newest" | "oldest";
 
 function ProjectPage() {
   const { t } = useTranslation();
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
+  const [sortBy, setSortBy] = useState<SortOption>("newest");
+  const [isLanguageFilterOpen, setIsLanguageFilterOpen] = useState(false);
+  const languageFilterRef = useRef<HTMLDivElement | null>(null);
 
-  const projects = useMemo(() => sortProjects(PROJECTS), []);
+  const availableLanguages = useMemo(
+    () => getAllProjectLanguages(PROJECTS),
+    []
+  );
+  const projectOrder = useMemo(
+    () => new Map(PROJECTS.map((project, index) => [project.id, index])),
+    []
+  );
+
+  const filteredProjects = useMemo(() => {
+    return [...PROJECTS]
+      .filter((project) => {
+        return (
+          selectedLanguages.length === 0 ||
+          selectedLanguages.every((entry) => project.languages.includes(entry))
+        );
+      })
+      .sort((a, b) => {
+        const yearDiff = sortBy === "oldest" ? a.year - b.year : b.year - a.year;
+        if (yearDiff !== 0) return yearDiff;
+        return (projectOrder.get(a.id) ?? 0) - (projectOrder.get(b.id) ?? 0);
+      });
+  }, [projectOrder, selectedLanguages, sortBy]);
+
+  const toggleLanguage = (entry: string) => {
+    setSelectedLanguages((current) =>
+      current.includes(entry)
+        ? current.filter((value) => value !== entry)
+        : [...current, entry]
+    );
+  };
+
+  const clearFilters = () => {
+    setSelectedLanguages([]);
+    setSortBy("newest");
+    setIsLanguageFilterOpen(false);
+  };
+
+  useEffect(() => {
+    if (!isLanguageFilterOpen) return;
+
+    const handlePointerDown = (event: MouseEvent) => {
+      if (!languageFilterRef.current?.contains(event.target as Node)) {
+        setIsLanguageFilterOpen(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handlePointerDown);
+
+    return () => {
+      window.removeEventListener("mousedown", handlePointerDown);
+    };
+  }, [isLanguageFilterOpen]);
 
   return (
     <Layout className="relative min-h-screen bg-paper text-ink">
-      <section className="mx-auto w-full max-w-6xl px-6 pt-12 pb-6">
+      <section className="mx-auto w-full max-w-6xl px-6 pt-12 pb-10">
         <p className="text-xs uppercase tracking-[0.35em] text-ink/60">
           {t("projectPage.tagline")}
         </p>
@@ -60,199 +87,149 @@ function ProjectPage() {
         </p>
       </section>
 
-      <div className="mx-auto w-full max-w-6xl px-6 pb-24">
-        <ScrollProjects projects={projects} />
-      </div>
-    </Layout>
-  );
-}
+      <section className="mx-auto w-full max-w-6xl px-6 pb-8">
+        <div className="rounded-[1.75rem] border border-sand/80 bg-white/90 p-5 shadow-card">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="text-[0.7rem] uppercase tracking-[0.32em] text-ink/55">
+              {t("projectPage.sort_label")}
+            </span>
 
-function ScrollProjects({ projects }: { projects: ProjectItem[] }) {
-  const {
-    scrollAreaRef,
-    activeIndex,
-    progress,
-    scrollToIndex,
-  } = useProjectScroll(projects, START_PROJECT_INDEX);
-
-  const active = projects[activeIndex] ?? projects[0];
-  return (
-    <section
-      ref={scrollAreaRef}
-      className="relative"
-      style={{ height: `${Math.max(1, projects.length) * SCROLL_VH_PER_PROJECT}vh` }}
-    >
-      {/* Sticky “ramme” som står i ro mens du scroller */}
-      <div className="sticky top-20">
-        <div className="rounded-3xl border border-sand/80 bg-white/80 p-5 shadow-card backdrop-blur">
-          {/* ÅR / PROGRESSBAR */}
-          <div className="mb-6">
-            <div className="relative">
-              <div className="h-1 w-full rounded-full bg-ink/10" />
-              <div
-                className="absolute left-0 top-0 h-1 w-full origin-left rounded-full bg-ink"
-                style={{ transform: `scaleX(${progress})` }}
-                aria-hidden="true"
-              />
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => setSortBy("newest")}
+                aria-pressed={sortBy === "newest"}
+                aria-label={t("projectPage.sort_newest")}
+                className={[
+                  "flex h-9 w-9 items-center justify-center rounded-xl border text-sm transition",
+                  sortBy === "newest"
+                    ? "border-ink bg-ink text-paper"
+                    : "border-sand/80 bg-paper text-ink/70 hover:border-ink/40 hover:text-ink",
+                ].join(" ")}
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 16 16"
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M8 13V3" />
+                  <path d="M4.5 6.5 8 3l3.5 3.5" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={() => setSortBy("oldest")}
+                aria-pressed={sortBy === "oldest"}
+                aria-label={t("projectPage.sort_oldest")}
+                className={[
+                  "flex h-9 w-9 items-center justify-center rounded-xl border text-sm transition",
+                  sortBy === "oldest"
+                    ? "border-ink bg-ink text-paper"
+                    : "border-sand/80 bg-paper text-ink/70 hover:border-ink/40 hover:text-ink",
+                ].join(" ")}
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 16 16"
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M8 3v10" />
+                  <path d="m4.5 9.5 3.5 3.5 3.5-3.5" />
+                </svg>
+              </button>
             </div>
 
-            <ol className="mt-4 flex items-start justify-between gap-2">
-              {projects.map((p, i) => {
-                const isActive = i === activeIndex;
-                return (
-                  <li key={p.id} className="min-w-0 flex-1">
-                    <button
-                      type="button"
-                      onClick={() => scrollToIndex(i)}
-                      className="group w-full text-left"
-                      aria-current={isActive ? "true" : undefined}
-                    >
-                      <div className="flex items-center justify-center">
-                        <span
-                          className={[
-                            "h-3 w-3 rounded-full border transition",
-                            isActive
-                              ? "border-ink bg-ink"
-                              : "border-ink/30 bg-white group-hover:border-ink/60",
-                          ].join(" ")}
-                        />
-                      </div>
-                      <div
-                        className={[
-                          "mt-2 truncate text-center text-[0.65rem] uppercase tracking-[0.3em] transition",
-                          isActive ? "text-ink" : "text-ink/50 group-hover:text-ink/70",
-                        ].join(" ")}
-                      >
-                        {p.year}
-                      </div>
-                    </button>
-                  </li>
-                );
-              })}
-            </ol>
-          </div>
-
-          {/* FAST “MIDT”-OMRÅDE: viser kun ett prosjekt om gangen */}
-          <div className="relative h-[70vh]">
-            <article className="absolute inset-0">
-              <ProjectCard project={active} />
-            </article>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ProjectCard({ project }: { project: ProjectItem }) {
-  const { t, i18n } = useTranslation();
-  const language = i18n.resolvedLanguage ?? i18n.language;
-  const copy = getProjectCopy(project, language);
-  const [shiftPreviewLabel, setShiftPreviewLabel] = useState(false);
-  const localizedButtons = (project.buttons ?? []).map((button) => {
-    const ariaLabel = getLocalizedValue(button.ariaLabel, language);
-    return {
-      href: button.href,
-      previewUrl: button.previewUrl,
-      label: getLocalizedValue(button.label, language),
-      ariaLabel: ariaLabel || undefined,
-    };
-  });
-  const buttons: Array<{
-    href?: string;
-    previewUrl?: string;
-    label: string;
-    ariaLabel?: string;
-  }> =
-    localizedButtons.length > 0
-      ? localizedButtons
-      : project.link && copy.linkLabel
-        ? [{ href: project.link, label: copy.linkLabel, ariaLabel: undefined }]
-        : [];
-  const previewButton = buttons.find((button) => button.previewUrl);
-  const actionButtons = buttons.filter(
-    (button) => !button.previewUrl && button.label
-  );
-
-  // Timer for å flytte på preview-label etter 2 sekunder
-  useEffect(() => {
-    if (!previewButton?.previewUrl) return;
-    setShiftPreviewLabel(false);
-    const timer = window.setTimeout(() => {
-      setShiftPreviewLabel(true);
-    }, 3000);
-    return () => window.clearTimeout(timer);
-  }, [previewButton?.previewUrl]);
-
-  return (
-    <div className="flex h-full flex-col overflow-hidden rounded-3xl border border-sand/80 bg-white/85 shadow-card backdrop-blur">
-      {/*Live preview av nettside*/}
-      {previewButton?.previewUrl ? (
-        <div className="relative">
-          {/* Tekst som viser at siden er i preview */}
-          <div
-            className={[
-              "absolute rounded-xl flex items-center flex-col border border-sand/80 top-20 left-1/2 -translate-x-1/2 p-3 bg-black/90 px-2 text-[0.9rem] tracking-[0.35em] text-paper transition-opacity duration-500",
-              shiftPreviewLabel ? "opacity-0 pointer-events-none" : "opacity-100",
-            ].join(" ")}
-          >
-            <span className="block">{t("projectPage.preview_label_top")}</span>
-            <span className="block text-[0.75rem] tracking-[0.25em] text-paper/80">
-              {t("projectPage.preview_label_bottom")}
-            </span>
-          </div>
-          <iframe
-            className="h-[40vh] w-full bg-white [@media(max-height:760px)]:h-[32vh] [@media(max-height:640px)]:h-[26vh]"
-            src={previewButton.previewUrl}
-            title={`${copy.title} preview`}
-          />
-        </div>
-
-      ) : (
-        <img
-          className="h-[40vh] w-full object-cover bg-paper [@media(max-height:760px)]:h-[32vh] [@media(max-height:640px)]:h-[26vh]"
-          src={getProjectImageSrc(project.img)}
-          alt={project.imgAlt ?? copy.title}
-        />
-      )}
-
-      <div className="flex flex-1 min-h-0 flex-col px-6 py-5 sm:px-8 sm:py-6 [@media(max-height:760px)]:py-4 [@media(max-height:640px)]:py-3">
-        <span className="hidden tracking-[0.35em] text-ink/50 sm:flex justify-between gap-100">
-          <p>
-            {project.year}
-          </p>
-          <p>
-            {project.languages ? project.languages : ""}
-          </p>
-        </span>
-
-        {/* Title */}
-        <h2 className="mt-3 font-display text-2xl sm:text-3xl [@media(max-height:760px)]:mt-2 [@media(max-height:640px)]:text-xl">
-          {copy.title}
-        </h2>
-        {/* Description */}
-        <p className="mt-2 flex-1 min-h-0 overflow-y-auto pr-1 text-sm text-ink/70 sm:text-base [@media(max-height:760px)]:mt-1 [@media(max-height:760px)]:text-sm [@media(max-height:760px)]:leading-snug [@media(max-height:640px)]:text-[0.85rem] [@media(max-height:640px)]:leading-snug">
-          {copy.description}
-        </p>
-        {actionButtons.length > 0 && (
-          <div className="mt-auto flex flex-nowrap gap-2 pt-4 sm:flex-wrap sm:gap-3 [@media(max-height:760px)]:gap-2 [@media(max-height:760px)]:pt-3 [@media(max-height:640px)]:pt-2">
-            {actionButtons.map((button) => (
-              <Button
-                key={`${project.id}-${button.href}-${button.label}`}
-                href={button.href}
-                aria-label={button.ariaLabel}
-                rel="noreferrer"
-                target="_blank"
-                className="min-w-0 shrink justify-center whitespace-nowrap [@media(max-height:760px)]:px-4 [@media(max-height:760px)]:py-3 [@media(max-height:760px)]:text-[0.65rem] [@media(max-height:760px)]:tracking-[0.1em] [@media(max-height:640px)]:px-3 [@media(max-height:640px)]:py-2 [@media(max-height:640px)]:text-[0.6rem] [@media(max-height:640px)]:tracking-[0.08em]"
+            <div
+              ref={languageFilterRef}
+              className="relative min-w-0 flex-1 sm:max-w-sm"
+            >
+              <button
+                type="button"
+                onClick={() => setIsLanguageFilterOpen((current) => !current)}
+                aria-expanded={isLanguageFilterOpen}
+                aria-haspopup="true"
+                className="flex h-9 w-full items-center justify-between rounded-xl border border-sand/80 bg-paper px-3 py-2 text-left text-sm text-ink transition hover:border-ink/40"
               >
-                <span className="min-w-0 truncate">{button.label}</span>
-              </Button>
-            ))}
+                <span className="truncate text-ink/80">
+                  {selectedLanguages.length > 0
+                    ? selectedLanguages.join(", ")
+                    : t("projectPage.filter_languages")}
+                </span>
+                <span className="ml-3 text-xs text-ink/55">
+                  {isLanguageFilterOpen ? "-" : "+"}
+                </span>
+              </button>
+
+              {isLanguageFilterOpen ? (
+                <div className="absolute left-0 top-full z-20 mt-2 w-full rounded-2xl border border-sand/80 bg-white p-2 shadow-card">
+                  <div className="flex max-h-64 flex-col overflow-y-auto">
+                    {availableLanguages.map((entry) => {
+                      const isSelected = selectedLanguages.includes(entry);
+
+                      return (
+                        <label
+                          key={entry}
+                          className="flex cursor-pointer items-center justify-between gap-3 rounded-xl px-3 py-2 text-sm text-ink/80 transition hover:bg-paper"
+                        >
+                          <span>{entry}</span>
+                          <input
+                            type="checkbox"
+                            checked={isSelected}
+                            onChange={() => toggleLanguage(entry)}
+                            className="h-4 w-4 accent-ink"
+                          />
+                        </label>
+                      );
+                    })}
+                  </div>
+                </div>
+              ) : null}
+            </div>
+
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="ml-auto text-[0.7rem] uppercase tracking-[0.28em] text-ink/60 transition hover:text-ink"
+            >
+              {t("projectPage.clear_filters")}
+            </button>
           </div>
-        )}
-      </div>
-    </div >
+        </div>
+      </section>
+
+      <section className="mx-auto flex w-full max-w-6xl flex-wrap gap-6 px-6 pb-24">
+        {filteredProjects.map((project) => (
+          <ProjectSmallCard
+            key={project.id}
+            project={project}
+            onOpen={() => setSelectedProject(project)}
+          />
+        ))}
+
+        {filteredProjects.length === 0 ? (
+          <div className="w-full rounded-[1.75rem] border border-dashed border-sand/80 bg-white/70 px-6 py-10 text-center text-sm text-ink/65">
+            {t("projectPage.no_results")}
+          </div>
+        ) : null}
+      </section>
+
+      {selectedProject ? (
+        <ProjectBigCard
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      ) : null}
+    </Layout>
   );
 }
 
