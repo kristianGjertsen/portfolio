@@ -3,7 +3,7 @@
     "id": "car-builder",
     "year": 2026,
     "img": "carbuilder.png",
-    "languages": ["Spline", "3D", "JavaScript"],
+    "languages": ["React", "TypeScript", "Tailwind CSS", "Spline", "3D"],
     "imgAlt": "Image of Car Builder Spline test",
     "content": {
       "no": {
