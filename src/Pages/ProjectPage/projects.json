@@ -2,19 +2,26 @@
   {
     "id": "car-builder",
     "year": 2026,
+    "sortDate": "2026-05-01",
     "img": "carbuilder.png",
-    "languages": ["React", "TypeScript", "Tailwind CSS", "Spline", "3D"],
-    "imgAlt": "Image of Car Builder Spline test",
+    "aksForUseWebsite": true,
+    "languages": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "3D"
+    ],
+    "imgAlt": "Image of Car Builder 3D test",
     "content": {
       "no": {
         "title": "Car Builder",
-        "shortText": "Enkel 3D-test i Spline der brukeren kan endre farge på bil og felger.",
-        "longText": "Car Builder er en enkel 3D-modelltest laget i Spline. Prosjektet utforsker hvordan interaktive 3D-elementer kan brukes i en nettleseropplevelse, med fokus på å la brukeren endre farge på både bilen og felgene. Målet var å teste enkel tilpasning, visuell respons og presentasjon av en modell i et lett og forståelig format."
+        "shortText": "Interaktiv 3D-bilkonfigurator med modellvalg og direkte visuelle endringer.",
+        "longText": "Car Builder er en interaktiv 3D-bilkonfigurator i nettleseren. Brukeren kan velge bilmodell og tilpasse detaljer direkte på bilen, blant annet karosserifarge, felger, seter og vindustoning. Prosjektet fokuserer på tydelig produktpresentasjon, enkel flyt og rask visuell respons."
       },
       "en": {
         "title": "Car Builder",
-        "shortText": "Simple Spline 3D test where the user can change the color of the car and rims.",
-        "longText": "Car Builder is a simple 3D model test created in Spline. The project explores how interactive 3D elements can be used in a browser experience, focusing on letting the user change the color of both the car and the rims. The goal was to test lightweight customization, visual feedback, and clear presentation of a model in a simple format."
+        "shortText": "Interactive 3D car configurator with model selection and direct visual customization.",
+        "longText": "Car Builder is an interactive 3D car configurator in the browser. The user can choose a car model and customize details directly on the car, including body color, rims, seats, and window tint. The project focuses on clear product presentation, a simple flow, and fast visual feedback."
       }
     },
     "buttons": [
@@ -56,8 +63,12 @@
   {
     "id": "rotate-the-platform",
     "year": 2022,
+    "sortDate": "2022-01-01",
     "img": "RotatePlatform.png",
-    "languages": ["C#", "Unity"],
+    "languages": [
+      "C#",
+      "Unity"
+    ],
     "imgAlt": "Image Rotate The Platform",
     "content": {
       "no": {
@@ -89,8 +100,12 @@
   {
     "id": "builder",
     "year": 2022,
+    "sortDate": "2022-01-01",
     "img": "Builder.png",
-    "languages": ["C#", "Unity"],
+    "languages": [
+      "C#",
+      "Unity"
+    ],
     "imgAlt": "Builder Image",
     "content": {
       "no": {
@@ -122,14 +137,19 @@
   {
     "id": "dotDagene-website",
     "year": 2025,
-    "languages": ["React", "TypeScript", "Tailwind CSS"],
+    "sortDate": "2025-09-01",
+    "languages": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
     "img": "dotdagene.png",
     "imgAlt": "dotDAGENE website preview",
     "content": {
       "no": {
         "title": "dotDAGENE",
         "shortText": "Nettside for dotDAGENE ved NTNU med tydelig informasjon og et lekent visuelt uttrykk.",
-        "longText": "dotDAGENE er en nettside for karrieredagene for informatikkstudiet på NTNU. Siden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å dele og bruke i ulike sammenhenger. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning."
+        "longText": "dotDAGENE er en karrieredagene for informatikkstudiet på NTNU. Nettsiden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å formidle og bruke. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning."
       },
       "en": {
         "title": "dotDAGENE",
@@ -176,7 +196,13 @@
   {
     "id": "Week Number - Dynamic Icon",
     "year": 2026,
-    "languages": ["HTML", "CSS", "JavaScript", "Chrome Extension"],
+    "sortDate": "2026-01-02",
+    "languages": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Chrome Extension"
+    ],
     "img": "WeekNumber.png",
     "imgAlt": "Image of Week Number Chrome Extension",
     "content": {
@@ -215,6 +241,7 @@
   {
     "id": "Color Playground ",
     "year": 2026,
+    "sortDate": "2026-01-14",
     "languages": [
       "HTML",
       "CSS",
@@ -260,7 +287,12 @@
   {
     "id": "frisorn-website",
     "year": 2026,
-    "languages": ["React", "TypeScript", "Tailwind CSS"],
+    "sortDate": "2026-02-02",
+    "languages": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
     "img": "frisoren.png",
     "imgAlt": "frisorn website preview",
     "content": {
@@ -311,5 +343,4 @@
       }
     ]
   }
-  
 ]

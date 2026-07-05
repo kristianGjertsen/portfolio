@@ -37,8 +37,12 @@ function ProjectPage() {
         );
       })
       .sort((a, b) => {
-        const yearDiff = sortBy === "oldest" ? a.year - b.year : b.year - a.year;
-        if (yearDiff !== 0) return yearDiff;
+        const aDate = new Date(a.sortDate ?? `${a.year}-01-01`).getTime();
+        const bDate = new Date(b.sortDate ?? `${b.year}-01-01`).getTime();
+        const dateDiff = sortBy === "oldest" ? aDate - bDate : bDate - aDate;
+
+        if (dateDiff !== 0) return dateDiff;
+
         return (projectOrder.get(a.id) ?? 0) - (projectOrder.get(b.id) ?? 0);
       });
   }, [projectOrder, selectedLanguages, sortBy]);

@@ -44,7 +44,10 @@
     "preview_label_top": "Interaktiv forhåndsvisning",
     "preview_label_bottom": "(Fungerende nettside via iFRAME)",
     "timeline_label": "Tidslinje",
-    "timeline_current": "År {{year}}"
+    "timeline_current": "År {{year}}",
+    "preview_external_notice": "Denne forhåndsvisningen kan kjøre dårligere her. Den fungerer bedre på den ekte nettsiden.",
+    "preview_external_visit": "Besøk nettsiden",
+    "preview_external_continue": "Fortsett her"
   },
   "contactPage": {
     "tagline": "Kontakt",

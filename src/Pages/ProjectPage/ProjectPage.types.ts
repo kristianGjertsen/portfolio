@@ -21,10 +21,10 @@ export type ProjectButton = {
   label: LocalizedString;
   ariaLabel?: LocalizedString;
 };
-
 export type ProjectItem = {
   id: string;
   year: number;
+  sortDate?: string;
   link?: string;
   languages: string[];
   img?: string;
