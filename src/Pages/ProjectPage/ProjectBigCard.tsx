@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "../../components/elements/Button";
 import type { ProjectItem } from "./ProjectPage.types";
@@ -15,15 +15,30 @@ type ProjectBigCardProps = {
   onClose: () => void;
 };
 
+type ProjectItemWithPreviewChoice = ProjectItem & {
+  aksForUseWebsite?: boolean;
+};
+
 function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const language = i18n.resolvedLanguage ?? i18n.language;
   const copy = getProjectCopy(project, language);
   const links = getProjectLinks(project, language, copy);
   const previewUrl = getProjectPreviewUrl(project);
+  const shouldAskForUseWebsite = Boolean(
+    (project as ProjectItemWithPreviewChoice).aksForUseWebsite
+  );
+  const [showPreviewChoice, setShowPreviewChoice] = useState(
+    shouldAskForUseWebsite && Boolean(previewUrl)
+  );
   const closeLabel = language?.startsWith("no") ? "Lukk" : "Close";
-  const closeAriaLabel =
-    language?.startsWith("no") ? "Lukk prosjektinformasjon" : "Close project details";
+  const closeAriaLabel = language?.startsWith("no")
+    ? "Lukk prosjektinformasjon"
+    : "Close project details";
+
+  useEffect(() => {
+    setShowPreviewChoice(shouldAskForUseWebsite && Boolean(previewUrl));
+  }, [project.id, previewUrl, shouldAskForUseWebsite]);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -96,14 +111,48 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
         </div>
 
         <div className="flex flex-1 flex-col overflow-y-auto">
-          <div className="px-4 pt-4 sm:px-6">
+          <div className="px-4 pt-4 sm:px-">
             <div className="flex items-center justify-center overflow-hidden rounded-2xl">
               {previewUrl ? (
-                <iframe
-                  className="h-[52vh] w-full bg-white rounded-2xl border border-sand/80"
-                  src={previewUrl}
-                  title={`${copy.title} preview`}
-                />
+                <div className="relative h-[52vh] w-full overflow-hidden rounded-2xl border border-sand/80 bg-white">
+                  {showPreviewChoice ? (
+                    <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/95 px-6 text-center">
+                      <div className="max-w-md rounded-2xl border border-sand/80 bg-white p-6 shadow-card">
+                        <p className="text-sm leading-relaxed text-ink/75 sm:text-base">
+                          {t("projectPage.preview_external_notice")}
+                        </p>
+
+                        <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+                          <Button
+                            href={previewUrl}
+                            aria-label={t("projectPage.preview_external_visit")}
+                            rel="noreferrer"
+                            target="_blank"
+                            type="button"
+                          >
+                            {t("projectPage.preview_external_visit")}
+                          </Button>
+
+                          <Button
+                            rel="noreferrer"
+                            aria-label={t("projectPage.keep_preview")}
+
+                            type="button"
+                            onClick={() => setShowPreviewChoice(false)}
+                          >
+                            {t("projectPage.preview_external_continue")}
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  ) : null}
+
+                  <iframe
+                    className="h-full w-full bg-white"
+                    src={previewUrl}
+                    title={`${copy.title} preview`}
+                  />
+                </div>
               ) : (
                 <img
                   className=" w-full object-contain border border-sand/80 rounded-2xl"
@@ -114,7 +163,7 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
             </div>
           </div>
 
-          <div className="flex flex-1 flex-col px-6 py-6 sm:px-8">
+          <div className="flex flex-1 flex-col px-6 py-4 sm:px-8">
             <p className="text-sm leading-relaxed text-ink/75 sm:text-base">
               {copy.longText}
             </p>

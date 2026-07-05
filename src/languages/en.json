@@ -44,7 +44,10 @@
     "preview_label_top": "Interactive preview",
     "preview_label_bottom": "(Working website via iFRAME)",
     "timeline_label": "Timeline",
-    "timeline_current": "Year {{year}}"
+    "timeline_current": "Year {{year}}",
+    "preview_external_notice": "This preview may run worse here. It works better on the real website.",
+    "preview_external_visit": "Visit website",
+    "preview_external_continue": "Continue here"
   },
   "contactPage": {
     "tagline": "Contact",
