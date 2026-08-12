@@ -1,78 +1,148 @@
 import { useTranslation } from "react-i18next";
-import PageButton from "../../components/elements/PageButton";
-import Layout from "../../components/elements/Layout";
-//import { HoldButton } from "../../components/elements/HoldButton";
-import "./animateFrontPage.css";
 import { useEffect, useState } from "react";
 
-import bg_noIcon from '../../assets/back3_overlay_fill.png'
-import lineOnly from '../../assets/back3LineOnly.png'
+import PageButton from "../../components/elements/PageButton";
+import Layout from "../../components/elements/Layout";
 
-/*
-const handleRestartIntro = () => {
-    localStorage.removeItem("intro_seen");
-    window.location.assign("/");
+import "./animateFrontPage.css";
+
+import bg_noIcon from "../../assets/back3_overlay_fill.png";
+import lineOnly from "../../assets/back3LineOnly.png";
+
+type FrontPageProps = {
+    startLineAnimation?: boolean;
 };
-*/
-function FrontPage() {
 
+const preloadImage = (src: string): Promise<void> => {
+    return new Promise((resolve) => {
+        const image = new Image();
 
-    //Hold animasjon til alt er lastet inn 
+        const done = () => resolve();
+
+        image.onload = done;
+        image.onerror = done;
+        image.src = src;
+
+        if (image.complete) {
+            if (typeof image.decode === "function") {
+                image.decode().catch(() => undefined).finally(done);
+            } else {
+                done();
+            }
+        }
+    });
+};
+
+function FrontPage({
+    startLineAnimation = true,
+}: FrontPageProps) {
+    const { t } = useTranslation();
+
     const [canAnimate, setCanAnimate] = useState(false);
 
     useEffect(() => {
-        const onLoad = () => setCanAnimate(true);
+        if (!startLineAnimation) {
+            return;
+        }
 
-        if (document.readyState === "complete") onLoad();
-        else window.addEventListener("load", onLoad, { once: true });
+        let cancelled = false;
+        let frame1 = 0;
+        let frame2 = 0;
 
-        return () => window.removeEventListener("load", onLoad);
-    }, []);
+        const prepareAnimation = async () => {
+            await Promise.all([
+                preloadImage(bg_noIcon),
+                preloadImage(lineOnly),
+            ]);
 
+            if (cancelled) return;
 
-    
-    const { t } = useTranslation();
+            frame1 = requestAnimationFrame(() => {
+                frame2 = requestAnimationFrame(() => {
+                    if (!cancelled) {
+                        setCanAnimate(true);
+                    }
+                });
+            });
+        };
+
+        prepareAnimation();
+
+        return () => {
+            cancelled = true;
+            cancelAnimationFrame(frame1);
+            cancelAnimationFrame(frame2);
+        };
+    }, [startLineAnimation]);
+
     return (
         <Layout
-            className={`frontpage relative flex min-h-[100svh] flex-col bg-[#d1e0ec] text-ink ${canAnimate ? "is-loaded" : ""}`}
-            mainClassName="relative flex flex-1 items-center justify-center px-6 py-6 text-center sm:py-8">
+            className={`frontpage relative flex min-h-[100svh] flex-col bg-[#d1e0ec] text-ink ${startLineAnimation && canAnimate ? "is-loaded" : ""}`}
+            mainClassName="relative flex flex-1 items-center justify-center px-6 py-6 text-center sm:py-8"
+        >
             <div
                 className="pointer-events-none absolute inset-0"
-                style={{ backgroundImage: `url(${bg_noIcon})`, backgroundSize: "100% 100%" }}
+                style={{
+                    backgroundImage: `url(${bg_noIcon})`,
+                    backgroundSize: "100% 100%",
+                    backgroundRepeat: "no-repeat",
+                }}
             />
-            <div
-                className="pointer-events-none absolute inset-0 animate-slide"
-                style={{ backgroundImage: `url(${lineOnly})`, backgroundSize: "100% 100%" }} />
 
-            <div className="relative z-10 backdrop-blur-lg rounded-3xl p-20 border-8 border-white/50 shadow-2xl bg-white/30">
-                {/*
-                <HoldButton
-                    className="mb-2"
-                    onComplete={handleRestartIntro}>
-                    {t("header.restart_intro")}
-                </HoldButton> */}
+            <div className="line-animation pointer-events-none absolute inset-0">
+                <div className="line-reveal">
+                    <div
+                        className="line-reveal-image"
+                        style={{
+                            backgroundImage: `url(${lineOnly})`,
+                            backgroundSize: "100% 100%",
+                            backgroundRepeat: "no-repeat",
+                        }}
+                    />
+                </div>
+            </div>
+
+            <div className="relative z-10 rounded-3xl border-8 border-white/50 bg-white/30 p-20 shadow-2xl backdrop-blur-lg">
                 <p className="text-xs uppercase tracking-[0.4em] text-ink/60">
                     {t("frontpage.tagline")}
                 </p>
 
-                <h1 className="mt-6 text-6xl 
-                  sm:text-6xl lg:text-7xl">
+                <h1 className="mt-6 text-6xl sm:text-6xl lg:text-7xl">
                     {t("frontpage.title")}
                 </h1>
-                <p className=" mt-4 max-w-xl text-lg text-black" >
+
+                <p className="mt-4 max-w-xl text-lg text-black">
                     {t("frontpage.description")}
                 </p>
+
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
-                    <PageButton to="/projects" variant="white" label={t("frontpage.cta_project")} />
-                    <PageButton to="/about" variant="white" label={t("frontpage.cta_about")} />
-                    <PageButton to="/cv" variant="white" label="CV" />
-                    <PageButton to="/contact" variant="white" label={t("frontpage.cta_contact")} />
+                    <PageButton
+                        to="/projects"
+                        variant="white"
+                        label={t("frontpage.cta_project")}
+                    />
+
+                    <PageButton
+                        to="/about"
+                        variant="white"
+                        label={t("frontpage.cta_about")}
+                    />
+
+                    <PageButton
+                        to="/cv"
+                        variant="white"
+                        label="CV"
+                    />
+
+                    <PageButton
+                        to="/contact"
+                        variant="white"
+                        label={t("frontpage.cta_contact")}
+                    />
                 </div>
-
             </div>
-
-        </Layout >
-    )
+        </Layout>
+    );
 }
 
-export default FrontPage
+export default FrontPage;
