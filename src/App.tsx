@@ -39,6 +39,7 @@ function MetaUpdater() {
     const metaByPath: Record<string, MetaEntry> = {
       '/': {
         title: t('seo.site_title'),
+        description: t('seo.home_description'),
       },
       '/projects': {
         title: `${t('frontpage.title')} - ${t('projectPage.title')}`,
