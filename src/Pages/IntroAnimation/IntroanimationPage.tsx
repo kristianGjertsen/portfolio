@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { ReactNode } from "react";
+import type { ReactNode, TransitionEvent } from "react";
 import FrontPage from "../FrontPage/FrontPage";
 import FrontPageError from "../FrontPage/FrontPageError";
 
@@ -20,6 +20,7 @@ type IntroAnimationProps = {
 const introStorageKey = "intro_seen";
 const introShowDelayMs = 260;
 const errorViewDurationMs = 2500;
+const overlayFadeDurationMs = 500;
 
 const hasSeenIntroAlready = () => {
     if (typeof window === "undefined") {
@@ -33,7 +34,7 @@ const promptTextSecond = "what the f is this make it looke nice!!!";
 
 function IntroanimationPage({ version }: IntroAnimationProps) {
     // Enkel state machine for introen.
-    const initialSeenIntro = hasSeenIntroAlready();
+    const [initialSeenIntro] = useState(() => hasSeenIntroAlready());
     const [hasSeenIntro, setHasSeenIntro] = useState(initialSeenIntro);
     const [cycle, setCycle] = useState<0 | 1>(initialSeenIntro ? 1 : 0);
     const [phase, setPhase] = useState<IntroPhase>(
@@ -46,6 +47,9 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
         initialSeenIntro ? "final" : "none"
     );
     const [reduceMotion, setReduceMotion] = useState(false);
+    // Må starte som false også ved refresh, slik at linjens skjulte
+    // starttilstand rekker å bli tegnet før animasjonen aktiveres.
+    const [finalAnimationReady, setFinalAnimationReady] = useState(false);
     // Velg tekst basert på hvilken runde vi er i.
     const activePromptText = cycle === 0 ? promptTextFirst : promptTextSecond;
 
@@ -75,6 +79,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
         setPhase("done");
         setBackgroundView("final");
         setShowOverlay(false);
+        setFinalAnimationReady(true);
     }, [hasSeenIntro, phase, reduceMotion]);
 
     // Skriver ut prompten ett tegn av gangen.
@@ -156,7 +161,18 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
             };
         }
 
+        // Ved refresh er forsiden allerede synlig og har ingen overlay-fade.
+        // Aktiver på neste event-loop, etter at starttilstanden er rendret.
+        if (initialSeenIntro) {
+            const refreshTimer = window.setTimeout(
+                () => setFinalAnimationReady(true),
+                0
+            );
+            return () => window.clearTimeout(refreshTimer);
+        }
+
         const showFinalTimer = window.setTimeout(() => {
+            setFinalAnimationReady(false);
             setBackgroundView("final");
             setShowOverlay(false);
         }, introShowDelayMs);
@@ -167,14 +183,48 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
         }
 
         return () => window.clearTimeout(showFinalTimer);
-    }, [cycle, hasSeenIntro, phase]);
+    }, [cycle, hasSeenIntro, initialSeenIntro, phase]);
+
+    // Start linjen først når overlay-faden faktisk er ferdig. Timeren er en
+    // fallback for nettlesere som ikke sender transitionend.
+    useEffect(() => {
+        if (
+            backgroundView !== "final" ||
+            showOverlay ||
+            finalAnimationReady ||
+            reduceMotion
+        ) {
+            return;
+        }
+
+        const timer = window.setTimeout(
+            () => setFinalAnimationReady(true),
+            overlayFadeDurationMs + 50
+        );
+        return () => window.clearTimeout(timer);
+    }, [backgroundView, finalAnimationReady, reduceMotion, showOverlay]);
 
     const progress =
         ((Math.min(loadingIndex + 1, loadingSteps.length) / loadingSteps.length) *
             100);
 
     const errorView = <FrontPageError />;
-    const finalView = version ?? <FrontPage />;
+    const finalView = version ?? (
+        <FrontPage startLineAnimation={finalAnimationReady} />
+    );
+
+    const handleOverlayTransitionEnd = (
+        event: TransitionEvent<HTMLDivElement>
+    ) => {
+        if (
+            event.currentTarget === event.target &&
+            event.propertyName === "opacity" &&
+            !showOverlay &&
+            backgroundView === "final"
+        ) {
+            setFinalAnimationReady(true);
+        }
+    };
 
     // Skip-knapp.
     const handleSkip = () => {
@@ -184,6 +234,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
         }
         setCycle(1);
         setPhase("done");
+        setFinalAnimationReady(false);
         setBackgroundView("final");
         setShowOverlay(false);
     };
@@ -199,6 +250,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
 
             <div
                 className={`absolute inset-0 z-10 transition-opacity duration-500 ${showOverlay ? "opacity-100" : "pointer-events-none opacity-0"}`}
+                onTransitionEnd={handleOverlayTransitionEnd}
             >
 
                 <main className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center">
