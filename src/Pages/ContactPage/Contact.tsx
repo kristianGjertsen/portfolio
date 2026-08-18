@@ -8,10 +8,7 @@ function Contact() {
   return (
     <Layout className="relative min-h-screen bg-paper text-ink flex flex-col">
       <section className="mx-auto w-full max-w-5xl px-6 py-16">
-        <p className="text-xs uppercase tracking-[0.35em] text-ink/60">
-          {t("contactPage.tagline")}
-        </p>
-        <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl">
           {t("contactPage.title")}
         </h1>
         <p className="mt-4 max-w-2xl text-base text-ink/70 sm:text-lg">
