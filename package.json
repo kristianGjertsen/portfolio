@@ -5,12 +5,8 @@
   "type": "module",
   "scripts": {
     "generate-projects": "node scripts/generate-projects.mjs",
-    "predev": "npm run generate-projects",
     "dev": "vite",
-    "prebuild": "npm run generate-projects",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build": "npm run generate-projects && tsc -b && vite build"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
