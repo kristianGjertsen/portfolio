@@ -8,6 +8,7 @@ import {
   getProjectImageSrc,
   getProjectLinks,
   getProjectPreviewUrl,
+  PROJECT_IMAGE_FALLBACK_SRC,
 } from "./ProjectPage.utils";
 
 type ProjectBigCardProps = {
@@ -35,10 +36,6 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
   const closeAriaLabel = language?.startsWith("no")
     ? "Lukk prosjektinformasjon"
     : "Close project details";
-
-  useEffect(() => {
-    setShowPreviewChoice(shouldAskForUseWebsite && Boolean(previewUrl));
-  }, [project.id, previewUrl, shouldAskForUseWebsite]);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -158,6 +155,10 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
                   className=" w-full object-contain border border-sand/80 rounded-2xl"
                   src={getProjectImageSrc(project.img)}
                   alt={project.imgAlt ?? copy.title}
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = PROJECT_IMAGE_FALLBACK_SRC;
+                  }}
                 />
               )}
             </div>

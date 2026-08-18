@@ -1,5 +1,5 @@
 import noImg from "../../assets/ProjectImages/noimg.avif";
-import projectData from "./projects.json";
+import projectData from "./projects.generated.json";
 import type {
   LocalizedString,
   ProjectCopy,
@@ -7,10 +7,7 @@ import type {
   ProjectLink,
 } from "./ProjectPage.types";
 
-const projectImages = import.meta.glob("../../assets/ProjectImages/*", {
-  eager: true,
-  import: "default",
-}) as Record<string, string>;
+export const PROJECT_IMAGE_FALLBACK_SRC = noImg;
 
 export const PROJECTS = [...(projectData as ProjectItem[])].sort(
   (a, b) => a.year - b.year
@@ -18,7 +15,7 @@ export const PROJECTS = [...(projectData as ProjectItem[])].sort(
 
 export const getProjectImageSrc = (img?: string) => {
   if (!img) return noImg;
-  return projectImages[`../../assets/ProjectImages/${img}`] ?? noImg;
+  return img;
 };
 
 export const getProjectCopy = (

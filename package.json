@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "generate-projects": "node scripts/generate-projects.mjs",
+    "predev": "npm run generate-projects",
     "dev": "vite",
+    "prebuild": "npm run generate-projects",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
