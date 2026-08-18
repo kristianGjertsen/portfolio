@@ -243,7 +243,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
     };
 
     return (
-        <div className="relative min-h-[100svh] bg-paper text-ink">
+        <div className="relative min-h-[100dvh] bg-paper text-ink">
             <div className="relative z-0">
                 <div className="transition-opacity duration-700">
                     {backgroundView === "error" ? errorView : null}
@@ -256,7 +256,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
                 onTransitionEnd={handleOverlayTransitionEnd}
             >
 
-                <main className="relative flex min-h-[100svh] flex-col items-center justify-center px-6 text-center">
+                <main className="relative flex min-h-[100dvh] flex-col items-center justify-center px-6 text-center">
                     <div className="w-full max-w-xl rounded-3xl border border-ink/30 bg-ink p-6 text-paper shadow-card motion-safe:animate-throw-in-left">
                         <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-paper/60">
                             <div className="flex items-center gap-2">
