@@ -13,6 +13,9 @@ const outputImageDir = path.join(repoRoot, GENERATED_IMAGE_DIR);
 const outputProjectsPath = path.join(repoRoot, GENERATED_PROJECTS_PATH);
 
 const githubToken = process.env.GITHUB_TOKEN;
+const RETRYABLE_STATUS_CODES = new Set([408, 429, 500, 502, 503, 504]);
+
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function githubFetch(url, options = {}) {
   const headers = {
@@ -26,18 +29,40 @@ async function githubFetch(url, options = {}) {
     headers.Authorization = `Bearer ${githubToken}`;
   }
 
-  const response = await fetch(url, { ...options, headers });
+  let lastError;
 
-  if (response.status === 403) {
-    const rateLimitRemaining = response.headers.get("x-ratelimit-remaining");
-    if (rateLimitRemaining === "0") {
-      throw new Error(
-        "GitHub API rate limit exceeded. Set GITHUB_TOKEN and run the generator again."
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const response = await fetch(url, { ...options, headers });
+
+      if (response.status === 403) {
+        const rateLimitRemaining = response.headers.get("x-ratelimit-remaining");
+        if (rateLimitRemaining === "0") {
+          throw new Error(
+            "GitHub API rate limit exceeded. Set GITHUB_TOKEN and run the generator again."
+          );
+        }
+      }
+
+      if (!RETRYABLE_STATUS_CODES.has(response.status) || attempt === 3) {
+        return response;
+      }
+
+      console.log(
+        `GitHub request returned ${response.status}; retrying attempt ${attempt + 1}/3`
       );
+    } catch (error) {
+      lastError = error;
+      if (attempt === 3) {
+        throw error;
+      }
+      console.log(`GitHub request failed; retrying attempt ${attempt + 1}/3`);
     }
+
+    await wait(500 * attempt);
   }
 
-  return response;
+  throw lastError;
 }
 
 async function listPublicRepos() {

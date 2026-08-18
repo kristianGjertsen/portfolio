@@ -1,5 +1,9 @@
+import builderImg from "../../assets/ProjectImages/Builder.png";
+import dotdageneImg from "../../assets/ProjectImages/dotdagene.png";
 import noImg from "../../assets/ProjectImages/noimg.avif";
-import projectData from "./projects.generated.json";
+import rotatePlatformImg from "../../assets/ProjectImages/RotatePlatform.png";
+import fallbackProjectData from "./projects.json";
+import generatedProjectData from "./projects.generated.json";
 import type {
   LocalizedString,
   ProjectCopy,
@@ -9,13 +13,39 @@ import type {
 
 export const PROJECT_IMAGE_FALLBACK_SRC = noImg;
 
-export const PROJECTS = [...(projectData as ProjectItem[])].sort(
+const fallbackProjectImages: Record<string, string> = {
+  "Builder.png": builderImg,
+  "RotatePlatform.png": rotatePlatformImg,
+  "dotdagene.png": dotdageneImg,
+};
+
+const mergeProjects = (
+  generatedProjects: ProjectItem[],
+  fallbackProjects: ProjectItem[]
+) => {
+  const projects = [...generatedProjects];
+  const projectIds = new Set(projects.map((project) => project.id));
+
+  for (const project of fallbackProjects) {
+    if (!projectIds.has(project.id)) {
+      projects.push(project);
+      projectIds.add(project.id);
+    }
+  }
+
+  return projects;
+};
+
+export const PROJECTS = mergeProjects(
+  generatedProjectData as ProjectItem[],
+  fallbackProjectData as ProjectItem[]
+).sort(
   (a, b) => a.year - b.year
 );
 
 export const getProjectImageSrc = (img?: string) => {
   if (!img) return noImg;
-  return img;
+  return fallbackProjectImages[img] ?? img;
 };
 
 export const getProjectCopy = (
