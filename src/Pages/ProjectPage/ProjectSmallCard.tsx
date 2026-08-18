@@ -4,6 +4,7 @@ import {
   formatProjectLanguages,
   getProjectCopy,
   getProjectImageSrc,
+  PROJECT_IMAGE_FALLBACK_SRC,
 } from "./ProjectPage.utils";
 
 type ProjectSmallCardProps = {
@@ -29,6 +30,10 @@ function ProjectSmallCard({ project, onOpen }: ProjectSmallCardProps) {
           className="h-full w-full object-contain"
           src={getProjectImageSrc(project.img)}
           alt={project.imgAlt ?? copy.title}
+          onError={(event) => {
+            event.currentTarget.onerror = null;
+            event.currentTarget.src = PROJECT_IMAGE_FALLBACK_SRC;
+          }}
         />
       </div>
 

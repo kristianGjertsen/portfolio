@@ -71,15 +71,18 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
         if (!reduceMotion || phase === "done") {
             return;
         }
-        if (!hasSeenIntro) {
-            window.localStorage.setItem(introStorageKey, "1");
-            setHasSeenIntro(true);
-        }
-        setCycle(1);
-        setPhase("done");
-        setBackgroundView("final");
-        setShowOverlay(false);
-        setFinalAnimationReady(true);
+        const timer = window.setTimeout(() => {
+            if (!hasSeenIntro) {
+                window.localStorage.setItem(introStorageKey, "1");
+                setHasSeenIntro(true);
+            }
+            setCycle(1);
+            setPhase("done");
+            setBackgroundView("final");
+            setShowOverlay(false);
+            setFinalAnimationReady(true);
+        }, 0);
+        return () => window.clearTimeout(timer);
     }, [hasSeenIntro, phase, reduceMotion]);
 
     // Skriver ut prompten ett tegn av gangen.
@@ -122,7 +125,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
         if (reduceMotion || phase !== "loading") {
             return;
         }
-        setLoadingIndex(0);
+        const resetTimer = window.setTimeout(() => setLoadingIndex(0), 0);
         const interval = window.setInterval(() => {
             setLoadingIndex((prev) =>
                 Math.min(prev + 1, loadingSteps.length - 1)
@@ -130,6 +133,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
         }, 480);
         const timer = window.setTimeout(() => setPhase("done"), 2500);
         return () => {
+            window.clearTimeout(resetTimer);
             window.clearInterval(interval);
             window.clearTimeout(timer);
         };
@@ -175,12 +179,11 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
             setFinalAnimationReady(false);
             setBackgroundView("final");
             setShowOverlay(false);
+            if (!hasSeenIntro) {
+                window.localStorage.setItem(introStorageKey, "1");
+                setHasSeenIntro(true);
+            }
         }, introShowDelayMs);
-
-        if (!hasSeenIntro) {
-            window.localStorage.setItem(introStorageKey, "1");
-            setHasSeenIntro(true);
-        }
 
         return () => window.clearTimeout(showFinalTimer);
     }, [cycle, hasSeenIntro, initialSeenIntro, phase]);

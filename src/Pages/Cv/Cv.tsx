@@ -19,7 +19,8 @@ function Cv() {
             return;
         }
         window.open(cvSrc, "_blank", "noopener,noreferrer");
-        setOpenedOnMobile(true);
+        const timer = window.setTimeout(() => setOpenedOnMobile(true), 0);
+        return () => window.clearTimeout(timer);
     }, [cvSrc, openedOnMobile]);
 
     return (
