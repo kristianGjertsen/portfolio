@@ -77,7 +77,7 @@ function FrontPage({
 
     return (
         <Layout
-            className={`frontpage relative flex min-h-[100svh] flex-col bg-[#d1e0ec] text-ink ${startLineAnimation && canAnimate ? "is-loaded" : ""}`}
+            className={`frontpage relative flex min-h-[100dvh] flex-col bg-[#d1e0ec] text-ink ${startLineAnimation && canAnimate ? "is-loaded" : ""}`}
             mainClassName="relative flex flex-1 items-center justify-center px-3 py-3 text-center sm:px-6 sm:py-8"
         >
             <div
