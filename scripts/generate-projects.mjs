@@ -44,6 +44,8 @@ async function listPublicRepos() {
   const repos = [];
   let page = 1;
 
+  console.log(`Listing public repositories for ${OWNER}...`);
+
   while (true) {
     const url = new URL(`https://api.github.com/users/${OWNER}/repos`);
     url.searchParams.set("type", "public");
@@ -210,6 +212,7 @@ function getGeneratedImageName(project, repo, imagePath) {
 
 async function downloadImage(repo, project) {
   const imagePath = getRelativeImagePath(project.img, repo.full_name);
+  console.log(`${repo.full_name}: downloading image portfolio/${imagePath}`);
   const contentEntry = await getRepoContent(repo, `portfolio/${imagePath}`);
 
   if (!contentEntry?.download_url) {
@@ -258,12 +261,20 @@ async function main() {
   const projects = [];
   const seenProjectIds = new Map();
 
+  console.log(`Found ${repos.length} public repositories.`);
+
   await rm(outputImageDir, { recursive: true, force: true });
   await mkdir(outputImageDir, { recursive: true });
 
   for (const repo of repos) {
+    console.log(`${repo.full_name}: checking ${PROJECT_CONFIG_PATH}`);
     const project = await readProject(repo);
-    if (!project) continue;
+    if (!project) {
+      console.log(`${repo.full_name}: no project config found, skipping`);
+      continue;
+    }
+
+    console.log(`${repo.full_name}: found project "${project.id}"`);
 
     if (seenProjectIds.has(project.id)) {
       throw new Error(
@@ -276,6 +287,7 @@ async function main() {
 
     const generatedImg = await downloadImage(repo, project);
     projects.push({ ...project, img: generatedImg });
+    console.log(`${repo.full_name}: generated project "${project.id}"`);
   }
 
   await writeFile(outputProjectsPath, `${JSON.stringify(projects, null, 2)}\n`);
