@@ -78,7 +78,7 @@ function FrontPage({
     return (
         <Layout
             className={`frontpage relative flex min-h-[100svh] flex-col bg-[#d1e0ec] text-ink ${startLineAnimation && canAnimate ? "is-loaded" : ""}`}
-            mainClassName="relative flex flex-1 items-center justify-center px-6 py-6 text-center sm:py-8"
+            mainClassName="relative flex flex-1 items-center justify-center px-3 py-3 text-center sm:px-6 sm:py-8"
         >
             <div
                 className="pointer-events-none absolute inset-0"
@@ -102,7 +102,7 @@ function FrontPage({
                 </div>
             </div>
 
-            <div className="relative z-10 rounded-3xl border-8 border-white/50 bg-white/30 p-20 shadow-2xl backdrop-blur-lg">
+            <div className="relative z-10 w-full max-w-2xl rounded-3xl border-4 border-white/50 bg-white/30 p-6 shadow-2xl backdrop-blur-lg sm:border-8 sm:p-14 lg:p-20">
                 <p className="text-xs uppercase tracking-[0.4em] text-ink/60">
                     {t("frontpage.tagline")}
                 </p>
@@ -115,29 +115,33 @@ function FrontPage({
                     {t("frontpage.description")}
                 </p>
 
-                <div className="mt-8 flex flex-wrap justify-center gap-4">
+                <div className="mt-8 grid w-full grid-cols-2 gap-3 min-[520px]:grid-cols-4 sm:gap-4">
                     <PageButton
                         to="/projects"
                         variant="white"
                         label={t("frontpage.cta_project")}
+                        className="!min-w-0 !px-3"
                     />
 
                     <PageButton
                         to="/about"
                         variant="white"
                         label={t("frontpage.cta_about")}
+                        className="!min-w-0 !px-3"
                     />
 
                     <PageButton
                         to="/cv"
                         variant="white"
                         label="CV"
+                        className="!min-w-0 !px-3"
                     />
 
                     <PageButton
                         to="/contact"
                         variant="white"
                         label={t("frontpage.cta_contact")}
+                        className="!min-w-0 !px-3"
                     />
                 </div>
             </div>
