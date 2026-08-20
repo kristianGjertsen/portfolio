@@ -30,7 +30,7 @@
   },
   "projectPage": {
     "tagline": "Selected projects",
-    "title": "Projects",
+    "title": "Selected projects",
     "description": "A selected set of projects with sorting and stack filtering.",
     "search_label": "Search",
     "search_placeholder": "Search by project, text, or technology",
@@ -72,17 +72,32 @@
   },
   "cv": {
     "description": "Open CV in new tab",
-    "button_text": "Open"
+    "button_text": "Open",
+    "download_button_text": "Download",
+    "loading": "Loading CV...",
+    "error": "Could not display the CV.",
+    "open_pdf": "Open PDF"
   },
   "about": {
     "tagline": "About",
-    "title": "About Kristian",
-    "lead": "Second-year informatics student at NTNU building software that actually gets used.",
-    "body": [
-      "I study informatics and enjoy the entire process behind a system. For me, it is not just about making something work, but understanding why it works and how it can be improved.",
-      "Alongside my studies, I run a sole proprietorship in web development. I take responsibility for the entire process there: talking with clients, figuring out what they actually need, designing the solution, building it, and following up after launch. This has given me practical experience with structure, ownership, and delivering something that is actually used by real people.",
-      "I have worked with both backend and frontend, and I particularly enjoy where the two are combined.",
-      "My goal is to keep developing professionally through real projects and collaboration with others, and to build solutions that create real value."
+    "title": "About me",
+    "lead": "A short overview of what I do now, split into education, student engagement, and independent work.",
+    "sections": [
+      {
+        "label": "Education",
+        "title": "Informatics",
+        "text": "Third-year informatics student at NTNU, interested in how good systems are built from the ground up. The degree gives me both theoretical understanding and practical experience with programming, data, and software development."
+      },
+      {
+        "label": "Student role",
+        "title": "dotDAGENE",
+        "text": "In dotDAGENE, I am responsible for the website and graphic design. The role gives me experience coordinating work, taking responsibility for deliveries, and collaborating with others in the planning and execution of the event."
+      },
+      {
+        "label": "Sole proprietorship",
+        "title": "Sole proprietorship",
+        "text": "Alongside my studies, I run a sole proprietorship in software development. This gives me the opportunity to work closely with clients and take responsibility for the full process from needs clarification to published solution."
+      }
     ],
     "contact_cta": "Contact",
     "projects_cta": "View projects"

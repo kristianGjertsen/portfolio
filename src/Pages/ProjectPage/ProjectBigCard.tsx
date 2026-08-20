@@ -38,8 +38,13 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
     : "Close project details";
 
   useEffect(() => {
-    const previousOverflow = document.body.style.overflow;
+    const scrollY = window.scrollY;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
     const previousPaddingRight = document.body.style.paddingRight;
+    const previousOverflow = document.body.style.overflow;
+    const previousPosition = document.body.style.position;
+    const previousTop = document.body.style.top;
+    const previousWidth = document.body.style.width;
     const scrollbarWidth =
       window.innerWidth - document.documentElement.clientWidth;
     const activeElement = document.activeElement;
@@ -48,7 +53,11 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
       activeElement.blur();
     }
 
+    document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
     if (scrollbarWidth > 0) {
       document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
@@ -62,15 +71,20 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
     window.addEventListener("keydown", onKeyDown);
 
     return () => {
+      document.documentElement.style.overflow = previousHtmlOverflow;
       document.body.style.overflow = previousOverflow;
       document.body.style.paddingRight = previousPaddingRight;
+      document.body.style.position = previousPosition;
+      document.body.style.top = previousTop;
+      document.body.style.width = previousWidth;
       window.removeEventListener("keydown", onKeyDown);
+      window.scrollTo(0, scrollY);
     };
   }, [onClose]);
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-ink/65 px-4 py-8"
+      className="fixed inset-0 z-50 flex items-center justify-center overscroll-contain bg-ink/65 px-4 py-8"
       onClick={onClose}
       role="presentation"
     >
@@ -107,7 +121,7 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
           </button>
         </div>
 
-        <div className="flex flex-1 flex-col overflow-y-auto">
+        <div className="flex flex-1 flex-col overflow-y-auto overscroll-contain">
           <div className="px-4 pt-4 sm:px-">
             <div className="flex items-center justify-center overflow-hidden rounded-2xl">
               {previewUrl ? (

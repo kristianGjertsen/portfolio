@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Layout from "../../components/elements/Layout";
 import ProjectBigCard from "./ProjectBigCard";
@@ -61,6 +61,10 @@ function ProjectPage() {
     setIsLanguageFilterOpen(false);
   };
 
+  const closeSelectedProject = useCallback(() => {
+    setSelectedProject(null);
+  }, []);
+
   useEffect(() => {
     if (!isLanguageFilterOpen) return;
 
@@ -80,10 +84,7 @@ function ProjectPage() {
   return (
     <Layout className="relative min-h-screen bg-paper text-ink">
       <section className="mx-auto w-full max-w-6xl px-6 pt-12 pb-10">
-        <p className="text-xs uppercase tracking-[0.35em] text-ink/60">
-          {t("projectPage.tagline")}
-        </p>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl lg:text-6xl">
+        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl">
           {t("projectPage.title")}
         </h1>
         <p className="mt-4 max-w-2xl text-base text-ink/70 sm:text-lg">
@@ -230,7 +231,7 @@ function ProjectPage() {
       {selectedProject ? (
         <ProjectBigCard
           project={selectedProject}
-          onClose={() => setSelectedProject(null)}
+          onClose={closeSelectedProject}
         />
       ) : null}
     </Layout>
