@@ -77,40 +77,22 @@
   "about": {
     "tagline": "About",
     "title": "About me",
-    "lead": "A short overview of what I do now, split into studies, independent work, and student engagement.",
+    "lead": "A short overview of what I do now, split into education, student engagement, and independent work.",
     "sections": [
       {
-        "label": "Informatics",
-        "title": "Informatics at NTNU",
-        "meta": "3rd year · expected 2027 · 4.2 average",
-        "text": "I study informatics and care about how solid systems are built from the ground up. The degree gives me both theoretical understanding and practical experience with programming, data, and software development.",
-        "points": [
-          "Relevant focus on programming, databases, algorithms, web development, and software engineering.",
-          "I particularly enjoy the combination of frontend, backend, and problem solving.",
-          "I like connecting theory from my studies to projects that can actually be used."
-        ]
-      },
-      {
-        "label": "Sole proprietorship",
-        "title": "Independent web development",
-        "meta": "Web development · client work · delivery",
-        "text": "Alongside my studies, I run a sole proprietorship in web development. I work closely with clients and take responsibility for the full process from needs clarification to published solution.",
-        "points": [
-          "Talk with clients to understand what they actually need, not only what is first suggested.",
-          "Design and develop websites with focus on structure, clear content, and usability.",
-          "Follow up after launch so the solution works in practical use."
-        ]
+        "label": "Education",
+        "title": "Informatics",
+        "text": "Third-year informatics student at NTNU, interested in how good systems are built from the ground up. The degree gives me both theoretical understanding and practical experience with programming, data, and software development."
       },
       {
         "label": "Student role",
         "title": "dotDAGENE",
-        "meta": "Student engagement · collaboration · execution",
-        "text": "Through student roles, I get experience working with others in larger processes than my own coding projects. It is useful training in planning, responsibility, and communication.",
-        "points": [
-          "Contribute in a student-driven environment with concrete tasks and shared deliveries.",
-          "Gain experience with coordination, priorities, and long-running collaboration.",
-          "Learn to combine technical interest with organization and execution."
-        ]
+        "text": "In dotDAGENE, I am responsible for the website and graphic design. The role gives me experience coordinating work, taking responsibility for deliveries, and collaborating with others in the planning and execution of the event."
+      },
+      {
+        "label": "Sole proprietorship",
+        "title": "Sole proprietorship",
+        "text": "Alongside my studies, I run a sole proprietorship in software development. This gives me the opportunity to work closely with clients and take responsibility for the full process from needs clarification to published solution."
       }
     ],
     "contact_cta": "Contact",

@@ -7,10 +7,9 @@ function About() {
     const sections = t("about.sections", { returnObjects: true }) as {
         label: string;
         title: string;
-        meta: string;
         text: string;
-        points: string[];
     }[];
+    const [education, studentRole, soleProprietorship] = sections;
 
     return (
         <Layout className="relative flex min-h-[100svh] flex-col bg-paper text-ink">
@@ -22,39 +21,33 @@ function About() {
                     {t("about.lead")}
                 </p>
 
-                <div className="mt-12 grid gap-6">
-                    {sections.map((section, index) => (
+                <div className="mt-12 grid gap-6 lg:grid-cols-2">
+                    <section className="rounded-3xl border border-sand/80 bg-white/85 p-6 shadow-card lg:col-span-2">
+                        <p className="text-sm uppercase tracking-[0.24em]">
+                            {education.label}
+                        </p>
+                        <h2 className="mt-5 text-2xl sm:text-3xl">
+                            {education.title}
+                        </h2>
+                        <p className="mt-6 max-w-3xl text-base leading-relaxed">
+                            {education.text}
+                        </p>
+                    </section>
+
+                    {[studentRole, soleProprietorship].map((section) => (
                         <section
                             key={section.title}
-                            className=" rounded-3xl border border-sand/80 bg-white/85 p-6 shadow-card"
+                            className="flex min-h-64 flex-col rounded-3xl border border-sand/80 bg-white/85 p-6 shadow-card"
                         >
-                            
-                            <div>
-                                <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                                    <h2 className="text-2xl sm:text-3xl">
-                                        {section.title}
-                                    </h2>
-                                    <p className="text-sm text-ink/55">
-                                        {section.meta}
-                                    </p>
-                                </div>
-
-                                <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/75">
-                                    {section.text}
-                                </p>
-
-                                <ul className="mt-6 grid gap-3">
-                                    {section.points.map((point) => (
-                                        <li
-                                            key={point}
-                                            className="flex gap-3 text-sm leading-relaxed text-ink/75 sm:text-base"
-                                        >
-                                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-clay" />
-                                            <span>{point}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                            <p className="text-sm uppercase tracking-[0.24em]">
+                                {section.label}
+                            </p>
+                            <h2 className="mt-5 text-2xl sm:text-3xl">
+                                {section.title}
+                            </h2>
+                            <p className="mt-6 text-base leading-relaxed">
+                                {section.text}
+                            </p>
                         </section>
                     ))}
                 </div>

@@ -77,40 +77,22 @@
   "about": {
     "tagline": "Om meg",
     "title": "Om meg",
-    "lead": "Kort om hva jeg gjør nå, delt opp i studiet, egne prosjekter og verv.",
+    "lead": "Kort om hva jeg gjør nå, delt opp i utdanning, verv og eget arbeid.",
     "sections": [
       {
-        "label": "Informatikkstudiet",
-        "title": "Informatikk ved NTNU",
-        "meta": "3. år · 2027 forventet ferdig · 4,2 snitt",
-        "text": "Jeg studerer informatikk og er opptatt av hvordan gode systemer bygges fra bunnen av. Studiet gir meg både teoretisk forståelse og praktisk erfaring med programmering, data og systemutvikling.",
-        "points": [
-          "Relevant fokus på programmering, databaser, algoritmer, webutvikling og systemutvikling.",
-          "Trives spesielt godt med kombinasjonen av frontend, backend og problemløsning.",
-          "Liker å koble teori fra studiet til prosjekter som faktisk kan brukes."
-        ]
-      },
-      {
-        "label": "ENK",
-        "title": "Eget enkeltpersonforetak",
-        "meta": "Webutvikling · kundeprosjekter · leveranse",
-        "text": "Ved siden av studiet driver jeg et enkeltpersonforetak innen webutvikling. Der jobber jeg tett på kunder og tar ansvar for hele prosessen fra behov til publisert løsning.",
-        "points": [
-          "Snakker med kunder for å finne ut hva de faktisk trenger, ikke bare hva som først blir foreslått.",
-          "Designer og utvikler nettsider med fokus på struktur, tydelig innhold og brukervennlighet.",
-          "Følger opp etter publisering slik at løsningen fungerer i praktisk bruk."
-        ]
+        "label": "Utdanning",
+        "title": "Informatikk",
+        "text": "Tredjeårsstudent på informatikk NTNU og er opptatt av hvordan gode systemer bygges fra bunnen av. Studiet gir meg både teoretisk forståelse og praktisk erfaring med programmering, data og systemutvikling."
       },
       {
         "label": "Verv",
         "title": "dotDAGENE",
-        "meta": "Studentengasjement · samarbeid · gjennomføring",
-        "text": "Gjennom verv får jeg erfaring med å jobbe sammen med andre i større prosesser enn egne kodeprosjekter. Det gir nyttig trening i planlegging, ansvar og kommunikasjon.",
-        "points": [
-          "Bidrar i et studentdrevet miljø med konkrete oppgaver og felles leveranser.",
-          "Får erfaring med koordinering, prioriteringer og samarbeid over tid.",
-          "Lærer å kombinere teknisk interesse med organisering og gjennomføring."
-        ]
+        "text": "I dotDAGENE har jeg ansvar for nettsiden og grafisk design. Vervet gir erfaring med å koordinere arbeid, ta ansvar for leveranser og samarbeide med andre i planleggingen og gjennomføringen av arrangementet."
+      },
+      {
+        "label": "ENK",
+        "title": "Eget enkeltpersonforetak",
+        "text": "Ved siden av studiet driver jeg et enkeltpersonforetak innen programvareutvikling. Dette gir mulighet for å jobbe tett på kunder og ta ansvar for hele prosessen fra behovsavklaring til publisert løsning."
       }
     ],
     "contact_cta": "Kontakt",
