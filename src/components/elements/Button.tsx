@@ -6,6 +6,7 @@ type ButtonProps = {
   onClick?: () => void;
   target?: string;
   rel?: string;
+  download?: boolean | string;
   ariaLabel?: string;
   className?: string;
   variant?: ButtonVariant;
@@ -18,6 +19,7 @@ function Button({
   onClick,
   target,
   rel,
+  download,
   ariaLabel,
   className,
   variant = "default",
@@ -33,6 +35,7 @@ function Button({
         href={href}
         onClick={onClick}
         aria-label={ariaLabel}
+        download={download}
         rel={rel}
         target={target}
       >
