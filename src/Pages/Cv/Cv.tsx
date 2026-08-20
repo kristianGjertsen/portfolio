@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { useTranslation } from "react-i18next";
+import Button from "../../components/elements/Button";
 
 import Layout from "../../components/elements/Layout";
 
@@ -50,22 +51,20 @@ function Cv() {
                     </p>
 
                     <div className="flex shrink-0 gap-2">
-                        <a
+                        <Button
                             href={cvSrc}
                             target="_blank"
                             rel="noreferrer"
-                            className="rounded-full border border-ink/30 px-4 py-2 text-xs uppercase tracking-[0.15em] transition-colors hover:bg-ink hover:text-paper"
                         >
                             {t("button_text")}
-                        </a>
+                        </Button>
 
-                        <a
+                        <Button
                             href={cvSrc}
                             download
-                            className="rounded-full bg-ink px-4 py-2 text-xs uppercase tracking-[0.15em] text-paper transition-opacity hover:opacity-80"
                         >
                             {t("download_button_text")}
-                        </a>
+                        </Button>
                     </div>
                 </div>
 
