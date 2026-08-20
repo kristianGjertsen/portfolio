@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 
 import Layout from "../../components/elements/Layout";
 
-import CvEng from "../../assets/CvFiles/Kristian_Gjertsen_CV.Eng.pdf";
-import CvNo from "../../assets/CvFiles/Kristian_Gjertsen_CV.No.pdf";
+import CvEng from "./CvFiles/Kristian_Gjertsen_CV.Eng.pdf";
+import CvNo from "./CvFiles/Kristian_Gjertsen_CV.No.pdf";
 
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
