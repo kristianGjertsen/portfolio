@@ -1,13 +1,18 @@
+import { useTranslation } from "react-i18next";
+
 function Footer() {
+    const { t } = useTranslation("footer");
+
     return (
         <footer className="mt-auto border-t bg-inherit  backdrop-blur px-6 py-6 text-xs uppercase tracking-[0.3em] text-ink/60">
             <div className="mx-auto flex w-full lg:pl-10 lg:pr-10 flex-wrap items-center justify-between gap-4">
-                <span>© 2026 Kristian Gjertsen</span>
+                <span>{t("copyright", { year: new Date().getFullYear() })}</span>
 
 
                 <a
                     className="inline-flex items-center gap-2 transition hover:text-ink"
                     href="mailto:kristiangjertsen5@gmail.com"
+                    aria-label={t("email_aria")}
                 >
                     <svg
                         aria-hidden="true"
@@ -28,6 +33,7 @@ function Footer() {
                 <a
                     className="inline-flex items-center gap-2 transition hover:text-ink"
                     href="tel:+4795410719"
+                    aria-label={t("phone_aria")}
                 >
                     <svg
                         aria-hidden="true"

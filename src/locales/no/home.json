@@ -1,0 +1,29 @@
+{
+  "tagline": "",
+  "title": "Kristian Gjertsen",
+  "description": "Informatikkstudent ved NTNU med interesse for å utvikle og bygge egne prosjekter.",
+  "cta_contact": "Kontakt",
+  "cta_project": "Prosjekter",
+  "cta_about": "Om meg",
+  "error": {
+    "tagline": "Prosjekter",
+    "title": "Kristian Gjertsen",
+    "description": "Informatikkstudent med fokus på design og frontend som lager tydelige og moderne nettsider.",
+    "cta_contact": "Kontakt",
+    "cta_project": "Prosjekter"
+  },
+  "intro": {
+    "model": "KI-modell 4.2",
+    "prompt_first": "Lag en porteføljeside for Kristian Gjertsen nå!",
+    "prompt_second": "hva er dette, få den til å se bra ut!!!",
+    "submitting": "Sender forespørsel...",
+    "loading_steps": [
+      "Genererer oppsett...",
+      "Bygger seksjoner...",
+      "Legger til stiler...",
+      "Ferdigstiller detaljer..."
+    ],
+    "launching": "Starter...",
+    "skip": "Hopp over intro"
+  }
+}

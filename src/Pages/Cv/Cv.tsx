@@ -16,7 +16,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 function Cv() {
-    const { i18n, t } = useTranslation();
+    const { i18n, t } = useTranslation("cv");
 
     const cvSrc = i18n.language === "no" ? CvNo : CvEng;
 
@@ -46,7 +46,7 @@ function Cv() {
             <section className="flex w-full max-w-5xl flex-col items-center">
                 <div className="mb-6 flex w-full max-w-[800px] items-center justify-between gap-4">
                     <p className="text-sm uppercase tracking-[0.3em] text-ink/60">
-                        {t("cv.description")}
+                        {t("description")}
                     </p>
 
                     <div className="flex shrink-0 gap-2">
@@ -56,7 +56,7 @@ function Cv() {
                             rel="noreferrer"
                             className="rounded-full border border-ink/30 px-4 py-2 text-xs uppercase tracking-[0.15em] transition-colors hover:bg-ink hover:text-paper"
                         >
-                            {t("cv.button_text")}
+                            {t("button_text")}
                         </a>
 
                         <a
@@ -64,7 +64,7 @@ function Cv() {
                             download
                             className="rounded-full bg-ink px-4 py-2 text-xs uppercase tracking-[0.15em] text-paper transition-opacity hover:opacity-80"
                         >
-                            {t("cv.download_button_text")}
+                            {t("download_button_text")}
                         </a>
                     </div>
                 </div>
@@ -74,13 +74,13 @@ function Cv() {
                     onLoadSuccess={({ numPages }) => setNumPages(numPages)}
                     loading={
                         <div className="py-20 text-sm text-ink/50">
-                            {t("cv.loading")}
+                            {t("loading")}
                         </div>
                     }
                     error={
                         <div className="py-20 text-center">
                             <p className="mb-4 text-sm text-ink/60">
-                                {t("cv.error")}
+                                {t("error")}
                             </p>
 
                             <a
@@ -89,7 +89,7 @@ function Cv() {
                                 rel="noreferrer"
                                 className="underline underline-offset-4"
                             >
-                                {t("cv.open_pdf")}
+                                {t("open_pdf")}
                             </a>
                         </div>
                     }

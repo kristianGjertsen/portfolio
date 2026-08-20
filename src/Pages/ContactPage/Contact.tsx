@@ -3,16 +3,16 @@ import { useTranslation } from "react-i18next";
 import ContactForm from "./ContactForm";
 
 function Contact() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("contact");
 
   return (
     <Layout className="relative min-h-screen bg-paper text-ink flex flex-col">
       <section className="mx-auto w-full max-w-5xl px-6 py-16">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl">
-          {t("contactPage.title")}
+          {t("title")}
         </h1>
         <p className="mt-4 max-w-2xl text-base text-ink/70 sm:text-lg">
-          {t("contactPage.description")}
+          {t("description")}
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -21,7 +21,7 @@ function Contact() {
             href="mailto:kristiangjertsen5@gmail.com"
           >
             <p className="text-xs uppercase tracking-[0.3em] text-ink/60">
-              {t("contactPage.email_label")}
+              {t("email_label")}
             </p>
             <div className="mt-3 flex items-center gap-2 text-lg text-ink">
               <svg
@@ -45,7 +45,7 @@ function Contact() {
             href="tel:+47 954 10 719"
           >
             <p className="text-xs uppercase tracking-[0.3em] text-ink/60">
-              {t("contactPage.phone_label")}
+              {t("phone_label")}
             </p>
             <div className="mt-3 flex items-center gap-2 text-lg text-ink">
               <svg

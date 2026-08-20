@@ -1,0 +1,24 @@
+{
+  "tagline": "About",
+  "title": "About me",
+  "lead": "A short overview of what I do now, split into education, student engagement, and independent work.",
+  "sections": [
+    {
+      "label": "Education",
+      "title": "Informatics",
+      "text": "Third-year informatics student at NTNU, interested in how good systems are built from the ground up. The degree gives me both theoretical understanding and practical experience with programming, data, and software development."
+    },
+    {
+      "label": "Student role",
+      "title": "dotDAGENE",
+      "text": "In dotDAGENE, I am responsible for the website and graphic design. The role gives me experience coordinating work, taking responsibility for deliveries, and collaborating with others in the planning and execution of the event."
+    },
+    {
+      "label": "Sole proprietorship",
+      "title": "Sole proprietorship",
+      "text": "Alongside my studies, I run a sole proprietorship in software development. This gives me the opportunity to work closely with clients and take responsibility for the full process from needs clarification to published solution."
+    }
+  ],
+  "contact_cta": "Contact",
+  "projects_cta": "View projects"
+}

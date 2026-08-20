@@ -21,7 +21,7 @@ type ProjectItemWithPreviewChoice = ProjectItem & {
 };
 
 function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation("projects");
   const language = i18n.resolvedLanguage ?? i18n.language;
   const copy = getProjectCopy(project, language);
   const links = getProjectLinks(project, language, copy);
@@ -32,10 +32,6 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
   const [showPreviewChoice, setShowPreviewChoice] = useState(
     shouldAskForUseWebsite && Boolean(previewUrl)
   );
-  const closeLabel = language?.startsWith("no") ? "Lukk" : "Close";
-  const closeAriaLabel = language?.startsWith("no")
-    ? "Lukk prosjektinformasjon"
-    : "Close project details";
 
   useEffect(() => {
     const scrollY = window.scrollY;
@@ -115,9 +111,9 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
             type="button"
             onClick={onClose}
             className="rounded-full border border-sand/80 px-4 py-2 text-xs uppercase tracking-[0.3em] text-ink/70"
-            aria-label={closeAriaLabel}
+            aria-label={t("close_details")}
           >
-            {closeLabel}
+            {t("close")}
           </button>
         </div>
 
@@ -130,28 +126,28 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
                     <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/95 px-6 text-center">
                       <div className="max-w-md rounded-2xl border border-sand/80 bg-white p-6 shadow-card">
                         <p className="text-sm leading-relaxed text-ink/75 sm:text-base">
-                          {t("projectPage.preview_external_notice")}
+                          {t("preview_external_notice")}
                         </p>
 
                         <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                           <Button
                             href={previewUrl}
-                            aria-label={t("projectPage.preview_external_visit")}
+                            aria-label={t("preview_external_visit")}
                             rel="noreferrer"
                             target="_blank"
                             type="button"
                           >
-                            {t("projectPage.preview_external_visit")}
+                            {t("preview_external_visit")}
                           </Button>
 
                           <Button
                             rel="noreferrer"
-                            aria-label={t("projectPage.keep_preview")}
+                            aria-label={t("keep_preview")}
 
                             type="button"
                             onClick={() => setShowPreviewChoice(false)}
                           >
-                            {t("projectPage.preview_external_continue")}
+                            {t("preview_external_continue")}
                           </Button>
                         </div>
                       </div>
@@ -161,7 +157,7 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
                   <iframe
                     className="h-full w-full bg-white"
                     src={previewUrl}
-                    title={`${copy.title} preview`}
+                    title={t("preview_title", { title: copy.title })}
                   />
                 </div>
               ) : (

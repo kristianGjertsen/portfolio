@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
 import type { ReactNode, TransitionEvent } from "react";
+import { useTranslation } from "react-i18next";
 import FrontPage from "../FrontPage/FrontPage";
 import FrontPageError from "../FrontPage/FrontPageError";
 
 type IntroPhase = "typing" | "submitted" | "loading" | "done";
 type BackgroundView = "none" | "error" | "final";
-
-const loadingSteps = [
-    "Generating layout...",
-    "Building sections...",
-    "Applying styles...",
-    "Finalizing details...",
-];
 
 type IntroAnimationProps = {
     version?: ReactNode;
@@ -29,10 +23,11 @@ const hasSeenIntroAlready = () => {
     return window.localStorage.getItem(introStorageKey) === "1";
 };
 
-const promptTextFirst = "Make portfolio page for Kristian Gjertsen now!";
-const promptTextSecond = "what the f is this make it looke nice!!!";
-
 function IntroanimationPage({ version }: IntroAnimationProps) {
+    const { t } = useTranslation("home", { keyPrefix: "intro" });
+    const loadingSteps = t("loading_steps", { returnObjects: true }) as string[];
+    const loadingStepCount = loadingSteps.length;
+
     // Enkel state machine for introen.
     const [initialSeenIntro] = useState(() => hasSeenIntroAlready());
     const [hasSeenIntro, setHasSeenIntro] = useState(initialSeenIntro);
@@ -51,7 +46,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
     // starttilstand rekker å bli tegnet før animasjonen aktiveres.
     const [finalAnimationReady, setFinalAnimationReady] = useState(false);
     // Velg tekst basert på hvilken runde vi er i.
-    const activePromptText = cycle === 0 ? promptTextFirst : promptTextSecond;
+    const activePromptText = cycle === 0 ? t("prompt_first") : t("prompt_second");
 
     // Skipp animasjonen hvis brukeren foretrekker redusert bevegelse.
     useEffect(() => {
@@ -128,7 +123,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
         const resetTimer = window.setTimeout(() => setLoadingIndex(0), 0);
         const interval = window.setInterval(() => {
             setLoadingIndex((prev) =>
-                Math.min(prev + 1, loadingSteps.length - 1)
+                Math.min(prev + 1, loadingStepCount - 1)
             );
         }, 480);
         const timer = window.setTimeout(() => setPhase("done"), 2500);
@@ -137,7 +132,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
             window.clearInterval(interval);
             window.clearTimeout(timer);
         };
-    }, [reduceMotion, phase]);
+    }, [loadingStepCount, reduceMotion, phase]);
 
     // Første runde: vis error-siden kort, så restart animasjonen.
     // Andre runde: vis riktig side og marker introen som sett.
@@ -208,7 +203,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
     }, [backgroundView, finalAnimationReady, reduceMotion, showOverlay]);
 
     const progress =
-        ((Math.min(loadingIndex + 1, loadingSteps.length) / loadingSteps.length) *
+        ((Math.min(loadingIndex + 1, loadingStepCount) / loadingStepCount) *
             100);
 
     const errorView = <FrontPageError />;
@@ -264,7 +259,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
                                 <span className="h-2 w-2 rounded-full bg-paper/50" />
                                 <span className="h-2 w-2 rounded-full bg-paper/70" />
                             </div>
-                            <span> AI model 4.2 </span>
+                            <span>{t("model")}</span>
                         </div>
 
                         <div className="mt-6 rounded-2xl border border-paper/15 bg-black/70 p-4 text-left text-base text-paper/85 font-display tracking-[0.02em]">
@@ -283,7 +278,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
                                     <span className="rounded border border-paper/30 px-2 py-1 uppercase tracking-[0.2em]">
                                         Enter
                                     </span>
-                                    <span>Submitting prompt...</span>
+                                    <span>{t("submitting")}</span>
                                 </div>
                             )}
 
@@ -311,7 +306,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
 
                             {phase === "done" && (
                                 <div className="mt-4 text-xs uppercase tracking-[0.3em] text-paper/50">
-                                    Launching...
+                                    {t("launching")}
                                 </div>
                             )}
                         </div>
@@ -321,7 +316,7 @@ function IntroanimationPage({ version }: IntroAnimationProps) {
                         className="mt-6 text-xs uppercase tracking-[0.4em] text-ink/50 transition hover:text-ink"
                         onClick={handleSkip}
                         type="button">
-                        Skip intro
+                        {t("skip")}
                     </button>
                 </main>
             </div>

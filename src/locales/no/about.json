@@ -1,0 +1,24 @@
+{
+  "tagline": "Om meg",
+  "title": "Om meg",
+  "lead": "Kort om hva jeg gjør nå, delt opp i utdanning, verv og eget arbeid.",
+  "sections": [
+    {
+      "label": "Utdanning",
+      "title": "Informatikk",
+      "text": "Tredjeårsstudent på informatikk NTNU og er opptatt av hvordan gode systemer bygges fra bunnen av. Studiet gir meg både teoretisk forståelse og praktisk erfaring med programmering, data og systemutvikling."
+    },
+    {
+      "label": "Verv",
+      "title": "dotDAGENE",
+      "text": "I dotDAGENE har jeg ansvar for nettsiden og grafisk design. Vervet gir erfaring med å koordinere arbeid, ta ansvar for leveranser og samarbeide med andre i planleggingen og gjennomføringen av arrangementet."
+    },
+    {
+      "label": "ENK",
+      "title": "Eget enkeltpersonforetak",
+      "text": "Ved siden av studiet driver jeg et enkeltpersonforetak innen programvareutvikling. Dette gir mulighet for å jobbe tett på kunder og ta ansvar for hele prosessen fra behovsavklaring til publisert løsning."
+    }
+  ],
+  "contact_cta": "Kontakt",
+  "projects_cta": "Se prosjekter"
+}
