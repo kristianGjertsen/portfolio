@@ -3,8 +3,8 @@ import Layout from "../../components/elements/Layout";
 import PageButton from "../../components/elements/PageButton";
 
 function About() {
-    const { t } = useTranslation();
-    const sections = t("about.sections", { returnObjects: true }) as {
+    const { t } = useTranslation("about");
+    const sections = t("sections", { returnObjects: true }) as {
         label: string;
         title: string;
         text: string;
@@ -15,10 +15,10 @@ function About() {
         <Layout className="relative flex min-h-[100svh] flex-col bg-paper text-ink">
             <section className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col px-6 py-16">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl">
-                    {t("about.title")}
+                    {t("title")}
                 </h1>
                 <p className="mt-4 max-w-3xl text-base text-ink/70 sm:text-lg">
-                    {t("about.lead")}
+                    {t("lead")}
                 </p>
 
                 <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -53,8 +53,8 @@ function About() {
                 </div>
 
                 <div className="mt-10 flex flex-wrap gap-4">
-                    <PageButton to="/contact" label={t("about.contact_cta")} />
-                    <PageButton to="/projects" label={t("about.projects_cta")} />
+                    <PageButton to="/contact" label={t("contact_cta")} />
+                    <PageButton to="/projects" label={t("projects_cta")} />
                 </div>
             </section>
         </Layout>

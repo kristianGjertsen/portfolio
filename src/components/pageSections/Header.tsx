@@ -7,13 +7,14 @@ import ukFlag from "../../assets/LanguageImages/UK.png";
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation("header");
+  const currentLanguage = i18n.resolvedLanguage ?? i18n.language;
   const navItems = [
-    { to: "/", label: t("header.home") },
-    { to: "/projects", label: t("header.project") },
-    { to: "/about", label: t("header.about") },
-    { to: "/cv", label: "CV" },
-    { to: "/contact", label: t("header.contact") },
+    { to: "/", label: t("home") },
+    { to: "/projects", label: t("project") },
+    { to: "/about", label: t("about") },
+    { to: "/cv", label: t("cv") },
+    { to: "/contact", label: t("contact") },
   ];
 
   return (
@@ -27,31 +28,31 @@ function Header() {
         </Link>
         <div className="flex gap-2">
           <button
-            aria-label="Switch to Norwegian"
+            aria-label={t("switch_to_norwegian")}
             onClick={() => {
               i18n.changeLanguage("no")
               window.localStorage.setItem("language", "no");
             }}
             type="button"
-            className={`h-7 w-7 overflow-hidden rounded-full bg-white ring-1 ring-ink/50 transition hover:scale-120 ${i18n.language === "no" ? "" : "saturate-50 opacity-70"}`}
+            className={`h-7 w-7 overflow-hidden rounded-full bg-white ring-1 ring-ink/50 transition hover:scale-120 ${currentLanguage.startsWith("no") ? "" : "saturate-50 opacity-70"}`}
           >
             <img
-              alt="Norwegian flag"
+              alt={t("norwegian_flag")}
               className="h-full w-full object-cover"
               src={norwayFlag}
             />
           </button>
           <button
-            aria-label="Switch to English"
+            aria-label={t("switch_to_english")}
             onClick={() => {
               i18n.changeLanguage("en")
               window.localStorage.setItem("language", "en");
             }}
             type="button"
-            className={`h-7 w-7 overflow-hidden rounded-full bg-white ring-1 ring-ink/50 transition hover:scale-120 ${i18n.language === "en" ? "" : "saturate-50 opacity-70"}`}
+            className={`h-7 w-7 overflow-hidden rounded-full bg-white ring-1 ring-ink/50 transition hover:scale-120 ${currentLanguage.startsWith("en") ? "" : "saturate-50 opacity-70"}`}
           >
             <img
-              alt="UK flag"
+              alt={t("uk_flag")}
               className="h-full w-full object-cover"
               src={ukFlag}
             />
@@ -92,7 +93,7 @@ function Header() {
           <button
             type="button"
             className="flex h-10 w-10 items-center justify-center rounded-full border border-[#90a6bb] bg-white/90 text-ink transition hover:bg-white md:hidden"
-            aria-label="Open menu"
+            aria-label={isMenuOpen ? t("close_menu") : t("open_menu")}
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((prev) => !prev)}
           >

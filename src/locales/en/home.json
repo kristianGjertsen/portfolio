@@ -1,0 +1,29 @@
+{
+  "tagline": "",
+  "title": "Kristian Gjertsen",
+  "description": "Informatics student focused on design and frontend, creating clear and modern websites.",
+  "cta_contact": "Contact",
+  "cta_project": "Projects",
+  "cta_about": "About",
+  "error": {
+    "tagline": "Projects",
+    "title": "Kristian Gjertsen",
+    "description": "Informatics student focused on design and frontend, creating clear and modern websites.",
+    "cta_contact": "Contact",
+    "cta_project": "Projects"
+  },
+  "intro": {
+    "model": "AI model 4.2",
+    "prompt_first": "Make a portfolio page for Kristian Gjertsen now!",
+    "prompt_second": "what is this? make it look nice!!!",
+    "submitting": "Submitting prompt...",
+    "loading_steps": [
+      "Generating layout...",
+      "Building sections...",
+      "Applying styles...",
+      "Finalizing details..."
+    ],
+    "launching": "Launching...",
+    "skip": "Skip intro"
+  }
+}

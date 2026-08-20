@@ -13,7 +13,7 @@ type ProjectSmallCardProps = {
 };
 
 function ProjectSmallCard({ project, onOpen }: ProjectSmallCardProps) {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation("projects");
   const language = i18n.resolvedLanguage ?? i18n.language;
   const copy = getProjectCopy(project, language);
 
@@ -22,7 +22,7 @@ function ProjectSmallCard({ project, onOpen }: ProjectSmallCardProps) {
       type="button"
       onClick={onOpen}
       aria-haspopup="dialog"
-      aria-label={`${t("projectPage.title")}: ${copy.title}`}
+      aria-label={`${t("title")}: ${copy.title}`}
       className="flex h-[23rem] w-full flex-col overflow-hidden rounded-[1.75rem] border border-sand/80 bg-white/95 text-left shadow-card md:basis-[calc((100%_-_1.5rem)/2)] md:max-w-[calc((100%_-_1.5rem)/2)] lg:basis-[calc((100%_-_3rem)/3)] lg:max-w-[calc((100%_-_3rem)/3)]"
     >
       <div className="flex h-52 items-center justify-center overflow-hidden rounded-xl bg-paper/70 p-3">

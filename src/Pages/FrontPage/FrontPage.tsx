@@ -36,7 +36,7 @@ const preloadImage = (src: string): Promise<void> => {
 function FrontPage({
     startLineAnimation = true,
 }: FrontPageProps) {
-    const { t } = useTranslation();
+    const { t } = useTranslation("home");
 
     const [canAnimate, setCanAnimate] = useState(false);
 
@@ -104,29 +104,29 @@ function FrontPage({
 
             <div className="relative z-10 w-full max-w-2xl rounded-3xl border-4 border-white/50 bg-white/30 p-6 shadow-2xl backdrop-blur-lg sm:border-8 sm:p-14 lg:p-20">
                 <p className="text-xs uppercase tracking-[0.4em] text-ink/60">
-                    {t("frontpage.tagline")}
+                    {t("tagline")}
                 </p>
 
                 <h1 className="mt-6 text-6xl sm:text-6xl lg:text-7xl">
-                    {t("frontpage.title")}
+                    {t("title")}
                 </h1>
 
                 <p className="mt-4 max-w-xl text-lg text-black">
-                    {t("frontpage.description")}
+                    {t("description")}
                 </p>
 
                 <div className="mt-8 grid w-full grid-cols-2 gap-3 min-[520px]:grid-cols-4 sm:gap-4">
                     <PageButton
                         to="/projects"
                         variant="white"
-                        label={t("frontpage.cta_project")}
+                        label={t("cta_project")}
                         className="!min-w-0 !px-3"
                     />
 
                     <PageButton
                         to="/about"
                         variant="white"
-                        label={t("frontpage.cta_about")}
+                        label={t("cta_about")}
                         className="!min-w-0 !px-3"
                     />
 
@@ -140,7 +140,7 @@ function FrontPage({
                     <PageButton
                         to="/contact"
                         variant="white"
-                        label={t("frontpage.cta_contact")}
+                        label={t("cta_contact")}
                         className="!min-w-0 !px-3"
                     />
                 </div>

@@ -1,0 +1,8 @@
+{
+  "description": "Åpne CV i ny fane",
+  "button_text": "Åpne",
+  "download_button_text": "Last ned",
+  "loading": "Laster CV...",
+  "error": "Kunne ikke vise CV-en.",
+  "open_pdf": "Åpne PDF"
+}

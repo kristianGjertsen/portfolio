@@ -1,0 +1,20 @@
+{
+  "tagline": "Kontakt",
+  "title": "Ta kontakt",
+  "description": "Ta kontakt via kontaktskjema, e-post eller telefon.",
+  "email_label": "E-post",
+  "phone_label": "Mobil",
+  "form": {
+    "heading": "Kontaktskjema",
+    "name_label": "Navn",
+    "name_placeholder": "Navnet ditt",
+    "email_label": "E-post",
+    "email_placeholder": "din@epost.no",
+    "message_label": "Melding",
+    "message_placeholder": "Hva kan jeg hjelpe deg med?",
+    "submit": "Send melding",
+    "sending": "Sender...",
+    "success": "Meldingen er sendt. Takk for at du tok kontakt!",
+    "error": "Noe gikk galt. Prøv igjen senere."
+  }
+}
