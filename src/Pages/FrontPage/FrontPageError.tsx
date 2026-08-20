@@ -2,7 +2,7 @@
 import { useTranslation } from "react-i18next";
 
 function FrontPageError() {
-    const { t } = useTranslation();
+    const { t } = useTranslation("home", { keyPrefix: "error" });
 
     const brokenMarkup = String.raw`{ <div className="ml-4">
     <nav className="flex items-center gap-4 text-sm">
@@ -31,18 +31,18 @@ function FrontPageError() {
         <main className="bg-red-200">
             <p>{brokenMarkupOneLine}</p>
             <p className="bg-">
-                {t("frontpageError.tagline")}
+                {t("tagline")}
             </p>
             <h1 className="mt-100 text-5xl leading-tight sm:text-6xl lg:text-7xl">
-                {t("frontpageError.title")}
+                {t("title")}
             </h1>
             <p className="mt-4 max-w-xl text-lg text-ink/70">
-                {t("frontpageError.description")}
+                {t("description")}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <div className="bg-gray-600">{t("frontpageError.cta_contact")}</div>
+                <div className="bg-gray-600">{t("cta_contact")}</div>
                 <div className="bg-gray-600 border-10 border-rounded">
-                    {t("frontpageError.cta_project")}
+                    {t("cta_project")}
                 </div>
             </div>
         </main >

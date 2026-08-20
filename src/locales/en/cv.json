@@ -1,0 +1,8 @@
+{
+  "description": "Open CV in new tab",
+  "button_text": "Open",
+  "download_button_text": "Download",
+  "loading": "Loading CV...",
+  "error": "Could not display the CV.",
+  "open_pdf": "Open PDF"
+}

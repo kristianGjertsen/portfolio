@@ -12,7 +12,7 @@ import {
 type SortOption = "newest" | "oldest";
 
 function ProjectPage() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("projects");
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<SortOption>("newest");
@@ -85,10 +85,10 @@ function ProjectPage() {
     <Layout className="relative min-h-screen bg-paper text-ink">
       <section className="mx-auto w-full max-w-6xl px-6 pt-12 pb-10">
         <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl">
-          {t("projectPage.title")}
+          {t("title")}
         </h1>
         <p className="mt-4 max-w-2xl text-base text-ink/70 sm:text-lg">
-          {t("projectPage.description")}
+          {t("description")}
         </p>
       </section>
 
@@ -96,7 +96,7 @@ function ProjectPage() {
         <div className="rounded-[1.75rem] border border-sand/80 bg-white/90 p-5 shadow-card">
           <div className="flex flex-wrap items-center gap-3">
             <span className="text-[0.7rem] uppercase tracking-[0.32em] text-ink/55">
-              {t("projectPage.sort_label")}
+              {t("sort_label")}
             </span>
 
             <div className="flex gap-2">
@@ -104,7 +104,7 @@ function ProjectPage() {
                 type="button"
                 onClick={() => setSortBy("newest")}
                 aria-pressed={sortBy === "newest"}
-                aria-label={t("projectPage.sort_newest")}
+                aria-label={t("sort_newest")}
                 className={[
                   "flex h-9 w-9 items-center justify-center rounded-xl border text-sm transition",
                   sortBy === "newest"
@@ -130,7 +130,7 @@ function ProjectPage() {
                 type="button"
                 onClick={() => setSortBy("oldest")}
                 aria-pressed={sortBy === "oldest"}
-                aria-label={t("projectPage.sort_oldest")}
+                aria-label={t("sort_oldest")}
                 className={[
                   "flex h-9 w-9 items-center justify-center rounded-xl border text-sm transition",
                   sortBy === "oldest"
@@ -168,7 +168,7 @@ function ProjectPage() {
                 <span className="truncate text-ink/80">
                   {selectedLanguages.length > 0
                     ? selectedLanguages.join(", ")
-                    : t("projectPage.filter_languages")}
+                    : t("filter_languages")}
                 </span>
                 <span className="ml-3 text-xs text-ink/55">
                   {isLanguageFilterOpen ? "-" : "+"}
@@ -206,7 +206,7 @@ function ProjectPage() {
               onClick={clearFilters}
               className="ml-auto text-[0.7rem] uppercase tracking-[0.28em] text-ink/60 transition hover:text-ink"
             >
-              {t("projectPage.clear_filters")}
+              {t("clear_filters")}
             </button>
           </div>
         </div>
@@ -223,7 +223,7 @@ function ProjectPage() {
 
         {filteredProjects.length === 0 ? (
           <div className="w-full rounded-[1.75rem] border border-dashed border-sand/80 bg-white/70 px-6 py-10 text-center text-sm text-ink/65">
-            {t("projectPage.no_results")}
+            {t("no_results")}
           </div>
         ) : null}
       </section>

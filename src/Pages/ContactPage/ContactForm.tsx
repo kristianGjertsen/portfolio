@@ -2,7 +2,7 @@ import { type FormEvent, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 function ContactForm() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("contact", { keyPrefix: "form" });
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<{
     type: "idle" | "sending" | "success" | "error";
@@ -14,7 +14,7 @@ function ContactForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setStatus({ type: "sending", message: t("contactForm.sending") });
+    setStatus({ type: "sending", message: t("sending") });
 
     if (!formRef.current) return;
 
@@ -36,19 +36,19 @@ function ContactForm() {
 
       setStatus({
         type: "success",
-        message: t("contactForm.success"),
+        message: t("success"),
       });
       formRef.current.reset();
     } catch (error) {
       console.error(error);
-      setStatus({ type: "error", message: t("contactForm.error") });
+      setStatus({ type: "error", message: t("error") });
     }
   };
 
   return (
     <section className="mt-6">
       <h2 className="text-lg font-semibold leading-tight text-ink">
-        {t("contactForm.heading")}
+        {t("heading")}
       </h2>
 
       <form
@@ -59,36 +59,36 @@ function ContactForm() {
         <div className="grid gap-3 sm:grid-cols-2">
           <label className="flex flex-col gap-2 text-sm text-ink">
             <span className="text-xs uppercase tracking-[0.3em] text-ink/60">
-              {t("contactForm.name_label")}
+              {t("name_label")}
             </span>
             <input
               className="rounded-xl border border-sand/70 bg-white px-3 py-2.5 text-base shadow-inner transition focus:border-ink focus:outline-none"
               name="name"
-              placeholder={t("contactForm.name_placeholder")}
+              placeholder={t("name_placeholder")}
               required
             />
           </label>
           <label className="flex flex-col gap-2 text-sm text-ink">
             <span className="text-xs uppercase tracking-[0.3em] text-ink/60">
-              {t("contactForm.email_label")}
+              {t("email_label")}
             </span>
             <input
               className="rounded-xl border border-sand/70 bg-white px-3 py-2.5 text-base shadow-inner transition focus:border-ink focus:outline-none"
               name="email"
               type="email"
-              placeholder={t("contactForm.email_placeholder")}
+              placeholder={t("email_placeholder")}
               required
             />
           </label>
         </div>
         <label className="flex flex-col gap-2 text-sm text-ink">
           <span className="text-xs uppercase tracking-[0.3em] text-ink/60">
-            {t("contactForm.message_label")}
+            {t("message_label")}
           </span>
           <textarea
             className="min-h-[140px] rounded-xl border border-sand/70 bg-white px-3 py-2.5 text-base shadow-inner transition focus:border-ink focus:outline-none"
             name="message"
-            placeholder={t("contactForm.message_placeholder")}
+            placeholder={t("message_placeholder")}
             required
           />
         </label>
@@ -99,8 +99,8 @@ function ContactForm() {
             className="inline-flex items-center justify-center rounded-full bg-ink px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.3em] text-paper transition hover:-translate-y-0.5 hover:bg-ink/90 disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {status.type === "sending"
-              ? t("contactForm.sending")
-              : t("contactForm.submit")}
+              ? t("sending")
+              : t("submit")}
           </button>
           {status.type !== "idle" && (
             <p

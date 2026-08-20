@@ -9,7 +9,7 @@ import FrontPageError from './Pages/FrontPage/FrontPageError'
 import About from './Pages/About/About'
 import TestPage from './Pages/TestPage/TestPage'
 
-import "./languages/LanguageText"
+import "./locales/i18n"
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -23,7 +23,13 @@ function ScrollToTop() {
 
 function MetaUpdater() {
   const { pathname } = useLocation()
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation([
+    'seo',
+    'home',
+    'projects',
+    'contact',
+    'about',
+  ])
 
   useEffect(() => {
     type MetaEntry = {
@@ -36,33 +42,36 @@ function MetaUpdater() {
     const locale = lang === 'en' ? 'en_US' : 'nb_NO'
     const metaByPath: Record<string, MetaEntry> = {
       '/': {
-        title: t('seo.site_title'),
-        description: t('seo.home_description'),
+        title: t('seo:site_title'),
+        description: t('seo:home_description'),
       },
       '/projects': {
-        title: `${t('frontpage.title')} - ${t('projectPage.title')}`,
+        title: `${t('home:title')} - ${t('projects:title')}`,
+        description: t('projects:description'),
       },
       '/contact': {
-        title: `${t('frontpage.title')} - ${t('contactPage.title')}`,
+        title: `${t('home:title')} - ${t('contact:title')}`,
+        description: t('contact:description'),
       },
       '/cv': {
-        title: `${t('frontpage.title')} - CV`,
+        title: `${t('home:title')} - CV`,
+        description: t('seo:cv_description'),
       },
       '/about': {
-        title: `${t('frontpage.title')} - ${t('about.tagline')}`,
-        description: t('seo.about_description'),
+        title: `${t('home:title')} - ${t('about:tagline')}`,
+        description: t('seo:about_description'),
       },
       '/test': {
-        title: `${t('frontpage.title')} - Test`,
+        title: `${t('home:title')} - Test`,
       },
       '/test2': {
-        title: `${t('frontpage.title')} - Test 2`,
+        title: `${t('home:title')} - Test 2`,
       },
       '/test3': {
-        title: `${t('frontpage.title')} - Test 3`,
+        title: `${t('home:title')} - Test 3`,
       },
       '/errorSite': {
-        title: t('seo.error_title'),
+        title: t('seo:error_title'),
       },
     }
     const meta = metaByPath[pathname as keyof typeof metaByPath] ?? metaByPath['/']
