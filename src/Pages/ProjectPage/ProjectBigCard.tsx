@@ -110,7 +110,7 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full border border-sand/80 px-4 py-2 text-xs uppercase tracking-[0.3em] text-ink/70"
+            className="rounded-full border border-sand/90 bg-sand/50 px-4 py-2 text-xs uppercase tracking-[0.3em] text-ink/70"
             aria-label={t("close_details")}
           >
             {t("close")}
