@@ -62,7 +62,7 @@ function ContactForm() {
               {t("name_label")}
             </span>
             <input
-              className="rounded-xl border border-sand/70 bg-white px-3 py-2.5 text-base shadow-inner transition focus:border-ink focus:outline-none"
+              className="rounded-xl border border-sand/70 bg-white px-3 py-2.5 text-base shadow-inner focus:border-ink focus:outline-none"
               name="name"
               placeholder={t("name_placeholder")}
               required
@@ -96,7 +96,7 @@ function ContactForm() {
           <button
             type="submit"
             disabled={status.type === "sending"}
-            className="inline-flex items-center justify-center rounded-full bg-ink px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.3em] text-paper transition hover:-translate-y-0.5 hover:bg-ink/90 disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex items-center justify-center rounded-full bg-ink px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.3em] text-paper transition hover:bg-ink/90 disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {status.type === "sending"
               ? t("sending")

@@ -17,7 +17,7 @@ function Contact() {
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
           <a
-            className="rounded-2xl border border-sand/80 bg-white/80 p-5 shadow-card transition hover:-translate-y-0.5"
+            className="rounded-2xl border border-sand/80 bg-white/80 p-5 shadow-card"
             href="mailto:kristiangjertsen5@gmail.com"
           >
             <p className="text-xs uppercase tracking-[0.3em] text-ink/60">
@@ -41,7 +41,7 @@ function Contact() {
             </div>
           </a>
           <a
-            className="rounded-2xl border border-sand/80 bg-white/80 p-5 shadow-card transition hover:-translate-y-0.5"
+            className="rounded-2xl border border-sand/80 bg-white/80 p-5 shadow-card"
             href="tel:+47 954 10 719"
           >
             <p className="text-xs uppercase tracking-[0.3em] text-ink/60">
