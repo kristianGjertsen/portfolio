@@ -62,7 +62,7 @@ function ContactForm() {
               {t("name_label")}
             </span>
             <input
-              className="rounded-xl border border-sand/70 bg-white px-3 py-2.5 text-base shadow-inner focus:border-ink focus:outline-none"
+              className="rounded-xl border border-sand/70 bg-white px-3 py-2.5 text-base shadow-inner"
               name="name"
               placeholder={t("name_placeholder")}
               required
@@ -73,7 +73,7 @@ function ContactForm() {
               {t("email_label")}
             </span>
             <input
-              className="rounded-xl border border-sand/70 bg-white px-3 py-2.5 text-base shadow-inner transition focus:border-ink focus:outline-none"
+              className="rounded-xl border border-sand/70 bg-white px-3 py-2.5 text-base shadow-inner transition"
               name="email"
               type="email"
               placeholder={t("email_placeholder")}
@@ -86,7 +86,7 @@ function ContactForm() {
             {t("message_label")}
           </span>
           <textarea
-            className="min-h-[140px] rounded-xl border border-sand/70 bg-white px-3 py-2.5 text-base shadow-inner transition focus:border-ink focus:outline-none"
+            className="min-h-[140px] rounded-xl border border-sand/70 bg-white px-3 py-2.5 text-base shadow-inner transition"
             name="message"
             placeholder={t("message_placeholder")}
             required

@@ -22,7 +22,7 @@ function About() {
                 </p>
 
                 <div className="mt-12 grid gap-6 lg:grid-cols-2">
-                    <section className="rounded-3xl border border-sand/80 bg-white/85 p-6 shadow-card lg:col-span-2">
+                    <section className="rounded-xl border border-sand/80 bg-white/85 p-6 shadow-card lg:col-span-2">
                         <p className="text-sm uppercase tracking-[0.24em]">
                             {education.label}
                         </p>
@@ -37,7 +37,7 @@ function About() {
                     {[studentRole, soleProprietorship].map((section) => (
                         <section
                             key={section.title}
-                            className="flex min-h-64 flex-col rounded-3xl border border-sand/80 bg-white/85 p-6 shadow-card"
+                            className="flex min-h-64 flex-col rounded-xl border border-sand/80 bg-white/85 p-6 shadow-card"
                         >
                             <p className="text-sm uppercase tracking-[0.24em]">
                                 {section.label}

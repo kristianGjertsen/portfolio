@@ -102,7 +102,7 @@ function FrontPage({
                 </div>
             </div>
 
-            <div className="relative z-10 w-full max-w-2xl rounded-3xl border-4 border-white/50 bg-white/30 p-6 shadow-2xl backdrop-blur-lg sm:border-8 sm:p-14 lg:p-20">
+            <div className="relative z-10 w-full max-w-2xl rounded-xl border-4 border-white/50 bg-white/30 p-6 shadow-2xl backdrop-blur-lg sm:border-8 sm:p-14 lg:p-20">
                 <p className="text-xs uppercase tracking-[0.4em] text-ink/60">
                     {t("tagline")}
                 </p>

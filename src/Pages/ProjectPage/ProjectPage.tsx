@@ -93,7 +93,7 @@ function ProjectPage() {
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-6 pb-8">
-        <div className="rounded-[1.75rem] border border-sand/80 bg-white/90 p-5 shadow-card">
+        <div className="rounded-xl border border-sand/80 bg-white/90 p-5 shadow-card">
           <div className="flex flex-wrap items-center gap-3">
             <span className="text-[0.7rem] uppercase tracking-[0.32em] text-ink/55">
               {t("sort_label")}
@@ -176,7 +176,7 @@ function ProjectPage() {
               </button>
 
               {isLanguageFilterOpen ? (
-                <div className="absolute left-0 top-full z-20 mt-2 w-full rounded-2xl border border-sand/80 bg-white p-2 shadow-card">
+                <div className="absolute left-0 top-full z-20 mt-2 w-full rounded-xl border border-sand/80 bg-white p-2 shadow-card">
                   <div className="flex max-h-64 flex-col overflow-y-auto">
                     {availableLanguages.map((entry) => {
                       const isSelected = selectedLanguages.includes(entry);
@@ -222,7 +222,7 @@ function ProjectPage() {
         ))}
 
         {filteredProjects.length === 0 ? (
-          <div className="w-full rounded-[1.75rem] border border-dashed border-sand/80 bg-white/70 px-6 py-10 text-center text-sm text-ink/65">
+          <div className="w-full rounded-xl border border-dashed border-sand/80 bg-white/70 px-6 py-10 text-center text-sm text-ink/65">
             {t("no_results")}
           </div>
         ) : null}

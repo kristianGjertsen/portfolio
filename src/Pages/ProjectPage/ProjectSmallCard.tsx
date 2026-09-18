@@ -23,9 +23,9 @@ function ProjectSmallCard({ project, onOpen }: ProjectSmallCardProps) {
       onClick={onOpen}
       aria-haspopup="dialog"
       aria-label={`${t("title")}: ${copy.title}`}
-      className="flex h-[23rem] w-full flex-col overflow-hidden rounded-[1.75rem] border border-sand/80 bg-white/95 text-left shadow-card md:basis-[calc((100%_-_1.5rem)/2)] md:max-w-[calc((100%_-_1.5rem)/2)] lg:basis-[calc((100%_-_3rem)/3)] lg:max-w-[calc((100%_-_3rem)/3)]"
+      className="flex h-[23rem] w-full flex-col overflow-hidden rounded-xl border border-sand/80 bg-white/95 text-left shadow-card md:basis-[calc((100%_-_1.5rem)/2)] md:max-w-[calc((100%_-_1.5rem)/2)] lg:basis-[calc((100%_-_3rem)/3)] lg:max-w-[calc((100%_-_3rem)/3)]"
     >
-      <div className="flex h-52 w-full items-center justify-center overflow-hidden rounded-lg bg-paper/70 p-3">
+      <div className="flex h-52 w-full items-center justify-center overflow-hidden rounded-xl bg-paper/70 p-3">
         <img
           className="max-h-full max-w-full rounded-lg"
           src={getProjectImageSrc(project.img)}
