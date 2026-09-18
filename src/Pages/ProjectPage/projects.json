@@ -88,7 +88,7 @@
       "no": {
         "title": "dotDAGENE",
         "shortText": "Nettside for dotDAGENE ved NTNU med tydelig informasjon og et lekent visuelt uttrykk.",
-        "longText": "dotDAGENE er en karrieredagene for informatikkstudiet på NTNU. Nettsiden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å formidle og bruke. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning."
+        "longText": "dotDAGENE er karrieredagene for informatikkstudiet på NTNU. Nettsiden er laget for å presentere arrangementet på en enkel og tilgjengelig måte. Målet var å gjøre innholdet lett å formidle og bruke. Stilen som er valgt er en vri av Neo Brutalism for å skape en mer leken nettside som fanger blikket. Hosting gjennom Vercel. Her er den vist som forhåndsvisning."
       },
       "en": {
         "title": "dotDAGENE",

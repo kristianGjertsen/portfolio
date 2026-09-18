@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Button from "../../components/elements/Button";
 import type { ProjectItem } from "./ProjectPage.types";
@@ -26,6 +27,18 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
   const copy = getProjectCopy(project, language);
   const links = getProjectLinks(project, language, copy);
   const previewUrl = getProjectPreviewUrl(project);
+  const titleId = `project-modal-title-${project.id}`;
+  const layout = previewUrl
+    ? {
+        card: "h-[calc(100dvh-2rem)] sm:h-[calc(100dvh-3rem)]",
+        media: "flex-1",
+        description: "max-h-[min(16dvh,8rem)] shrink-0",
+      }
+    : {
+        card: "",
+        media: "h-[min(42dvh,30rem)] shrink-0",
+        description: "max-h-[24dvh] flex-auto",
+      };
   const shouldAskForUseWebsite = Boolean(
     (project as ProjectItemWithPreviewChoice).aksForUseWebsite
   );
@@ -80,18 +93,18 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center overscroll-contain bg-ink/65 px-4 py-8"
+      className="fixed inset-0 z-50 flex items-center justify-center overscroll-contain bg-ink/65 p-4 sm:p-6"
       onClick={onClose}
       role="presentation"
     >
       <div
-        className="flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-[2rem] border border-sand/80 bg-white shadow-card"
+        className={`flex max-h-[calc(100dvh-2rem)] w-full max-w-7xl flex-col overflow-hidden rounded-[2rem] border border-sand/80 bg-white shadow-card sm:max-h-[calc(100dvh-3rem)] ${layout.card}`}
         onClick={(event) => event.stopPropagation()}
         role="dialog"
         aria-modal="true"
-        aria-labelledby={`project-modal-title-${project.id}`}
+        aria-labelledby={titleId}
       >
-        <div className="flex items-start justify-between gap-4 border-b border-sand/80 px-6 py-5 sm:px-8">
+        <div className="flex shrink-0 items-start justify-between gap-4 border-b border-sand/80 px-6 py-5 sm:px-8">
           <div>
             <p className="text-[0.7rem] uppercase tracking-[0.32em] text-ink/55">
               {project.year}
@@ -100,7 +113,7 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
                 : ""}
             </p>
             <h2
-              id={`project-modal-title-${project.id}`}
+              id={titleId}
               className="mt-3 font-display text-3xl sm:text-4xl"
             >
               {copy.title}
@@ -110,21 +123,21 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full border border-sand/90 bg-sand/50 px-4 py-2 text-xs uppercase tracking-[0.3em] text-ink/70"
+            className="hover:bg-sand/50 hover:text-ink/90 hover:rounded-full p-1"
             aria-label={t("close_details")}
           >
-            {t("close")}
+            <X size={30} aria-hidden="true" />
           </button>
         </div>
 
-        <div className="flex flex-1 flex-col overflow-y-auto overscroll-contain">
-          <div className="px-4 pt-4 sm:px-">
-            <div className="flex items-center justify-center overflow-hidden rounded-2xl">
+        <div className="flex min-h-0 flex-auto flex-col overflow-hidden">
+          <div className={`min-h-0 px-4 pt-4 ${layout.media}`}>
+            <div className="relative h-full overflow-hidden rounded-2xl border border-sand/80 bg-white">
               {previewUrl ? (
-                <div className="relative h-[52vh] w-full overflow-hidden rounded-2xl border border-sand/80 bg-white">
+                <>
                   {showPreviewChoice ? (
-                    <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/95 px-6 text-center">
-                      <div className="max-w-md rounded-2xl border border-sand/80 bg-white p-6 shadow-card">
+                    <div className="absolute inset-0 z-10 flex overflow-y-auto overscroll-contain bg-white/95 p-4 text-center">
+                      <div className="m-auto max-w-md shrink-0 rounded-2xl border border-sand/80 bg-white p-6 shadow-card">
                         <p className="text-sm leading-relaxed text-ink/75 sm:text-base">
                           {t("preview_external_notice")}
                         </p>
@@ -132,7 +145,7 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
                         <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                           <Button
                             href={previewUrl}
-                            aria-label={t("preview_external_visit")}
+                            ariaLabel={t("preview_external_visit")}
                             rel="noreferrer"
                             target="_blank"
                             type="button"
@@ -141,9 +154,7 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
                           </Button>
 
                           <Button
-                            rel="noreferrer"
-                            aria-label={t("keep_preview")}
-
+                            ariaLabel={t("preview_external_continue")}
                             type="button"
                             onClick={() => setShowPreviewChoice(false)}
                           >
@@ -159,10 +170,10 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
                     src={previewUrl}
                     title={t("preview_title", { title: copy.title })}
                   />
-                </div>
+                </>
               ) : (
                 <img
-                  className=" w-full object-contain border border-sand/80 rounded-2xl"
+                  className="h-full w-full object-contain"
                   src={getProjectImageSrc(project.img)}
                   alt={project.imgAlt ?? copy.title}
                   onError={(event) => {
@@ -174,28 +185,32 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
             </div>
           </div>
 
-          <div className="flex flex-1 flex-col px-6 py-4 sm:px-8">
-            <p className="text-sm leading-relaxed text-ink/75 sm:text-base">
-              {copy.longText}
-            </p>
-
-            {links.length > 0 ? (
-              <div className="mt-6 flex flex-wrap gap-3 border-t border-sand/80 pt-6">
-                {links.map((link) => (
-                  <Button
-                    key={`${project.id}-${link.href}-${link.label}`}
-                    href={link.href}
-                    aria-label={link.ariaLabel}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {link.label}
-                  </Button>
-                ))}
-              </div>
-            ) : null}
+          <div
+            className={`min-h-0 overflow-y-auto overscroll-contain px-6 py-4 sm:px-8 ${layout.description}`}
+            role="region"
+            aria-labelledby={titleId}
+            tabIndex={0}
+          >
+            <p className="text-sm leading-relaxed text-ink/75 sm:text-base">{copy.longText}</p>
           </div>
         </div>
+
+        {links.length > 0 ? (
+          <footer className="flex shrink-0 flex-wrap justify-center gap-2 border-t border-sand/80 px-6 py-3 sm:px-8">
+            {links.map((link) => (
+              <Button
+                key={`${project.id}-${link.href}-${link.label}`}
+                href={link.href}
+                ariaLabel={link.ariaLabel}
+                className="shrink-0 whitespace-nowrap"
+                rel="noreferrer"
+                target="_blank"
+              >
+                {link.label}
+              </Button>
+            ))}
+          </footer>
+        ) : null}
       </div>
     </div>
   );
