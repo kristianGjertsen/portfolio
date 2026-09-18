@@ -7,7 +7,6 @@ import ProjectPage from './Pages/ProjectPage/ProjectPage'
 import CvPage from './Pages/Cv/Cv'
 import FrontPageError from './Pages/FrontPage/FrontPageError'
 import About from './Pages/About/About'
-import TestPage from './Pages/TestPage/TestPage'
 
 import "./locales/i18n"
 
@@ -120,7 +119,6 @@ function App() {
         <Route element={<ContactPage />} path="/contact" />
         <Route element={<CvPage />} path="/cv" />
         <Route element={<About />} path="/about" />
-        <Route element={<TestPage />} path="/test" />
         {/* Mulighet for å se error-siden direkte; finnes ikke knapp for dette på nettsiden */}
         <Route element={<FrontPageError />} path="/errorSite" />
       </Routes>
