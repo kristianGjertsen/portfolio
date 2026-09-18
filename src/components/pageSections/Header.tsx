@@ -23,11 +23,13 @@ function Header() {
       <div className="flex items-center gap-10">
         <Link
           to="/"
-          className="text-sm font-semibold uppercase tracking-[0.3em]">
+          className="text-sm font-semibold uppercase tracking-[0.3em]"
+          tabIndex={-1}>
           Kristian Gjertsen
         </Link>
         <div className="flex gap-2">
           <button
+            tabIndex={-1}
             aria-label={t("switch_to_norwegian")}
             onClick={() => {
               i18n.changeLanguage("no")
@@ -43,6 +45,7 @@ function Header() {
             />
           </button>
           <button
+            tabIndex={-1}
             aria-label={t("switch_to_english")}
             onClick={() => {
               i18n.changeLanguage("en")
@@ -69,6 +72,7 @@ function Header() {
             {navItems.map((item, index) => (
               <div key={item.to} className="flex items-center gap-2 md:gap-3">
                 <NavLink
+                  tabIndex={-1}
                   className={({ isActive }) =>
                     [
                       "relative transition hover:text-ink whitespace-nowrap",
@@ -91,6 +95,7 @@ function Header() {
 
           {/* Mobil: hamburgermeny */}
           <button
+            tabIndex={-1}
             type="button"
             className="flex h-10 w-10 items-center justify-center rounded-full border border-[#90a6bb] bg-white/90 text-ink transition hover:bg-white md:hidden"
             aria-label={isMenuOpen ? t("close_menu") : t("open_menu")}
@@ -113,6 +118,7 @@ function Header() {
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
+                tabIndex={-1}
                 className={({ isActive }) =>
                   [
                     "transition hover:text-ink",
