@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Button from "../../components/elements/Button";
 import type { ProjectItem } from "./ProjectPage.types";
@@ -80,18 +81,18 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center overscroll-contain bg-ink/65 px-4 py-8"
+      className="fixed inset-0 z-50 flex items-center justify-center overscroll-contain bg-ink/65 p-4 sm:p-6"
       onClick={onClose}
       role="presentation"
     >
       <div
-        className="flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-[2rem] border border-sand/80 bg-white shadow-card"
+        className="flex max-h-[calc(100dvh-2rem)] w-full max-w-7xl flex-col overflow-hidden rounded-[2rem] border border-sand/80 bg-white shadow-card sm:max-h-[calc(100dvh-3rem)]"
         onClick={(event) => event.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-labelledby={`project-modal-title-${project.id}`}
       >
-        <div className="flex items-start justify-between gap-4 border-b border-sand/80 px-6 py-5 sm:px-8">
+        <div className="flex shrink-0 items-start justify-between gap-4 border-b border-sand/80 px-6 py-5 sm:px-8">
           <div>
             <p className="text-[0.7rem] uppercase tracking-[0.32em] text-ink/55">
               {project.year}
@@ -110,18 +111,18 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full border border-sand/90 bg-sand/50 px-4 py-2 text-xs uppercase tracking-[0.3em] text-ink/70"
+            className="hover:bg-sand/50 hover:text-ink/90 hover:rounded-full p-1"
             aria-label={t("close_details")}
           >
-            {t("close")}
+            <X size={30} aria-hidden="true" />
           </button>
         </div>
 
-        <div className="flex flex-1 flex-col overflow-y-auto overscroll-contain">
-          <div className="px-4 pt-4 sm:px-">
+        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain">
+          <div className="shrink-0 px-4 pt-4">
             <div className="flex items-center justify-center overflow-hidden rounded-2xl">
               {previewUrl ? (
-                <div className="relative h-[52vh] w-full overflow-hidden rounded-2xl border border-sand/80 bg-white">
+                <div className="relative h-[60dvh] w-full overflow-hidden rounded-2xl border border-sand/80 bg-white">
                   {showPreviewChoice ? (
                     <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/95 px-6 text-center">
                       <div className="max-w-md rounded-2xl border border-sand/80 bg-white p-6 shadow-card">
@@ -162,7 +163,7 @@ function ProjectBigCard({ project, onClose }: ProjectBigCardProps) {
                 </div>
               ) : (
                 <img
-                  className=" w-full object-contain border border-sand/80 rounded-2xl"
+                  className="h-[min(42dvh,30rem)] w-full rounded-2xl border border-sand/80 object-contain"
                   src={getProjectImageSrc(project.img)}
                   alt={project.imgAlt ?? copy.title}
                   onError={(event) => {
